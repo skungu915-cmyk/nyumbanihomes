@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nyumbani Homes — Find Your Next Home in Nairobi</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+<!-- ═══════ NAVBAR ═══════ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="nav-logo" onclick="showPage('home')" style="cursor:pointer">
+        <div class="nav-logo-mark">
+          <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="#fff"/></svg>
+        </div>
+        <span class="nav-logo-text"><span>Nyumbani</span> Homes</span>
+      </a>
+      <div class="nav-links">
+        <a onclick="showPage('listings')" id="navBrowse">Browse Houses</a>
+        <a onclick="showPage('register')" id="navList">Rent Out Your House</a>
+        <a onclick="showPage('dashboard')" id="navDash">Rent Manager</a>
+        <a onclick="scrollToHow()">How It Works</a>
+        <a onclick="showSaved()">Saved <span class="saved-count" id="savedCount">0</span></a>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-tab active" id="navRenter" onclick="switchRole('renter')">I Want to Rent</button>
+        <button class="nav-tab" id="navLandlord" onclick="switchRole('landlord')">I Have a House</button>
+      </div>
+      <button id="mobileMenuBtn" onclick="toggleMobileMenu()">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu">
+  <button class="mobile-nav-link" onclick="showPage('home');toggleMobileMenu()">🏠 Home</button>
+  <button class="mobile-nav-link" onclick="showPage('listings');toggleMobileMenu()">🔍 Browse Houses</button>
+  <button class="mobile-nav-link" onclick="showPage('register');toggleMobileMenu()">📝 Rent Out Your House</button>
+  <button class="mobile-nav-link" onclick="showPage('dashboard');toggleMobileMenu()">📊 Rent Manager</button>
+  <button class="mobile-nav-link" onclick="showSaved();toggleMobileMenu()">❤️ Saved Listings</button>
+  <div style="border-top:1px solid var(--border);padding-top:16px;margin-top:8px;display:flex;gap:10px">
+    <button class="btn btn-primary w-full" onclick="switchRole('renter');toggleMobileMenu()">I Want to Rent</button>
+    <button class="btn btn-outline w-full" onclick="switchRole('landlord');toggleMobileMenu()">I Have a House</button>
+  </div>
+</div>
+
+<!-- HOME PAGE -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-eyebrow">🏠 Nairobi's Trusted Home Finder</div>
+          <h1>Find your next<br><em>home in Nairobi</em><br>the easy way.</h1>
+          <p class="hero-sub">Browse thousands of verified rental homes across Nairobi — from bedsitters in Eastleigh to apartments in Kilimani. Viewing is completely free. Pay just <strong style="color:var(--amber-light)">KES 250</strong> to get the owner's phone number and address.</p>
+          <div class="hero-actions">
+            <button class="btn btn-amber btn-lg" onclick="showPage('listings')">🔍 Browse Houses</button>
+            <button class="btn btn-lg" style="color:#fff;border:1.5px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08)" onclick="showPage('register')">📝 Rent Out Your House</button>
+          </div>
+          <div class="hero-stats">
+            <div><div class="hero-stat-val" id="heroListingCount">4,800+</div><div class="hero-stat-lbl">Active listings</div></div>
+            <div><div class="hero-stat-val">32</div><div class="hero-stat-lbl">Nairobi estates</div></div>
+            <div><div class="hero-stat-val">KES 250</div><div class="hero-stat-lbl">One-time unlock</div></div>
+            <div><div class="hero-stat-val">98%</div><div class="hero-stat-lbl">Satisfaction rate</div></div>
+          </div>
+        </div>
+        <div class="hero-img-wrap">
+          <div class="hero-img-card">
+            <div class="hero-listing-preview">
+              <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.45);letter-spacing:1.2px;padding:0 4px 4px">FEATURED LISTINGS</div>
+              <div class="hero-listing-item" onclick="showPage('listings')">
+                <div class="hero-listing-img">🏢</div>
+                <div class="hero-listing-info"><div class="hero-listing-name">2-Bedroom Apartment</div><div class="hero-listing-loc">📍 Kilimani, Nairobi</div></div>
+                <div class="hero-listing-price">KES 35k/mo</div>
+              </div>
+              <div class="hero-listing-item" onclick="showPage('listings')">
+                <div class="hero-listing-img">🏠</div>
+                <div class="hero-listing-info"><div class="hero-listing-name">Cosy Bedsitter</div><div class="hero-listing-loc">📍 South B, Nairobi</div></div>
+                <div class="hero-listing-price">KES 8.5k/mo</div>
+              </div>
+              <div class="hero-listing-item" onclick="showPage('listings')">
+                <div class="hero-listing-img">🏘️</div>
+                <div class="hero-listing-info"><div class="hero-listing-name">1BR with Balcony</div><div class="hero-listing-loc">📍 Ruaka, Nairobi</div></div>
+                <div class="hero-listing-price">KES 18k/mo</div>
+              </div>
+              <div class="hero-listing-item" onclick="showPage('listings')">
+                <div class="hero-listing-img">🌿</div>
+                <div class="hero-listing-info"><div class="hero-listing-name">4BR Family Home</div><div class="hero-listing-loc">📍 Runda, Nairobi</div></div>
+                <div class="hero-listing-price">KES 180k/mo</div>
+              </div>
+              <div style="text-align:center;padding:6px 0 0">
+                <button class="btn btn-amber btn-sm w-full" onclick="showPage('listings')">Browse all homes →</button>
+              </div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:-18px;left:-18px;background:#fff;border-radius:var(--r);padding:12px 16px;box-shadow:var(--shadow-lg);border:1px solid var(--border);display:flex;align-items:center;gap:10px">
+            <div style="font-size:22px">✅</div>
+            <div>
+              <div style="font-size:12px;font-weight:700;color:var(--green)">247 unlocks today</div>
+              <div style="font-size:11px;color:var(--ink-muted)">Renters found homes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C240,70 480,10 720,40 C960,70 1200,10 1440,40 L1440,70 L0,70 Z" fill="#FAFAFA"/>
+    </svg>
+  </div>
+
+  <!-- Search bar -->
+  <div class="search-section">
+    <div class="container">
+      <div class="search-card">
+        <div class="label mb-12">🔍 Quick Search</div>
+        <div class="search-row">
+          <div class="form-group">
+            <label class="form-label">Location / Estate</label>
+            <input class="input" id="heroSearchLoc" placeholder="e.g. Kilimani, South B, Ruaka..." onkeydown="if(event.key==='Enter')doHeroSearch()">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Property Type</label>
+            <div class="select-wrap">
+              <select class="input" id="heroSearchType">
+                <option value="">All Types</option>
+                <option>Bedsitter</option><option>Single Room</option>
+                <option>1 Bedroom</option><option>2 Bedrooms</option>
+                <option>3 Bedrooms</option><option>4+ Bedrooms</option>
+                <option>Maisonette</option><option>Studio</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Max Rent</label>
+            <div class="select-wrap">
+              <select class="input" id="heroSearchBudget">
+                <option value="">Any Budget</option>
+                <option value="10000">Under KES 10,000</option>
+                <option value="20000">KES 10k – 20k</option>
+                <option value="35000">KES 20k – 35k</option>
+                <option value="60000">KES 35k – 60k</option>
+                <option value="100000">KES 60k – 100k</option>
+                <option value="999999">Over KES 100k</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Amenities</label>
+            <div class="select-wrap">
+              <select class="input" id="heroSearchAmenity">
+                <option value="">Any</option>
+                <option>Parking</option><option>24hr Water</option>
+                <option>Furnished</option><option>Ensuite</option>
+                <option>Fibre-ready</option><option>Generator</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">&nbsp;</label>
+            <button class="btn btn-primary w-full" style="height:44px" onclick="doHeroSearch()">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div class="section" id="howItWorks">
+    <div class="container">
+      <div class="text-center mb-24">
+        <div class="label mb-8">Simple Process</div>
+        <h2>How Nyumbani Homes works</h2>
+        <p class="text-muted mt-8" style="max-width:500px;margin:12px auto 0;font-size:15px">Find your next home in three simple steps — no middlemen, no unnecessary fees.</p>
+      </div>
+      <div class="how-grid">
+        <div class="how-step card"><div class="how-icon" style="background:#E0F2FE">🔍</div><div class="how-num">Step 01</div><h4>Browse for Free</h4><p>Search hundreds of verified homes by location, budget, and size. See photos, amenities, and monthly rent — completely free, no account needed.</p></div>
+        <div class="how-connector">→</div>
+        <div class="how-step card"><div class="how-icon" style="background:var(--amber-tint)">📱</div><div class="how-num">Step 02</div><h4>Unlock with M-Pesa</h4><p>Found a home you love? Pay just <strong>KES 250</strong> via M-Pesa STK Push to instantly reveal the owner's full contacts and address.</p></div>
+        <div class="how-connector">→</div>
+        <div class="how-step card"><div class="how-icon" style="background:var(--green-tint)">🏠</div><div class="how-num">Step 03</div><h4>Move In</h4><p>Call or WhatsApp the owner directly, arrange a viewing at a time that works for you, and move into your new home. Simple.</p></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px">
+        <div style="text-align:center;padding:20px"><div style="font-size:32px;margin-bottom:8px">🔒</div><div style="font-size:14px;font-weight:700;margin-bottom:4px">Secure Payments</div><div style="font-size:13px;color:var(--ink-muted)">All payments via M-Pesa's encrypted STK push</div></div>
+        <div style="text-align:center;padding:20px"><div style="font-size:32px;margin-bottom:8px">✅</div><div style="font-size:14px;font-weight:700;margin-bottom:4px">Verified Listings</div><div style="font-size:13px;color:var(--ink-muted)">Every property reviewed by our team before publishing</div></div>
+        <div style="text-align:center;padding:20px"><div style="font-size:32px;margin-bottom:8px">⚡</div><div style="font-size:14px;font-weight:700;margin-bottom:4px">Instant Unlock</div><div style="font-size:13px;color:var(--ink-muted)">Contacts appear immediately after payment confirmation</div></div>
+        <div style="text-align:center;padding:20px"><div style="font-size:32px;margin-bottom:8px">💬</div><div style="font-size:14px;font-weight:700;margin-bottom:4px">Direct Contact</div><div style="font-size:13px;color:var(--ink-muted)">Talk to landlords and agents directly — no middlemen</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Browse by estate -->
+  <div class="section" style="background:var(--white);padding-top:60px;padding-bottom:60px">
+    <div class="container">
+      <div class="flex justify-between items-center mb-24" style="flex-wrap:wrap;gap:12px">
+        <div><div class="label mb-4">Popular Areas</div><h2>Browse by Estate</h2><p class="text-muted mt-8" style="font-size:14px">32 Nairobi neighbourhoods covered</p></div>
+        <button class="btn btn-outline" onclick="showPage('listings')">View all areas →</button>
+      </div>
+      <div class="grid4" id="estateGrid"></div>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="section" style="background:var(--bg)">
+    <div class="container">
+      <div class="text-center mb-24"><div class="label mb-8">What Renters Say</div><h2>Thousands have found homes here</h2></div>
+      <div class="grid3">
+        <div class="card" style="padding:24px"><div style="color:var(--amber-light);font-size:18px;margin-bottom:12px">★★★★★</div><p style="font-size:14px;color:var(--ink-mid);line-height:1.7;margin-bottom:16px">"I found my apartment in Kilimani in two days. Paid KES 250, called the agent, and moved in the following weekend. Much better than agencies charging tens of thousands."</p><div style="display:flex;align-items:center;gap:10px"><div style="width:38px;height:38px;border-radius:50%;background:#DBEAFE;display:flex;align-items:center;justify-content:center;font-weight:700;color:#1D4ED8;font-size:14px">GW</div><div><div style="font-size:14px;font-weight:700">Grace Wanjiku</div><div style="font-size:12px;color:var(--ink-muted)">Found home in Kilimani</div></div></div></div>
+        <div class="card" style="padding:24px"><div style="color:var(--amber-light);font-size:18px;margin-bottom:12px">★★★★★</div><p style="font-size:14px;color:var(--ink-mid);line-height:1.7;margin-bottom:16px">"Completely changed how I house-hunt. Browsed 20+ listings on Saturday morning, unlocked three I liked, arranged viewings by afternoon. Total cost? KES 750."</p><div style="display:flex;align-items:center;gap:10px"><div style="width:38px;height:38px;border-radius:50%;background:#DCFCE7;display:flex;align-items:center;justify-content:center;font-weight:700;color:#16A34A;font-size:14px">BO</div><div><div style="font-size:14px;font-weight:700">Brian Omondi</div><div style="font-size:12px;color:var(--ink-muted)">Found home in Ruaka</div></div></div></div>
+        <div class="card" style="padding:24px"><div style="color:var(--amber-light);font-size:18px;margin-bottom:12px">★★★★★</div><p style="font-size:14px;color:var(--ink-mid);line-height:1.7;margin-bottom:16px">"As a first-time renter in Nairobi moving from Mombasa, I was worried about being scammed. Nyumbani's verification process gave me confidence. My house was exactly as described."</p><div style="display:flex;align-items:center;gap:10px"><div style="width:38px;height:38px;border-radius:50%;background:#FEF3C7;display:flex;align-items:center;justify-content:center;font-weight:700;color:#B45309;font-size:14px">AM</div><div><div style="font-size:14px;font-weight:700">Aisha Mohamed</div><div style="font-size:12px;color:var(--ink-muted)">Found home in Westlands</div></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Landlord CTA -->
+  <div class="section" style="background:linear-gradient(135deg,var(--green),var(--green-mid))">
+    <div class="container">
+      <div class="grid2" style="gap:60px;align-items:center">
+        <div>
+          <div class="label mb-12" style="color:rgba(255,255,255,.55)">For Landlords & Agents</div>
+          <h2 style="color:#fff;margin-bottom:16px">List your property and reach thousands of serious tenants</h2>
+          <p style="color:rgba(255,255,255,.75);font-size:15px;line-height:1.7;margin-bottom:28px">Post your house once and get inquiries from renters who have already paid to see your contacts — meaning zero time-wasters.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <button class="btn btn-amber btn-lg" onclick="showPage('register')">📝 List Your Property Free</button>
+            <button class="btn btn-lg" style="color:#fff;border:1.5px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08)" onclick="showPage('dashboard')">📊 View Dashboard</button>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--r);padding:20px"><div style="font-size:26px;margin-bottom:10px">🆓</div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">Free to list</div><div style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.5">Post at no cost. Optional premium placement available from KES 299.</div></div>
+          <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--r);padding:20px"><div style="font-size:26px;margin-bottom:10px">👁️</div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">Verified views</div><div style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.5">Every inquiry is from a renter who paid to see your contacts.</div></div>
+          <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--r);padding:20px"><div style="font-size:26px;margin-bottom:10px">📊</div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">Track interest</div><div style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.5">Real-time dashboard showing views, unlocks, and enquiries.</div></div>
+          <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--r);padding:20px"><div style="font-size:26px;margin-bottom:10px">📱</div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">M-Pesa rent</div><div style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.5">Collect rent via M-Pesa and track payments automatically.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /home -->
+
+<!-- LISTINGS PAGE -->
+<div class="page" id="page-listings">
+  <div style="background:var(--white);border-bottom:1px solid var(--border);padding:20px 0;position:sticky;top:64px;z-index:50">
+    <div class="container">
+      <div class="search-row" style="grid-template-columns:1.5fr 1fr 1fr 1fr auto">
+        <div class="form-group"><input class="input" placeholder="Search by estate or name..." id="filterLoc" onkeydown="if(event.key==='Enter')applyFilters()"></div>
+        <div class="select-wrap"><select class="input" id="filterType" onchange="applyFilters()"><option value="">All Types</option><option>Bedsitter</option><option>Single Room</option><option>1 Bedroom</option><option>2 Bedrooms</option><option>3 Bedrooms</option><option>4+ Bedrooms</option><option>Maisonette</option><option>Studio</option></select></div>
+        <div class="select-wrap"><select class="input" id="filterBudget" onchange="applyFilters()"><option value="">Any Budget</option><option value="10000">Under KES 10k</option><option value="20000">KES 10k – 20k</option><option value="35000">KES 20k – 35k</option><option value="60000">KES 35k – 60k</option><option value="100000">KES 60k – 100k</option><option value="999999">Over KES 100k</option></select></div>
+        <div class="select-wrap"><select class="input" id="filterAmenity" onchange="applyFilters()"><option value="">Any Amenity</option><option>Parking</option><option>24hr Water</option><option>Furnished</option><option>Ensuite</option><option>Fibre-ready</option><option>Generator</option><option>Swimming Pool</option><option>DSQ</option><option>Garden</option><option>Elevator</option></select></div>
+        <button class="btn btn-primary" onclick="applyFilters()">Filter</button>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="padding-top:32px;padding-bottom:60px">
+    <div class="listings-header">
+      <div><h2 style="font-size:22px">Homes for Rent in Nairobi</h2><p class="text-muted" style="font-size:14px;margin-top:3px"><span id="listingCount">0</span> properties found <span id="filterSummary" style="color:var(--green);font-weight:600"></span></p></div>
+      <div class="flex items-center gap-12" style="flex-wrap:wrap">
+        <div class="filter-chips" id="typeChips">
+          <button class="chip active" data-filter="" onclick="setChip(this,'')">All</button>
+          <button class="chip" data-filter="Bedsitter" onclick="setChip(this,'Bedsitter')">Bedsitter</button>
+          <button class="chip" data-filter="1 Bedroom" onclick="setChip(this,'1 Bedroom')">1 Bed</button>
+          <button class="chip" data-filter="2 Bedrooms" onclick="setChip(this,'2 Bedrooms')">2 Bed</button>
+          <button class="chip" data-filter="3 Bedrooms" onclick="setChip(this,'3 Bedrooms')">3 Bed+</button>
+          <button class="chip" data-filter="Furnished" onclick="setChipAmenity(this,'Furnished')">Furnished</button>
+        </div>
+        <select class="sort-select" id="sortSelect" onchange="applyFilters()"><option value="newest">Newest first</option><option value="price-asc">Price: Low → High</option><option value="price-desc">Price: High → Low</option><option value="popular">Most viewed</option></select>
+      </div>
+    </div>
+    <div id="activeFilters" class="flex gap-8 mb-16" style="flex-wrap:wrap"></div>
+    <div class="grid3" id="listingsGrid"></div>
+    <div class="empty-state hidden" id="emptyState"><div class="empty-state-icon">🔍</div><h3>No properties found</h3><p>Try broadening your search — change the estate, increase your budget, or remove a filter.</p><button class="btn btn-primary" onclick="clearFilters()">Clear all filters</button></div>
+    <div style="text-align:center;margin-top:40px" id="loadMoreWrap">
+      <button class="btn btn-ghost btn-lg" id="loadMoreBtn" onclick="loadMore()">Load more listings</button>
+      <p class="text-muted mt-8" style="font-size:13px">Showing <span id="shownCount">9</span> of <span id="totalCount">0</span></p>
+    </div>
+  </div>
+</div><!-- /listings -->
+
+<!-- REGISTER PAGE -->
+<div class="page" id="page-register">
+  <div class="register-layout">
+    <div class="register-sidebar">
+      <div>
+        <div class="label mb-12" style="color:rgba(255,255,255,.45)">Got a house to rent out?</div>
+        <h2 style="font-size:28px;margin-bottom:14px">List your property on Nyumbani Homes</h2>
+        <p style="font-size:14px">Your listing reaches thousands of active renters in Nairobi. We review and publish within 2 hours.</p>
+        <div style="margin-top:32px;display:flex;flex-direction:column;gap:18px">
+          <div class="register-benefit"><div class="register-benefit-icon">🆓</div><div><div class="register-benefit-title">Free to list</div><div class="register-benefit-text">Post your property at no cost. Optional premium placement from KES 299.</div></div></div>
+          <div class="register-benefit"><div class="register-benefit-icon">🔒</div><div><div class="register-benefit-title">Your contacts are protected</div><div class="register-benefit-text">Only renters who pay KES 250 can see your phone number and full address.</div></div></div>
+          <div class="register-benefit"><div class="register-benefit-icon">📊</div><div><div class="register-benefit-title">Live analytics dashboard</div><div class="register-benefit-text">Track views, unlocks, and enquiries every day — all in your free dashboard.</div></div></div>
+          <div class="register-benefit"><div class="register-benefit-icon">📱</div><div><div class="register-benefit-title">SMS alerts</div><div class="register-benefit-text">Receive an SMS every time a renter pays to unlock your listing.</div></div></div>
+          <div class="register-benefit"><div class="register-benefit-icon">🏦</div><div><div class="register-benefit-title">M-Pesa rent collection</div><div class="register-benefit-text">Collect rent from tenants directly via M-Pesa — tracked automatically.</div></div></div>
+        </div>
+        <div style="margin-top:36px;padding:20px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:var(--r);display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div><div style="font-size:22px;font-weight:800;color:#fff">4,800+</div><div style="font-size:12px;color:rgba(255,255,255,.55)">Active listings</div></div>
+          <div><div style="font-size:22px;font-weight:800;color:#fff">12,400+</div><div style="font-size:12px;color:rgba(255,255,255,.55)">Unlocks this month</div></div>
+          <div><div style="font-size:22px;font-weight:800;color:#fff">&lt;2h</div><div style="font-size:12px;color:rgba(255,255,255,.55)">Avg review time</div></div>
+          <div><div style="font-size:22px;font-weight:800;color:#fff">98%</div><div style="font-size:12px;color:rgba(255,255,255,.55)">Landlord satisfaction</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="register-form-wrap" id="registerFormWrap">
+      <div style="display:flex;gap:8px;margin-bottom:32px">
+        <div class="reg-step-dot active" id="rdot1" style="height:4px;flex:1;border-radius:2px;background:var(--green);transition:background .3s"></div>
+        <div class="reg-step-dot" id="rdot2" style="height:4px;flex:1;border-radius:2px;background:var(--border);transition:background .3s"></div>
+        <div class="reg-step-dot" id="rdot3" style="height:4px;flex:1;border-radius:2px;background:var(--border);transition:background .3s"></div>
+        <div class="reg-step-dot" id="rdot4" style="height:4px;flex:1;border-radius:2px;background:var(--border);transition:background .3s"></div>
+      </div>
+      <h2>Add Your Property</h2>
+      <p class="sub">Fields marked <span style="color:var(--red)">*</span> are required. Your listing goes live within 2 hours.</p>
+      <div class="form-section-title">1 · Property Details</div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Property Title <span style="color:var(--red)">*</span></label><input class="input" id="regTitle" placeholder="e.g. Spacious 2BR apartment in Kilimani with parking" oninput="updateRegProgress()"><div class="form-error" id="regTitleErr">Please enter a title for your property</div></div>
+          <div class="form-group"><label class="form-label">Property Type <span style="color:var(--red)">*</span></label><div class="select-wrap"><select class="input" id="regType" onchange="updateRegProgress()"><option value="">Select type</option><option>Bedsitter</option><option>Single Room</option><option>Studio Apartment</option><option>1 Bedroom</option><option>2 Bedrooms</option><option>3 Bedrooms</option><option>4+ Bedrooms</option><option>Maisonette</option><option>Bungalow</option><option>Townhouse</option></select></div><div class="form-error" id="regTypeErr">Please select a property type</div></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Estate / Area <span style="color:var(--red)">*</span></label><div class="select-wrap"><select class="input" id="regArea" onchange="updateRegProgress()"><option value="">Select area</option><option>Kilimani</option><option>Kileleshwa</option><option>Westlands</option><option>Karen</option><option>Lang'ata</option><option>South B</option><option>South C</option><option>Eastleigh</option><option>Roysambu</option><option>Ruaka</option><option>Kasarani</option><option>Embakasi</option><option>Ngong Road</option><option>Lavington</option><option>Spring Valley</option><option>Runda</option><option>Muthaiga</option><option>Parklands</option><option>Gigiri</option><option>Ridgeways</option><option>Loresho</option><option>Rongai</option><option>Athi River</option><option>Thika Road</option></select></div><div class="form-error" id="regAreaErr">Please select an area</div></div>
+          <div class="form-group"><label class="form-label">Street / Road</label><input class="input" id="regStreet" placeholder="e.g. Ngong Road, Off Dennis Pritt Road"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Full Address (private — only shown after unlock) <span style="color:var(--red)">*</span></label><input class="input" id="regAddress" placeholder="e.g. Apt 3B, Rose Court Apartments, Ngong Road — near Prestige Plaza"><div class="form-hint">🔒 This stays private. Only renters who pay KES 250 will see the full address.</div><div class="form-error" id="regAddressErr">Please enter the full address</div></div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Monthly Rent (KES) <span style="color:var(--red)">*</span></label><input class="input" type="number" id="regRent" placeholder="e.g. 25000" min="1000" oninput="updateRegProgress()"><div class="form-error" id="regRentErr">Please enter a valid rent amount</div></div>
+          <div class="form-group"><label class="form-label">Deposit Required</label><div class="select-wrap"><select class="input" id="regDeposit"><option>1 month's rent</option><option>2 months' rent</option><option>3 months' rent</option><option>No deposit</option></select></div></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Bedrooms <span style="color:var(--red)">*</span></label><div class="select-wrap"><select class="input" id="regBeds"><option value="0">Bedsitter / Studio</option><option value="1">1 Bedroom</option><option value="2">2 Bedrooms</option><option value="3">3 Bedrooms</option><option value="4">4+ Bedrooms</option></select></div></div>
+          <div class="form-group"><label class="form-label">Bathrooms <span style="color:var(--red)">*</span></label><div class="select-wrap"><select class="input" id="regBaths"><option>1</option><option>2</option><option>3</option><option>4+</option></select></div></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Floor / Level</label><input class="input" id="regFloor" placeholder="e.g. Ground floor, 3rd floor"></div>
+          <div class="form-group"><label class="form-label">Approximate Size</label><input class="input" id="regSize" placeholder="e.g. 65 sqm"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Property Description</label><textarea class="input" id="regDesc" rows="4" placeholder="Describe the property — views, neighbourhood feel, nearest landmarks, distance to CBD, schools, hospitals, public transport..."></textarea><div class="form-hint">Good descriptions get 3× more enquiries.</div></div>
+      </div>
+      <div class="form-section-title">2 · Amenities & Features</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px" id="amenityGrid">
+        <label class="amenity-checkbox"><input type="checkbox" value="Ensuite" onchange="updateRegProgress()"> 🚿 Ensuite bathroom</label>
+        <label class="amenity-checkbox"><input type="checkbox" value="Parking"> 🚗 Parking</label>
+        <label class="amenity-checkbox"><input type="checkbox" value="24hr Water"> 💧 24-hour water</label>
+        <label class="amenity-checkbox"><input type="checkbox" value="Pre-paid meter"> 🔌 Pre-paid electricity</label>
+        <label class="amenity-checkbox"><input type="checkbox" value="Gas cooker"> 🔥 Gas cooker</label>
+        <label class="amenity-checkbox"><input type="checkbox" value="Furnished"> 🛋️ Furnished</label>
+        <label class="amenity-checkbox"><input type="checkbox" value="Fibre-ready"> 📡 Fibre internet</label>
+        <label class="amenity-checkbox"><input type="checkbox" value="Gym"> 🏋️ Gym</label>
+        <label class="amenity-checkbox"><input type="checkbox" value="Swimming Pool"> 🏊 Swimming pool</label>
+        <label class="amenity-checkbox"><input type="checkbox" value="Security"> 🔐 Security guard</label>
+        <label class="amenity-checkbox"><input type="checkbox" value="Garden"> 🌱 Garden</label>
+        <label class="amenity-checkbox"><input type="checkbox" value="Pets allowed"> 🐕 Pets allowed</label>
+        <label class="amenity-checkbox"><input type="checkbox" value="Wheelchair access"> ♿ Wheelchair access</label>
+        <label class="amenity-checkbox"><input type="checkbox" value="Elevator"> 🛗 Elevator / Lift</label>
+        <label class="amenity-checkbox"><input type="checkbox" value="DSQ"> 🏠 DSQ (servant quarters)</label>
+        <label class="amenity-checkbox"><input type="checkbox" value="Generator"> ⚡ Backup generator</label>
+        <label class="amenity-checkbox"><input type="checkbox" value="Borehole"> 🪣 Borehole water</label>
+        <label class="amenity-checkbox"><input type="checkbox" value="CCTV"> 📷 CCTV surveillance</label>
+      </div>
+      <div class="form-section-title">3 · Photos</div>
+      <div class="photo-upload" id="photoUploadBox" onclick="triggerPhotoUpload()">
+        <div class="photo-upload-icon">📷</div>
+        <p><strong>Click to upload photos</strong> or drag and drop</p>
+        <p style="font-size:12px;margin-top:6px">JPG, PNG up to 5 MB each · Maximum 10 photos</p>
+        <p style="font-size:11px;margin-top:4px;color:var(--green);font-weight:600">Properties with photos get 4× more enquiries</p>
+      </div>
+      <input type="file" id="photoInput" multiple accept="image/*" style="display:none" onchange="handlePhotoUpload(this)">
+      <div id="photoPreview" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px"></div>
+      <div class="form-section-title">4 · Your Details (private)</div>
+      <div style="background:#FEF3C7;border:1px solid #FDE68A;border-radius:var(--r);padding:14px;margin-bottom:16px;font-size:13px;color:#92400E;line-height:1.5">🔒 <strong>Your contact details below are private.</strong> Renters only see them after paying KES 250 to unlock your listing.</div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Your Full Name <span style="color:var(--red)">*</span></label><input class="input" id="regName" placeholder="Full name" oninput="updateRegProgress()"><div class="form-error" id="regNameErr">Please enter your name</div></div>
+          <div class="form-group"><label class="form-label">You are a <span style="color:var(--red)">*</span></label><div class="select-wrap"><select class="input" id="regRole"><option>Landlord / Owner</option><option>Letting Agent</option><option>Caretaker</option><option>Property Manager</option></select></div></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Phone Number <span style="color:var(--red)">*</span></label><div style="display:flex;gap:8px"><div style="padding:11px 12px;background:#F3F4F6;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:14px;white-space:nowrap;flex-shrink:0">🇰🇪 +254</div><input class="input" id="regPhone" placeholder="7XX XXX XXX" maxlength="9" oninput="updateRegProgress()"></div><div class="form-hint">This is the number tenants will call after unlocking. Must be M-Pesa registered.</div><div class="form-error" id="regPhoneErr">Please enter a valid phone number</div></div>
+          <div class="form-group"><label class="form-label">WhatsApp Number (optional)</label><div style="display:flex;gap:8px"><div style="padding:11px 12px;background:#F3F4F6;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:14px;white-space:nowrap;flex-shrink:0">🇰🇪 +254</div><input class="input" id="regWhatsApp" placeholder="7XX XXX XXX" maxlength="9"></div></div>
+        </div>
+        <div class="form-group"><label class="form-label">Email Address (optional — for dashboard access)</label><input class="input" id="regEmail" type="email" placeholder="yourname@email.com"></div>
+        <div class="form-group"><label class="form-label">M-Pesa Number for Receiving Payments</label><div style="display:flex;gap:8px"><div style="padding:11px 12px;background:#F3F4F6;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:14px;white-space:nowrap;flex-shrink:0">🇰🇪 +254</div><input class="input" id="regMpesa" placeholder="7XX XXX XXX (for rent collection)" maxlength="9"></div><div class="form-hint">Tenants who pay rent via the platform will send to this number.</div></div>
+      </div>
+      <div class="form-section-title">5 · Listing Duration & Placement</div>
+      <div class="pricing-cards">
+        <div class="pricing-card selected" onclick="selectPlan(this,'free')"><div class="pricing-card-price">Free</div><div class="pricing-card-label">Standard Listing</div><div class="pricing-card-duration">30 days</div><div class="pricing-card-features">✓ Listed in search<br>✓ Full analytics<br>✓ SMS alerts<br>✗ No top placement</div></div>
+        <div class="pricing-card" onclick="selectPlan(this,'featured')"><div class="pricing-card-price">KES 299</div><div class="pricing-card-label">Featured Listing</div><div class="pricing-card-duration">60 days</div><div class="pricing-card-features">✓ Top of search results<br>✓ "Featured" badge<br>✓ Priority review<br>✓ All Standard benefits</div></div>
+        <div class="pricing-card" onclick="selectPlan(this,'premium')"><div class="pricing-card-price">KES 599</div><div class="pricing-card-label">Premium Listing</div><div class="pricing-card-duration">90 days</div><div class="pricing-card-features">✓ Highlighted card<br>✓ Homepage featured<br>✓ Social media share<br>✓ All Featured benefits</div></div>
+      </div>
+      <input type="hidden" id="regPlan" value="free">
+      <div style="margin-top:28px;padding:20px;background:#F9FAFB;border:1px solid var(--border);border-radius:var(--r)">
+        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px"><span style="font-weight:600;color:var(--ink-mid)">Form completion</span><span style="font-weight:700;color:var(--green)" id="regProgressPct">0%</span></div>
+        <div class="progress-bar" style="height:8px"><div class="progress-fill green" id="regProgressBar" style="width:0%"></div></div>
+        <p style="font-size:12px;color:var(--ink-muted);margin-top:8px">Complete all required fields to submit your listing.</p>
+      </div>
+      <div style="margin-top:24px">
+        <label style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--ink-mid);margin-bottom:20px;cursor:pointer;line-height:1.5"><input type="checkbox" id="regConsent" style="accent-color:var(--green);margin-top:2px;flex-shrink:0;width:16px;height:16px">I confirm this property is genuine, available for rent, and the information I've provided is accurate. I agree to Nyumbani Homes' <a style="color:var(--green);font-weight:600">Terms of Service</a> and <a style="color:var(--green);font-weight:600">Privacy Policy</a>.</label>
+        <button class="btn btn-primary btn-lg w-full" onclick="submitListing()" id="regSubmitBtn">📝 Submit My Property Listing</button>
+        <p style="text-align:center;font-size:12px;color:var(--ink-muted);margin-top:12px">We'll review and publish your listing within 2 hours. You'll receive an SMS confirmation.</p>
+      </div>
+    </div>
+    <div id="registerSuccess" class="register-form-wrap hidden" style="display:none;align-items:center;justify-content:center;text-align:center">
+      <div>
+        <div style="font-size:72px;margin-bottom:20px">🎉</div>
+        <h2 style="margin-bottom:12px">Listing Submitted!</h2>
+        <p style="font-size:15px;color:var(--ink-muted);margin-bottom:8px;line-height:1.7">Your property has been submitted for review. We'll publish it within <strong>2 hours</strong> and send you an SMS confirmation.</p>
+        <p style="font-size:13px;color:var(--ink-muted);margin-bottom:32px">Reference: <strong id="regRef" style="color:var(--green)">NH-XXXXXX</strong></p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-primary btn-lg" onclick="showPage('dashboard')">📊 View My Dashboard</button>
+          <button class="btn btn-outline btn-lg" onclick="resetRegisterForm()">+ List Another Property</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /register -->
+
+<!-- DASHBOARD PAGE -->
+<div class="page" id="page-dashboard">
+  <div class="dash-layout">
+    <div class="dash-sidebar">
+      <div class="dash-user"><div class="dash-avatar">JK</div><div class="dash-user-info"><div class="name">James Kariuki</div><div class="role">Landlord · 4 properties</div></div></div>
+      <div class="dash-nav">
+        <div class="dash-nav-section">Overview</div>
+        <button class="dash-nav-item active" onclick="setDashTab(this,'overview')"><span class="dash-nav-icon">📊</span>Dashboard</button>
+        <button class="dash-nav-item" onclick="setDashTab(this,'listings')"><span class="dash-nav-icon">🏠</span>My Listings</button>
+        <button class="dash-nav-item" onclick="setDashTab(this,'tenants')"><span class="dash-nav-icon">👥</span>Tenants</button>
+        <div class="dash-nav-section">Rent Management</div>
+        <button class="dash-nav-item" onclick="setDashTab(this,'rent')"><span class="dash-nav-icon">💰</span>Rent Collection</button>
+        <button class="dash-nav-item" onclick="setDashTab(this,'payments')"><span class="dash-nav-icon">📱</span>M-Pesa Payments</button>
+        <button class="dash-nav-item" onclick="setDashTab(this,'maintenance')"><span class="dash-nav-icon">🔧</span>Maintenance</button>
+        <div class="dash-nav-section">Account</div>
+        <button class="dash-nav-item" onclick="setDashTab(this,'settings')"><span class="dash-nav-icon">⚙️</span>Settings</button>
+        <button class="dash-nav-item" onclick="setDashTab(this,'help')"><span class="dash-nav-icon">❓</span>Help & Support</button>
+        <div style="margin-top:20px;padding:0 4px"><button class="btn btn-outline btn-sm w-full" onclick="showPage('register')">+ Add a Property</button></div>
+        <div style="margin-top:8px;padding:0 4px"><button class="btn btn-ghost btn-sm w-full" onclick="showPage('home')">← Back to site</button></div>
+      </div>
+    </div>
+    <div class="dash-content">
+      <!-- OVERVIEW -->
+      <div class="dash-tab-content active" id="dash-overview">
+        <div class="dash-header">
+          <div><h2>Habari asubuhi, James 👋</h2><p class="text-muted" style="font-size:14px">Here's how your properties are performing — <span id="dashDate"></span></p></div>
+          <div style="display:flex;gap:10px"><button class="btn btn-ghost btn-sm" onclick="showToast('📊 Report downloaded as PDF')">📥 Export Report</button><button class="btn btn-primary" onclick="showPage('register')">+ Add a House</button></div>
+        </div>
+        <div class="stat-cards">
+          <div class="stat-card"><div class="stat-card-top"><div class="stat-card-icon" style="background:#D8F3DC">🏠</div><span class="stat-card-delta badge badge-green">+1 this month</span></div><div class="stat-card-val">4</div><div class="stat-card-label">Properties Listed</div><div class="progress-bar mt-8"><div class="progress-fill green" style="width:80%"></div></div></div>
+          <div class="stat-card"><div class="stat-card-top"><div class="stat-card-icon" style="background:#FEF3C7">👥</div><span class="stat-card-delta badge badge-amber">2 pending</span></div><div class="stat-card-val">10</div><div class="stat-card-label">Active Tenants</div><div class="progress-bar mt-8"><div class="progress-fill amber" style="width:60%"></div></div></div>
+          <div class="stat-card"><div class="stat-card-top"><div class="stat-card-icon" style="background:#DBEAFE">💰</div><span class="stat-card-delta badge badge-green">+12% vs last mo</span></div><div class="stat-card-val">KES 142k</div><div class="stat-card-label">Monthly Income</div><div class="progress-bar mt-8"><div class="progress-fill green" style="width:85%"></div></div></div>
+          <div class="stat-card"><div class="stat-card-top"><div class="stat-card-icon" style="background:var(--amber-tint)">👁️</div><span class="stat-card-delta badge badge-amber">+34% this week</span></div><div class="stat-card-val">312</div><div class="stat-card-label">Listing Views (7d)</div><div class="progress-bar mt-8"><div class="progress-fill amber" style="width:70%"></div></div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:20px;margin-bottom:20px">
+          <div class="dash-section">
+            <div class="dash-section-hdr"><h3>🏦 Rent Collection — June 2026</h3><div style="display:flex;gap:8px;align-items:center"><span class="badge badge-amber">2 pending</span><button class="btn btn-sm btn-amber" onclick="sendAllReminders()">Send All Reminders</button></div></div>
+            <div style="overflow-x:auto"><table class="dash-table w-full"><thead><tr><th>Tenant</th><th>Unit</th><th>Amount</th><th>Due Date</th><th>Status</th><th>Action</th></tr></thead><tbody id="rentTableBody"></tbody></table></div>
+          </div>
+          <div class="dash-section">
+            <div class="dash-section-hdr"><h3>📈 Revenue (12 months)</h3></div>
+            <div style="padding:20px"><div style="font-size:30px;font-weight:800;color:var(--green);margin-bottom:2px">KES 142,000</div><div style="font-size:13px;color:var(--ink-muted);margin-bottom:20px">June 2026 · 4 properties</div><div class="mini-chart" id="revenueChart"></div><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--ink-muted);margin-top:6px"><span>Jul '25</span><span>Jun '26</span></div><div style="margin-top:20px;display:flex;flex-direction:column;gap:12px" id="revenueBreakdown"></div></div>
+          </div>
+        </div>
+        <div class="dash-section">
+          <div class="dash-section-hdr"><h3>🏠 Listing Performance</h3><button class="btn btn-outline btn-sm" onclick="showPage('register')">+ List Another House</button></div>
+          <div style="overflow-x:auto"><table class="dash-table w-full" id="listingPerfTable"><thead><tr><th>Property</th><th>Area</th><th>Rent/mo</th><th>Views (7d)</th><th>Unlocks</th><th>Income</th><th>Status</th><th>Actions</th></tr></thead><tbody id="listingPerfBody"></tbody></table></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+          <button class="card" style="padding:20px;text-align:center;cursor:pointer;border:none;transition:all .18s" onclick="setDashTab(document.querySelector('.dash-nav-item:nth-child(5)'),'rent')" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:28px;margin-bottom:10px">💰</div><div style="font-size:13px;font-weight:700;margin-bottom:4px">Collect Rent</div><div style="font-size:12px;color:var(--ink-muted)">Send M-Pesa requests</div></button>
+          <button class="card" style="padding:20px;text-align:center;cursor:pointer;border:none;transition:all .18s" onclick="setDashTab(document.querySelector('.dash-nav-item:nth-child(6)'),'payments')" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:28px;margin-bottom:10px">📱</div><div style="font-size:13px;font-weight:700;margin-bottom:4px">View Payments</div><div style="font-size:12px;color:var(--ink-muted)">M-Pesa transaction log</div></button>
+          <button class="card" style="padding:20px;text-align:center;cursor:pointer;border:none;transition:all .18s" onclick="setDashTab(document.querySelector('.dash-nav-item:nth-child(7)'),'maintenance')" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:28px;margin-bottom:10px">🔧</div><div style="font-size:13px;font-weight:700;margin-bottom:4px">Maintenance</div><div style="font-size:12px;color:var(--ink-muted)">3 open requests</div></button>
+          <button class="card" style="padding:20px;text-align:center;cursor:pointer;border:none;transition:all .18s" onclick="showPage('listings')" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--border)'"><div style="font-size:28px;margin-bottom:10px">🔍</div><div style="font-size:13px;font-weight:700;margin-bottom:4px">Browse Listings</div><div style="font-size:12px;color:var(--ink-muted)">See the marketplace</div></button>
+        </div>
+      </div>
+      <!-- MY LISTINGS -->
+      <div class="dash-tab-content" id="dash-listings"><div class="dash-header"><div><h2>🏠 My Listings</h2><p class="text-muted" style="font-size:14px">Manage all your active properties</p></div><button class="btn btn-primary" onclick="showPage('register')">+ Add a House</button></div><div style="display:flex;flex-direction:column;gap:16px" id="myListingsCards"></div></div>
+      <!-- TENANTS -->
+      <div class="dash-tab-content" id="dash-tenants"><div class="dash-header"><div><h2>👥 Tenants</h2><p class="text-muted" style="font-size:14px">All current and previous tenants</p></div><button class="btn btn-primary btn-sm" onclick="showToast('📝 Add tenant form coming soon')">+ Add Tenant</button></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:14px" id="tenantsGrid"></div></div>
+      <!-- RENT COLLECTION -->
+      <div class="dash-tab-content" id="dash-rent">
+        <div class="dash-header"><div><h2>💰 Rent Collection</h2><p class="text-muted" style="font-size:14px">Track and collect monthly rent payments</p></div><div style="display:flex;gap:10px"><button class="btn btn-ghost btn-sm" onclick="showToast('📊 Rent statement downloaded')">📥 Download Statement</button><button class="btn btn-amber" onclick="sendAllReminders()">📱 Send All Reminders</button></div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:24px">
+          <div class="card" style="padding:20px"><div style="font-size:11px;color:var(--ink-muted);font-weight:700;letter-spacing:.5px;margin-bottom:8px">COLLECTED</div><div style="font-size:26px;font-weight:800;color:var(--green)">KES 117,000</div><div style="font-size:13px;color:var(--ink-muted);margin-top:4px">8 of 10 tenants paid</div></div>
+          <div class="card" style="padding:20px"><div style="font-size:11px;color:var(--ink-muted);font-weight:700;letter-spacing:.5px;margin-bottom:8px">OUTSTANDING</div><div style="font-size:26px;font-weight:800;color:var(--amber)">KES 25,000</div><div style="font-size:13px;color:var(--ink-muted);margin-top:4px">2 tenants pending</div></div>
+          <div class="card" style="padding:20px"><div style="font-size:11px;color:var(--ink-muted);font-weight:700;letter-spacing:.5px;margin-bottom:8px">COLLECTION RATE</div><div style="font-size:26px;font-weight:800;color:var(--green)">82.4%</div><div class="progress-bar mt-8"><div class="progress-fill green" style="width:82%"></div></div></div>
+        </div>
+        <div class="dash-section"><div class="dash-section-hdr"><h3>June 2026 — Detailed Breakdown</h3></div><div style="overflow-x:auto"><table class="dash-table w-full"><thead><tr><th>Tenant</th><th>Unit / Property</th><th>Monthly Rent</th><th>Due</th><th>Paid On</th><th>Method</th><th>Status</th><th>Action</th></tr></thead><tbody id="rentDetailBody"></tbody></table></div></div>
+      </div>
+      <!-- M-PESA PAYMENTS -->
+      <div class="dash-tab-content" id="dash-payments">
+        <div class="dash-header"><div><h2>📱 M-Pesa Payments</h2><p class="text-muted" style="font-size:14px">Real-time M-Pesa transaction log</p></div><button class="btn btn-ghost btn-sm" onclick="showToast('📊 Transaction log downloaded')">📥 Export CSV</button></div>
+        <div class="card" style="padding:24px;margin-bottom:20px;background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border-color:#BBF7D0"><div style="display:flex;align-items:center;gap:16px"><div style="font-size:40px">📱</div><div style="flex:1"><div style="font-size:15px;font-weight:700;margin-bottom:4px">M-Pesa Rent Collection — Active</div><div style="font-size:13px;color:var(--ink-muted);line-height:1.5">Your Paybill: <strong style="color:var(--green)">522100</strong> · Account: Your name or unit number · Tenants pay directly, you get an instant SMS.</div></div><button class="btn btn-primary btn-sm" onclick="showToast('⚙️ M-Pesa settings updated')">Configure</button></div></div>
+        <div class="dash-section"><div class="dash-section-hdr"><h3>Recent Transactions</h3><span class="badge badge-green">● Live</span></div><div style="overflow-x:auto"><table class="dash-table w-full"><thead><tr><th>Date & Time</th><th>From</th><th>Amount</th><th>M-Pesa Ref</th><th>Property</th><th>Status</th></tr></thead><tbody id="paymentsBody"></tbody></table></div></div>
+      </div>
+      <!-- MAINTENANCE -->
+      <div class="dash-tab-content" id="dash-maintenance">
+        <div class="dash-header"><div><h2>🔧 Maintenance Requests</h2><p class="text-muted" style="font-size:14px">Track and resolve tenant maintenance issues</p></div><div style="display:flex;gap:10px"><select class="sort-select" onchange="filterMaintenance(this.value)"><option value="">All requests</option><option value="open">Open</option><option value="in-progress">In Progress</option><option value="resolved">Resolved</option></select><button class="btn btn-primary btn-sm" onclick="showToast('📋 New maintenance request logged')">+ Log Request</button></div></div>
+        <div style="display:flex;flex-direction:column;gap:14px" id="maintenanceList"></div>
+      </div>
+      <!-- SETTINGS -->
+      <div class="dash-tab-content" id="dash-settings">
+        <div class="dash-header"><h2>⚙️ Account Settings</h2></div>
+        <div class="settings-section"><h4>Personal Information</h4><div style="display:flex;flex-direction:column;gap:16px"><div class="form-row"><div class="form-group"><label class="form-label">Full Name</label><input class="input" value="James Kariuki"></div><div class="form-group"><label class="form-label">Account Type</label><div class="select-wrap"><select class="input"><option>Landlord / Owner</option><option>Letting Agent</option><option>Property Manager</option></select></div></div></div><div class="form-row"><div class="form-group"><label class="form-label">Phone Number</label><div style="display:flex;gap:8px"><div style="padding:11px 12px;background:#F3F4F6;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:14px;white-space:nowrap">🇰🇪 +254</div><input class="input" value="712 345 678"></div></div><div class="form-group"><label class="form-label">Email Address</label><input class="input" type="email" value="james.kariuki@email.com"></div></div><div class="form-group"><label class="form-label">M-Pesa Number (for receiving payments)</label><div style="display:flex;gap:8px"><div style="padding:11px 12px;background:#F3F4F6;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:14px;white-space:nowrap">🇰🇪 +254</div><input class="input" value="712 345 678"></div></div><button class="btn btn-primary" style="align-self:flex-start" onclick="showToast('✅ Profile updated successfully')">Save Changes</button></div></div>
+        <div class="settings-section"><h4>Notifications</h4>
+          <div class="toggle-row"><div><div class="toggle-label">SMS when someone unlocks my listing</div><div class="toggle-hint">Get a message every time a renter pays to see your contacts</div></div><button class="toggle on" onclick="toggleSetting(this)"></button></div>
+          <div class="toggle-row"><div><div class="toggle-label">Rent payment reminders</div><div class="toggle-hint">Automatic SMS to tenants 3 days before rent is due</div></div><button class="toggle on" onclick="toggleSetting(this)"></button></div>
+          <div class="toggle-row"><div><div class="toggle-label">New maintenance request alerts</div><div class="toggle-hint">Get notified when a tenant logs a new issue</div></div><button class="toggle on" onclick="toggleSetting(this)"></button></div>
+          <div class="toggle-row"><div><div class="toggle-label">Monthly income summary</div><div class="toggle-hint">Receive a monthly report of all rent collected</div></div><button class="toggle" onclick="toggleSetting(this)"></button></div>
+          <div class="toggle-row"><div><div class="toggle-label">WhatsApp alerts</div><div class="toggle-hint">Receive all alerts on WhatsApp instead of SMS</div></div><button class="toggle" onclick="toggleSetting(this)"></button></div>
+        </div>
+        <div class="settings-section"><h4>Security</h4><div style="display:flex;flex-direction:column;gap:12px"><button class="btn btn-ghost" style="align-self:flex-start" onclick="showToast('📱 OTP sent to your registered number')">Change Password / PIN</button><button class="btn btn-ghost" style="align-self:flex-start;color:var(--red);border-color:var(--red)" onclick="showToast('🚪 You have been signed out')">Sign Out</button></div></div>
+      </div>
+      <!-- HELP -->
+      <div class="dash-tab-content" id="dash-help">
+        <div class="dash-header"><h2>❓ Help & Support</h2></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+          <div class="card" style="padding:24px"><div style="font-size:32px;margin-bottom:12px">📞</div><h4 style="margin-bottom:6px">Call Us Free</h4><p style="font-size:14px;color:var(--ink-muted);margin-bottom:14px;line-height:1.6">Our support team is available Monday–Saturday, 8am–6pm.</p><div style="font-size:18px;font-weight:800;color:var(--green)">0800 720 500</div><div style="font-size:12px;color:var(--ink-muted);margin-top:4px">Toll-free · All networks</div></div>
+          <div class="card" style="padding:24px"><div style="font-size:32px;margin-bottom:12px">💬</div><h4 style="margin-bottom:6px">WhatsApp Us</h4><p style="font-size:14px;color:var(--ink-muted);margin-bottom:14px;line-height:1.6">Send us a message any time — we typically reply within 30 minutes.</p><div style="font-size:18px;font-weight:800;color:var(--green)">+254 700 000 500</div><div style="font-size:12px;color:var(--ink-muted);margin-top:4px">WhatsApp only</div></div>
+        </div>
+        <div class="dash-section"><div class="dash-section-hdr"><h3>Frequently Asked Questions</h3></div><div style="padding:20px;display:flex;flex-direction:column;gap:14px" id="faqList"></div></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /dashboard -->
+
+<!-- SAVED PAGE -->
+<div class="page" id="page-saved">
+  <div class="container" style="padding-top:40px;padding-bottom:60px">
+    <div class="flex justify-between items-center mb-24" style="flex-wrap:wrap;gap:12px">
+      <div><h2>❤️ Saved Listings</h2><p class="text-muted" style="font-size:14px;margin-top:4px">Properties you've saved for later</p></div>
+      <div style="display:flex;gap:10px"><button class="btn btn-ghost btn-sm" onclick="clearSaved()">Clear all</button><button class="btn btn-outline" onclick="showPage('listings')">Browse more homes</button></div>
+    </div>
+    <div class="grid3" id="savedGrid"></div>
+    <div class="empty-state hidden" id="savedEmpty"><div class="empty-state-icon">🤍</div><h3>No saved listings yet</h3><p>When you find a home you like, tap the heart icon to save it here for easy access later.</p><button class="btn btn-primary" onclick="showPage('listings')">🔍 Browse Houses</button></div>
+  </div>
+</div><!-- /saved -->
+
+<!-- FOOTER -->
+<footer id="siteFooter">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px"><div class="nav-logo-mark"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="#fff"/></svg></div><span style="font-size:18px;font-weight:800;color:#fff">Nyumbani Homes</span></div>
+        <p>Nairobi's trusted home finder. Browse listings for free and pay just KES 250 to reach landlords and agents directly — no middlemen, no hidden fees.</p>
+        <div style="display:flex;gap:10px;margin-top:20px"><div class="social-icon">𝕏</div><div class="social-icon">in</div><div class="social-icon">📘</div><div class="social-icon">📸</div></div>
+        <div style="margin-top:20px;padding:14px;background:rgba(255,255,255,.06);border-radius:var(--r-sm);border:1px solid rgba(255,255,255,.1)"><div style="font-size:12px;color:rgba(255,255,255,.5);margin-bottom:6px">CONTACT US</div><div style="font-size:13px;color:rgba(255,255,255,.75)">📞 0800 720 500 (free)</div><div style="font-size:13px;color:rgba(255,255,255,.75);margin-top:4px">💬 +254 700 000 500 (WhatsApp)</div><div style="font-size:13px;color:rgba(255,255,255,.75);margin-top:4px">✉️ hello@nyumbanihomes.co.ke</div></div>
+      </div>
+      <div class="footer-col"><h5>Looking to Rent?</h5><a onclick="showPage('listings')">Browse Houses</a><a onclick="scrollToHow();showPage('home')">How It Works</a><a onclick="showSaved()">Saved Listings</a><a onclick="showToast('📄 M-Pesa payment guide coming soon')">M-Pesa Payment Guide</a><a onclick="showToast('📋 Renter FAQ coming soon')">Renter FAQ</a><a onclick="showToast('🗺️ Area guide coming soon')">Nairobi Area Guide</a></div>
+      <div class="footer-col"><h5>Got a House?</h5><a onclick="showPage('register')">List a Property</a><a onclick="showPage('dashboard')">Landlord Dashboard</a><a onclick="setDashTab(null,'rent');showPage('dashboard')">Rent Manager</a><a onclick="showToast('💰 Pricing details coming soon')">Pricing Plans</a><a onclick="showToast('🤝 Agent sign up coming soon')">Agent Sign Up</a><a onclick="showToast('📊 Analytics guide coming soon')">Analytics Guide</a></div>
+      <div class="footer-col"><h5>Company</h5><a onclick="showToast('ℹ️ About page coming soon')">About Us</a><a onclick="showToast('📰 Blog coming soon')">Blog</a><a onclick="showToast('🔒 Privacy policy coming soon')">Privacy Policy</a><a onclick="showToast('📜 Terms of service coming soon')">Terms of Service</a><a onclick="showToast('🚩 Report form coming soon')">Report a Listing</a><a onclick="showToast('💼 Careers page coming soon')">Careers</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Nyumbani Homes. Built with ❤️ in Nairobi, Kenya 🇰🇪</p><div style="display:flex;gap:16px;flex-wrap:wrap"><p style="color:rgba(255,255,255,.4)">Paybill: 522100</p><p style="color:rgba(255,255,255,.4)">Verified listings</p><p style="color:rgba(255,255,255,.4)">4,800+ properties</p></div></div>
+  </div>
+</footer>
+
+<!-- LISTING MODAL -->
+<div class="modal-overlay" id="listingModal">
+  <div class="modal" id="listingModalContent">
+    <div class="modal-img" id="modalImgArea"><div class="modal-img-placeholder" id="modalIcon">🏠</div><button class="modal-close" onclick="closeModal()">✕</button><div id="modalPhotoDots" style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px"></div></div>
+    <div class="modal-body">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px"><div style="display:flex;gap:8px;align-items:center"><span class="badge badge-green" id="modalBadge">Available</span><span class="badge badge-grey" id="modalViews"></span></div><button onclick="toggleSaveFromModal()" id="modalSaveBtn" style="font-size:24px;cursor:pointer;border:none;background:none;padding:4px">🤍</button></div>
+      <h3 id="modalTitle" style="margin-bottom:6px;font-size:22px"></h3>
+      <div id="modalLoc" style="font-size:14px;color:var(--ink-muted);margin-bottom:6px;display:flex;align-items:center;gap:5px"></div>
+      <div style="font-size:12px;color:var(--ink-muted);margin-bottom:16px" id="modalMeta"></div>
+      <div style="font-size:30px;font-weight:800;color:var(--green);margin-bottom:8px" id="modalPrice"></div>
+      <div style="font-size:13px;color:var(--ink-muted);margin-bottom:20px" id="modalDeposit"></div>
+      <div class="modal-grid" id="modalSpecs"></div>
+      <div style="margin-bottom:20px"><div style="font-size:13px;font-weight:600;color:var(--ink-mid);margin-bottom:8px">Description</div><p id="modalDesc" style="font-size:14px;color:var(--ink-mid);line-height:1.7"></p></div>
+      <div style="margin-bottom:20px" id="modalAmenitiesWrap"><div style="font-size:13px;font-weight:600;color:var(--ink-mid);margin-bottom:8px">Amenities</div><div class="amenity-chips" id="modalAmenities"></div></div>
+      <div id="contactSection"></div>
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span style="font-size:13px;color:var(--ink-muted)">Share this listing:</span><button class="btn btn-ghost btn-sm" onclick="shareListingWhatsApp()">💬 WhatsApp</button><button class="btn btn-ghost btn-sm" onclick="showToast('🔗 Link copied to clipboard')">🔗 Copy Link</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- M-PESA MODAL -->
+<div class="modal-overlay" id="mpesaModal">
+  <div class="modal mpesa-modal">
+    <div class="mpesa-header"><div class="mpesa-logo">📱</div><h3>Unlock with M-Pesa</h3><p>Get the full address & contacts instantly</p></div>
+    <div class="mpesa-body">
+      <div class="mpesa-amount"><div class="price">KES 250</div><div class="desc">One-time unlock for <strong id="mpesaListing"></strong></div></div>
+      <div class="mpesa-steps">
+        <div class="mpesa-step"><div class="mpesa-step-num">1</div><p>Enter your <strong>M-Pesa registered phone number</strong> below and tap "Pay".</p></div>
+        <div class="mpesa-step"><div class="mpesa-step-num">2</div><p>An <strong>STK Push prompt</strong> will appear on your phone — enter your M-Pesa PIN to confirm.</p></div>
+        <div class="mpesa-step"><div class="mpesa-step-num">3</div><p>The <strong>owner's contacts and full address</strong> will appear on screen instantly.</p></div>
+      </div>
+      <div id="mpesaNormal">
+        <div class="mpesa-phone-row"><div class="mpesa-phone-code">🇰🇪 +254</div><input class="input" id="mpesaPhone" placeholder="7XX XXX XXX" maxlength="9" oninput="validateMpesaPhone(this)" onkeydown="if(event.key==='Enter')processMpesa()"></div>
+        <div class="form-error" id="mpesaPhoneErr" style="margin-bottom:12px">Please enter a valid Safaricom/Airtel number</div>
+        <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:var(--r-sm);padding:12px;margin-bottom:16px;font-size:12px;color:var(--green-mid);line-height:1.5">🔒 <strong>Secure payment.</strong> Powered by Safaricom M-Pesa. You will be asked to confirm with your PIN. No PIN is stored.</div>
+        <button class="btn btn-primary w-full btn-lg" onclick="processMpesa()" style="background:#16a34a;font-size:15px">📱 Pay KES 250 via M-Pesa</button>
+        <button class="btn btn-ghost w-full mt-8" onclick="document.getElementById('mpesaModal').classList.remove('open')">Maybe later</button>
+      </div>
+      <div class="mpesa-processing" id="mpesaProcessing"><div class="spinner"></div><div style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px">Sending STK Push…</div><div style="font-size:13px;color:var(--ink-muted)">Check your phone for the M-Pesa prompt</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
