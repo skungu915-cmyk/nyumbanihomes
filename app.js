@@ -2,18 +2,18 @@
 // DATA
 // ════════════════════════════════════════════════════════════
 const LISTINGS = [
-  {id:1,icon:"🏢",type:"2 Bedrooms",name:"Modern 2BR Apartment",area:"Kilimani",price:35000,beds:2,baths:2,size:"85 sqm",floor:"4th floor",deposit:"1 month's rent",desc:"Spacious, light-filled 2-bedroom apartment in the heart of Kilimani. Walking distance to Junction Mall, Nairobi Hospital, and top schools. Includes 24hr water, allocated parking, and reliable fibre connectivity.",amenities:["Parking","24hr Water","Ensuite","Fibre-ready","Security","CCTV","Pre-paid meter"],locked:true,badge:"Available",views:142,unlocks:8,phone:"+254 712 345 678",whatsapp:"+254 712 345 678",fullAddress:"Apt 4C, Acacia Court, Lenana Road, Kilimani",contact:"Margaret Njeri (Landlord)"},
-  {id:2,icon:"🏠",type:"Bedsitter",name:"Cosy Bedsitter",area:"South B",price:8500,beds:0,baths:1,size:"22 sqm",floor:"Ground floor",deposit:"1 month's rent",desc:"Clean, well-maintained bedsitter in a quiet South B compound. Near Mombasa Road bus stops and South B Shopping Centre. Security guard on-site 24/7.",amenities:["24hr Water","Security","Pre-paid meter"],locked:true,badge:"Available",views:64,unlocks:3,phone:"+254 722 987 654",whatsapp:"+254 722 987 654",fullAddress:"Room 8, Nairobi Courts, Lunga Lunga Road, South B",contact:"Hassan Abdi (Caretaker)"},
-  {id:3,icon:"🏘️",type:"1 Bedroom",name:"1BR Apartment with Balcony",area:"Ruaka",price:18000,beds:1,baths:1,size:"48 sqm",floor:"2nd floor",deposit:"2 months' rent",desc:"Beautiful 1-bedroom apartment in fast-growing Ruaka. Great balcony view over the valley. 10 minutes to Two Rivers Mall and 15 minutes to Westlands. Fibre internet from Safaricom available.",amenities:["Balcony","Parking","Fibre-ready","Security","24hr Water","Pre-paid meter"],locked:true,badge:"Available",views:98,unlocks:5,phone:"+254 733 111 222",whatsapp:"+254 733 111 222",fullAddress:"Apt 2A, Riverside Apartments, Ruaka Town, off Limuru Road",contact:"Peter Mwangi (Property Manager)"},
-  {id:4,icon:"🏬",type:"3 Bedrooms",name:"3BR Maisonette with DSQ",area:"Karen",price:95000,beds:3,baths:3,size:"180 sqm",floor:"Ground + 1st",deposit:"2 months' rent",desc:"Stunning 3-bedroom maisonette in leafy Karen. Comes with a fully separate DSQ, private garden, and 2-car parking bay. Ideal for families. Near Karen Shopping Centre and international schools.",amenities:["DSQ","Garden","Parking","24hr Water","Security","Generator","Borehole","CCTV"],locked:true,badge:"Available",views:210,unlocks:14,phone:"+254 700 444 555",whatsapp:"+254 700 444 555",fullAddress:"No. 12, Bogani East Road, Karen — near Karen Country Club",contact:"Diana Waweru (Landlord)"},
-  {id:5,icon:"🏙️",type:"Studio",name:"Studio Apartment",area:"Westlands",price:28000,beds:0,baths:1,size:"35 sqm",floor:"7th floor",deposit:"1 month's rent",desc:"Compact and stylish studio apartment on the 7th floor with city views. Walking distance to Sarit Centre, major banks, and corporate offices. Gym and elevator in the building. Perfect for young professionals.",amenities:["Furnished","Fibre-ready","Gym","Security","Elevator","CCTV"],locked:false,badge:"Available",views:187,unlocks:11,phone:"+254 700 234 567",whatsapp:"+254 700 234 567",fullAddress:"Apt 7E, Westview Towers, Westlands Road — opposite Sarit Centre",contact:"James Kariuki (Landlord)"},
-  {id:6,icon:"🏡",type:"1 Bedroom",name:"1BR Garden Apartment",area:"Langata",price:16500,beds:1,baths:1,size:"52 sqm",floor:"Ground floor",deposit:"1 month's rent",desc:"Peaceful ground-floor 1-bedroom with direct access to a shared garden. Near Wilson Airport and Langata Road. Quick matatu access to CBD. Includes allocated parking space.",amenities:["Garden","Parking","24hr Water","Security","Pre-paid meter"],locked:true,badge:"Available",views:55,unlocks:2,phone:"+254 711 888 999",whatsapp:"+254 711 888 999",fullAddress:"Apt 3, Green Gardens, Langata South Road — near Hardy",contact:"Samuel Otieno (Landlord)"},
-  {id:7,icon:"🏗️",type:"2 Bedrooms",name:"2BR in New Development",area:"Roysambu",price:20000,beds:2,baths:2,size:"72 sqm",floor:"3rd floor",deposit:"1 month's rent",desc:"Brand new 2-bedroom apartment in Roysambu. Modern finishes throughout. 24hr borehole water, backup generator, and allocated parking. Near Thika Road Mall and Roysambu matatu terminus.",amenities:["24hr Water","Parking","Security","Generator","Borehole","Pre-paid meter"],locked:true,badge:"Available",views:78,unlocks:4,phone:"+254 723 555 666",whatsapp:"+254 723 555 666",fullAddress:"Block C Apt 12, Roysambu Crescent, Thika Road — opposite TRM",contact:"Agnes Kamau (Letting Agent)"},
-  {id:8,icon:"🏢",type:"Bedsitter",name:"Bedsitter Near CBD",area:"Eastleigh",price:6500,beds:0,baths:1,size:"18 sqm",floor:"1st floor",deposit:"1 month's rent",desc:"Affordable and clean bedsitter in Eastleigh. 10-minute matatu ride to Nairobi CBD. Very busy area with markets, shops, and restaurants. Quiet compound with perimeter wall and security.",amenities:["24hr Water","Security"],locked:true,badge:"Available",views:41,unlocks:2,phone:"+254 700 777 888",whatsapp:"+254 700 777 888",fullAddress:"Room 14, Eastleigh Flats, 1st Avenue, Eastleigh — near Garage Road",contact:"Omar Hassan (Landlord)"},
-  {id:9,icon:"🌿",type:"4 Bedrooms",name:"4BR Family Home",area:"Runda",price:180000,beds:4,baths:4,size:"320 sqm",floor:"Ground + 1st",deposit:"3 months' rent",desc:"Luxurious 4-bedroom family home in the prestigious Runda estate. Private gated compound, swimming pool, large garden, staff quarters, and double garage. Ideal for expat families and senior executives. Near Gigiri diplomatic zone.",amenities:["Swimming Pool","Garden","DSQ","Parking","Security","Generator","Furnished","CCTV","Borehole"],locked:true,badge:"Available",views:89,unlocks:7,phone:"+254 733 000 111",whatsapp:"+254 733 000 111",fullAddress:"No. 8, Runda Close, off Runda Drive — near UN offices, Gigiri",contact:"Global Properties Ltd (Letting Agent)"},
-  {id:10,icon:"🏛️",type:"2 Bedrooms",name:"2BR Furnished Apartment",area:"Kileleshwa",price:45000,beds:2,baths:2,size:"92 sqm",floor:"5th floor",deposit:"2 months' rent",desc:"Tastefully furnished 2-bedroom apartment in upmarket Kileleshwa. Move-in ready. High-speed internet, DSTV connection, and stunning views of the Nairobi skyline. Walking distance to Valley Arcade.",amenities:["Furnished","Parking","24hr Water","Security","Elevator","Fibre-ready","CCTV","Generator"],locked:true,badge:"Available",views:165,unlocks:9,phone:"+254 700 321 654",whatsapp:"+254 700 321 654",fullAddress:"Apt 5B, Kileleshwa Heights, Kileleshwa Road — off Peponi Road",contact:"Wambui Njoroge (Property Manager)"},
-  {id:11,icon:"🏠",type:"Single Room",name:"Single Room — En Suite",area:"South C",price:7000,beds:0,baths:1,size:"16 sqm",floor:"2nd floor",deposit:"1 month's rent",desc:"Neat self-contained single room with private en-suite bathroom. Located in South C, near Nyayo Stadium and easy Mombasa Road access. Borehole water and pre-paid electricity.",amenities:["Ensuite","24hr Water","Borehole","Security","Pre-paid meter"],locked:true,badge:"Available",views:33,unlocks:1,phone:"+254 711 234 567",whatsapp:"",fullAddress:"Room 6, Kairu Flats, Muhoho Avenue, South C",contact:"John Mwangi (Landlord)"},
-  {id:12,icon:"🏘️",type:"3 Bedrooms",name:"3BR Apartment — Lavington",area:"Lavington",price:75000,beds:3,baths:3,size:"140 sqm",floor:"2nd floor",deposit:"2 months' rent",desc:"Spacious 3-bedroom apartment in Lavington. Quiet, tree-lined road. Great for families wanting a premium neighbourhood. Near Lavington Green Mall and international schools.",amenities:["Parking","24hr Water","Security","Garden","Generator","Fibre-ready","CCTV","Ensuite"],locked:true,badge:"Available",views:112,unlocks:6,phone:"+254 722 456 789",whatsapp:"+254 722 456 789",fullAddress:"Apt 2C, Lavington Court, James Gichuru Road — near Total petrol station",contact:"Lavington Properties (Letting Agent)"},
+  {id:1,icon:"🏢",type:"2 Bedrooms",name:"Modern 2BR Apartment",area:"Kilimani",county:"Nairobi",price:35000,beds:2,baths:2,size:"85 sqm",floor:"4th floor",deposit:"1 month's rent",desc:"Spacious, light-filled 2-bedroom apartment in the heart of Kilimani. Walking distance to Junction Mall, Nairobi Hospital, and top schools. Includes 24hr water, allocated parking, and reliable fibre connectivity.",amenities:["Parking","24hr Water","Ensuite","Fibre-ready","Security","CCTV","Pre-paid meter"],locked:true,badge:"Available",views:142,unlocks:8,phone:"+254 712 345 678",whatsapp:"+254 712 345 678",fullAddress:"Apt 4C, Acacia Court, Lenana Road, Kilimani",contact:"Margaret Njeri (Landlord)"},
+  {id:2,icon:"🏠",type:"Bedsitter",name:"Cosy Bedsitter",area:"South B",county:"Nairobi",price:8500,beds:0,baths:1,size:"22 sqm",floor:"Ground floor",deposit:"1 month's rent",desc:"Clean, well-maintained bedsitter in a quiet South B compound. Near Mombasa Road bus stops and South B Shopping Centre. Security guard on-site 24/7.",amenities:["24hr Water","Security","Pre-paid meter"],locked:true,badge:"Available",views:64,unlocks:3,phone:"+254 722 987 654",whatsapp:"+254 722 987 654",fullAddress:"Room 8, Nairobi Courts, Lunga Lunga Road, South B",contact:"Hassan Abdi (Caretaker)"},
+  {id:3,icon:"🏘️",type:"1 Bedroom",name:"1BR Apartment with Balcony",area:"Ruaka",county:"Kiambu",price:18000,beds:1,baths:1,size:"48 sqm",floor:"2nd floor",deposit:"2 months' rent",desc:"Beautiful 1-bedroom apartment in fast-growing Ruaka. Great balcony view over the valley. 10 minutes to Two Rivers Mall and 15 minutes to Westlands. Fibre internet from Safaricom available.",amenities:["Balcony","Parking","Fibre-ready","Security","24hr Water","Pre-paid meter"],locked:true,badge:"Available",views:98,unlocks:5,phone:"+254 733 111 222",whatsapp:"+254 733 111 222",fullAddress:"Apt 2A, Riverside Apartments, Ruaka Town, off Limuru Road",contact:"Peter Mwangi (Property Manager)"},
+  {id:4,icon:"🏬",type:"3 Bedrooms",name:"3BR Maisonette with DSQ",area:"Karen",county:"Nairobi",price:95000,beds:3,baths:3,size:"180 sqm",floor:"Ground + 1st",deposit:"2 months' rent",desc:"Stunning 3-bedroom maisonette in leafy Karen. Comes with a fully separate DSQ, private garden, and 2-car parking bay. Ideal for families. Near Karen Shopping Centre and international schools.",amenities:["DSQ","Garden","Parking","24hr Water","Security","Generator","Borehole","CCTV"],locked:true,badge:"Available",views:210,unlocks:14,phone:"+254 700 444 555",whatsapp:"+254 700 444 555",fullAddress:"No. 12, Bogani East Road, Karen — near Karen Country Club",contact:"Diana Waweru (Landlord)"},
+  {id:5,icon:"🏙️",type:"Studio",name:"Studio Apartment",area:"Westlands",county:"Nairobi",price:28000,beds:0,baths:1,size:"35 sqm",floor:"7th floor",deposit:"1 month's rent",desc:"Compact and stylish studio apartment on the 7th floor with city views. Walking distance to Sarit Centre, major banks, and corporate offices. Gym and elevator in the building. Perfect for young professionals.",amenities:["Furnished","Fibre-ready","Gym","Security","Elevator","CCTV"],locked:false,badge:"Available",views:187,unlocks:11,phone:"+254 700 234 567",whatsapp:"+254 700 234 567",fullAddress:"Apt 7E, Westview Towers, Westlands Road — opposite Sarit Centre",contact:"James Kariuki (Landlord)"},
+  {id:6,icon:"🏡",type:"1 Bedroom",name:"1BR Garden Apartment",area:"Langata",county:"Nairobi",price:16500,beds:1,baths:1,size:"52 sqm",floor:"Ground floor",deposit:"1 month's rent",desc:"Peaceful ground-floor 1-bedroom with direct access to a shared garden. Near Wilson Airport and Langata Road. Quick matatu access to CBD. Includes allocated parking space.",amenities:["Garden","Parking","24hr Water","Security","Pre-paid meter"],locked:true,badge:"Available",views:55,unlocks:2,phone:"+254 711 888 999",whatsapp:"+254 711 888 999",fullAddress:"Apt 3, Green Gardens, Langata South Road — near Hardy",contact:"Samuel Otieno (Landlord)"},
+  {id:7,icon:"🏗️",type:"2 Bedrooms",name:"2BR in New Development",area:"Roysambu",county:"Nairobi",price:20000,beds:2,baths:2,size:"72 sqm",floor:"3rd floor",deposit:"1 month's rent",desc:"Brand new 2-bedroom apartment in Roysambu. Modern finishes throughout. 24hr borehole water, backup generator, and allocated parking. Near Thika Road Mall and Roysambu matatu terminus.",amenities:["24hr Water","Parking","Security","Generator","Borehole","Pre-paid meter"],locked:true,badge:"Available",views:78,unlocks:4,phone:"+254 723 555 666",whatsapp:"+254 723 555 666",fullAddress:"Block C Apt 12, Roysambu Crescent, Thika Road — opposite TRM",contact:"Agnes Kamau (Letting Agent)"},
+  {id:8,icon:"🏢",type:"Bedsitter",name:"Bedsitter Near CBD",area:"Eastleigh",county:"Nairobi",price:6500,beds:0,baths:1,size:"18 sqm",floor:"1st floor",deposit:"1 month's rent",desc:"Affordable and clean bedsitter in Eastleigh. 10-minute matatu ride to Nairobi CBD. Very busy area with markets, shops, and restaurants. Quiet compound with perimeter wall and security.",amenities:["24hr Water","Security"],locked:true,badge:"Available",views:41,unlocks:2,phone:"+254 700 777 888",whatsapp:"+254 700 777 888",fullAddress:"Room 14, Eastleigh Flats, 1st Avenue, Eastleigh — near Garage Road",contact:"Omar Hassan (Landlord)"},
+  {id:9,icon:"🌿",type:"4 Bedrooms",name:"4BR Family Home",area:"Runda",county:"Nairobi",price:180000,beds:4,baths:4,size:"320 sqm",floor:"Ground + 1st",deposit:"3 months' rent",desc:"Luxurious 4-bedroom family home in the prestigious Runda estate. Private gated compound, swimming pool, large garden, staff quarters, and double garage. Ideal for expat families and senior executives. Near Gigiri diplomatic zone.",amenities:["Swimming Pool","Garden","DSQ","Parking","Security","Generator","Furnished","CCTV","Borehole"],locked:true,badge:"Available",views:89,unlocks:7,phone:"+254 733 000 111",whatsapp:"+254 733 000 111",fullAddress:"No. 8, Runda Close, off Runda Drive — near UN offices, Gigiri",contact:"Global Properties Ltd (Letting Agent)"},
+  {id:10,icon:"🏛️",type:"2 Bedrooms",name:"2BR Furnished Apartment",area:"Kileleshwa",county:"Nairobi",price:45000,beds:2,baths:2,size:"92 sqm",floor:"5th floor",deposit:"2 months' rent",desc:"Tastefully furnished 2-bedroom apartment in upmarket Kileleshwa. Move-in ready. High-speed internet, DSTV connection, and stunning views of the Nairobi skyline. Walking distance to Valley Arcade.",amenities:["Furnished","Parking","24hr Water","Security","Elevator","Fibre-ready","CCTV","Generator"],locked:true,badge:"Available",views:165,unlocks:9,phone:"+254 700 321 654",whatsapp:"+254 700 321 654",fullAddress:"Apt 5B, Kileleshwa Heights, Kileleshwa Road — off Peponi Road",contact:"Wambui Njoroge (Property Manager)"},
+  {id:11,icon:"🏠",type:"Single Room",name:"Single Room — En Suite",area:"South C",county:"Nairobi",price:7000,beds:0,baths:1,size:"16 sqm",floor:"2nd floor",deposit:"1 month's rent",desc:"Neat self-contained single room with private en-suite bathroom. Located in South C, near Nyayo Stadium and easy Mombasa Road access. Borehole water and pre-paid electricity.",amenities:["Ensuite","24hr Water","Borehole","Security","Pre-paid meter"],locked:true,badge:"Available",views:33,unlocks:1,phone:"+254 711 234 567",whatsapp:"",fullAddress:"Room 6, Kairu Flats, Muhoho Avenue, South C",contact:"John Mwangi (Landlord)"},
+  {id:12,icon:"🏘️",type:"3 Bedrooms",name:"3BR Apartment — Lavington",area:"Lavington",county:"Nairobi",price:75000,beds:3,baths:3,size:"140 sqm",floor:"2nd floor",deposit:"2 months' rent",desc:"Spacious 3-bedroom apartment in Lavington. Quiet, tree-lined road. Great for families wanting a premium neighbourhood. Near Lavington Green Mall and international schools.",amenities:["Parking","24hr Water","Security","Garden","Generator","Fibre-ready","CCTV","Ensuite"],locked:true,badge:"Available",views:112,unlocks:6,phone:"+254 722 456 789",whatsapp:"+254 722 456 789",fullAddress:"Apt 2C, Lavington Court, James Gichuru Road — near Total petrol station",contact:"Lavington Properties (Letting Agent)"},
 ];
 
 const ESTATES = [
@@ -56,8 +56,8 @@ const PAYMENTS_LOG = [
 ];
 
 const FAQS = [
-  {q:"How does the KES 250 unlock work?",a:"When you find a listing you like, click 'Unlock for KES 250'. Enter your M-Pesa number and an STK Push is sent to your phone. Enter your PIN to confirm. The owner's contacts appear instantly."},
-  {q:"Is KES 250 per property or for all listings?",a:"It's KES 250 per individual property. Once unlocked, you can access that listing's contacts anytime — no expiry."},
+  {q:"How does the KES 500 unlock work?",a:"When you find a listing you like, click 'Unlock for KES 500'. Enter your M-Pesa number and an STK Push is sent to your phone. Enter your PIN to confirm. The owner's contacts appear instantly."},
+  {q:"Is KES 500 per property or for all listings?",a:"It's KES 500 per individual property. Once unlocked, you can access that listing's contacts anytime — no expiry."},
   {q:"Can I get a refund?",a:"If contacts turn out to be invalid or the property is no longer available and you report it within 24 hours, we will issue a full refund."},
   {q:"How long does it take for my listing to go live?",a:"Our team reviews every listing before publishing. Standard listings are live within 2 hours. Premium listings are fast-tracked within 30 minutes."},
   {q:"How do tenants pay rent via M-Pesa?",a:"Tenants pay to your registered Paybill (522100) or directly to your M-Pesa number using your unit number as the account reference. You receive an instant SMS for each payment."},
@@ -148,10 +148,12 @@ function doHeroSearch() {
   const type = document.getElementById('heroSearchType').value;
   const budget = document.getElementById('heroSearchBudget').value;
   const amenity = document.getElementById('heroSearchAmenity').value;
+  const county = document.getElementById('heroSearchCounty').value;
   if(loc) document.getElementById('filterLoc').value = loc;
   if(type) document.getElementById('filterType').value = type;
   if(budget) document.getElementById('filterBudget').value = budget;
   if(amenity) document.getElementById('filterAmenity').value = amenity;
+  document.getElementById('filterCounty').value = county;
   showPage('listings');
 }
 
@@ -184,6 +186,7 @@ function applyFilters() {
   const type = document.getElementById('filterType').value;
   const budgetVal = document.getElementById('filterBudget').value;
   const amenity = document.getElementById('filterAmenity').value || activeAmenityFilter;
+  const county = document.getElementById('filterCounty').value;
   const sort = document.getElementById('sortSelect').value;
 
   let data = LISTINGS.filter(l => {
@@ -193,6 +196,7 @@ function applyFilters() {
     if(typeFilter === 'Furnished' && !l.amenities.includes('Furnished')) return false;
     if(budgetVal && l.price > parseInt(budgetVal)) return false;
     if(amenity && !l.amenities.includes(amenity)) return false;
+    if(county && l.county !== county) return false;
     return true;
   });
 
@@ -203,7 +207,7 @@ function applyFilters() {
 
   filteredData = data;
   renderListings(data);
-  updateActiveFilters(loc, type, budgetVal, amenity);
+  updateActiveFilters(loc, type, budgetVal, amenity, county);
 }
 
 function renderListings(data) {
@@ -259,7 +263,7 @@ function buildListingCard(l) {
       ${locked
         ? `<div class="unlock-bar">
             <div class="unlock-bar-text">🔒 Address & contacts locked</div>
-            <button class="unlock-btn" onclick="event.stopPropagation();openMpesa(${l.id})">Unlock · KES 250</button>
+            <button class="unlock-btn" onclick="event.stopPropagation();openMpesa(${l.id})">Unlock · KES 500</button>
            </div>`
         : `<div class="unlocked-bar"><span>✅ Contacts unlocked — tap to view</span></div>`
       }
@@ -277,6 +281,7 @@ function clearFilters() {
   document.getElementById('filterType').value = '';
   document.getElementById('filterBudget').value = '';
   document.getElementById('filterAmenity').value = '';
+  document.getElementById('filterCounty').value = '';
   activeChipFilter = '';
   activeAmenityFilter = '';
   document.querySelectorAll('.chip').forEach((c,i) => c.classList.toggle('active', i===0));
@@ -302,13 +307,14 @@ function setChipAmenity(el, amenity) {
   applyFilters();
 }
 
-function updateActiveFilters(loc, type, budget, amenity) {
+function updateActiveFilters(loc, type, budget, amenity, county) {
   const container = document.getElementById('activeFilters');
   const tags = [];
   if(loc) tags.push({label: '📍 ' + loc, clear: ()=>{document.getElementById('filterLoc').value='';applyFilters();}});
   if(type) tags.push({label: type, clear: ()=>{document.getElementById('filterType').value='';applyFilters();}});
   if(budget) tags.push({label: 'Under KES '+parseInt(budget).toLocaleString(), clear: ()=>{document.getElementById('filterBudget').value='';applyFilters();}});
   if(amenity) tags.push({label: amenity, clear: ()=>{document.getElementById('filterAmenity').value='';activeAmenityFilter='';applyFilters();}});
+  if(county) tags.push({label: '🗺️ ' + county, clear: ()=>{document.getElementById('filterCounty').value='';applyFilters();}});
   container.innerHTML = tags.map((t,i) => `
     <div style="display:inline-flex;align-items:center;gap:6px;background:#EDE9FE;color:#6D28D9;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer" onclick="clearFilterTag(${i})">
       ${t.label} <span style="font-size:16px;line-height:1">×</span>
@@ -434,8 +440,8 @@ function openListing(id) {
     <div class="contact-locked">
       <div class="contact-locked-icon">🔒</div>
       <h4>Full address & contacts are locked</h4>
-      <p>Pay <strong>KES 250</strong> via M-Pesa to instantly reveal the owner's phone number, WhatsApp, and the full property address. One-time payment per listing.</p>
-      <button class="btn btn-amber btn-lg w-full" onclick="closeModal();openMpesa(${id})">📱 Unlock for KES 250</button>
+      <p>Pay <strong>KES 500</strong> via M-Pesa to instantly reveal the owner's phone number, WhatsApp, and the full property address. One-time payment per listing.</p>
+      <button class="btn btn-amber btn-lg w-full" onclick="closeModal();openMpesa(${id})">📱 Unlock for KES 500</button>
     </div>`;
   }
   document.getElementById('listingModal').classList.add('open');
@@ -500,7 +506,7 @@ function processMpesa() {
     document.getElementById('mpesaModal').classList.remove('open');
     document.getElementById('mpesaProcessing').style.display = 'none';
     document.getElementById('mpesaNormal').style.display = 'block';
-    showToast('✅ Payment confirmed! KES 250 received. Contacts unlocked.');
+    showToast('✅ Payment confirmed! KES 500 received. Contacts unlocked.');
     if(currentListing) {
       unlockedListings.add(currentListing.id);
       persistState();
