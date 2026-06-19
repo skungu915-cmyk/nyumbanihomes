@@ -838,6 +838,33 @@ function handlePhotoUpload(input) {
   showToast('📸 ' + files.length + ' photo' + (files.length>1?'s':'') + ' uploaded');
 }
 
+function triggerVideoUpload() {
+  document.getElementById('videoInput').click();
+}
+
+function handleVideoUpload(input) {
+  const preview = document.getElementById('videoPreview');
+  const files = Array.from(input.files).slice(0, 3);
+  // Check sizes (100 MB max each)
+  const oversized = files.filter(f => f.size > 100 * 1024 * 1024);
+  if (oversized.length) {
+    showToast('⚠️ ' + oversized.length + ' video(s) exceed 100 MB and were skipped');
+  }
+  const valid = files.filter(f => f.size <= 100 * 1024 * 1024);
+  preview.innerHTML = '';
+  valid.forEach(file => {
+    const url = URL.createObjectURL(file);
+    const div = document.createElement('div');
+    div.style.cssText = 'position:relative;border-radius:8px;overflow:hidden;border:1px solid #C084FC;background:#0F1923';
+    div.innerHTML = `
+      <video src="${url}" style="width:180px;height:100px;object-fit:cover;display:block" controls muted></video>
+      <div style="font-size:11px;color:#C084FC;padding:4px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px">${file.name}</div>
+      <button onclick="URL.revokeObjectURL('${url}');this.parentNode.remove()" style="position:absolute;top:4px;right:4px;width:20px;height:20px;border-radius:50%;background:rgba(0,0,0,.7);color:#fff;border:none;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;padding:0">×</button>`;
+    preview.appendChild(div);
+  });
+  if (valid.length) showToast('🎥 ' + valid.length + ' video' + (valid.length>1?'s':'') + ' added');
+}
+
 function submitListing() {
   let valid = true;
   const checks = [

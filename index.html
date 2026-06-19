@@ -377,7 +377,18 @@
       </div>
       <input type="file" id="photoInput" multiple accept="image/*" style="display:none" onchange="handlePhotoUpload(this)">
       <div id="photoPreview" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px"></div>
-      <div class="form-section-title">4 · Your Details (private)</div>
+
+      <div class="form-section-title">4 · Videos</div>
+      <div class="photo-upload" id="videoUploadBox" onclick="triggerVideoUpload()" style="border-color:#C084FC">
+        <div class="photo-upload-icon">🎥</div>
+        <p><strong>Click to upload a video tour</strong> or drag and drop</p>
+        <p style="font-size:12px;margin-top:6px">MP4, MOV up to 100 MB · Maximum 3 videos</p>
+        <p style="font-size:11px;margin-top:4px;color:#7C3AED;font-weight:600">Listings with video tours get 6× more enquiries</p>
+      </div>
+      <input type="file" id="videoInput" multiple accept="video/*" style="display:none" onchange="handleVideoUpload(this)">
+      <div id="videoPreview" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px"></div>
+
+      <div class="form-section-title">5 · Your Details (private)</div>
       <div style="background:#FEF3C7;border:1px solid #FDE68A;border-radius:var(--r);padding:14px;margin-bottom:16px;font-size:13px;color:#92400E;line-height:1.5">🔒 <strong>Your contact details below are private.</strong> Renters only see them after paying KES 500 to unlock your listing.</div>
       <div style="display:flex;flex-direction:column;gap:16px">
         <div class="form-row">
@@ -391,7 +402,7 @@
         <div class="form-group"><label class="form-label">Email Address (optional — for dashboard access)</label><input class="input" id="regEmail" type="email" placeholder="yourname@email.com"></div>
         <div class="form-group"><label class="form-label">M-Pesa Number for Receiving Payments</label><div style="display:flex;gap:8px"><div style="padding:11px 12px;background:#F3F4F6;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:14px;white-space:nowrap;flex-shrink:0">🇰🇪 +254</div><input class="input" id="regMpesa" placeholder="7XX XXX XXX (for rent collection)" maxlength="9"></div><div class="form-hint">Tenants who pay rent via the platform will send to this number.</div></div>
       </div>
-      <div class="form-section-title">5 · Listing Duration & Placement</div>
+      <div class="form-section-title">6 · Listing Duration & Placement</div>
       <div class="pricing-cards">
         <div class="pricing-card selected" onclick="selectPlan(this,'free')"><div class="pricing-card-price">Free</div><div class="pricing-card-label">Standard Listing</div><div class="pricing-card-duration">30 days</div><div class="pricing-card-features">✓ Listed in search<br>✓ Full analytics<br>✓ SMS alerts<br>✗ No top placement</div></div>
         <div class="pricing-card" onclick="selectPlan(this,'featured')"><div class="pricing-card-price">KES 299</div><div class="pricing-card-label">Featured Listing</div><div class="pricing-card-duration">60 days</div><div class="pricing-card-features">✓ Top of search results<br>✓ "Featured" badge<br>✓ Priority review<br>✓ All Standard benefits</div></div>

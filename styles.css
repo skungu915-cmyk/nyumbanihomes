@@ -241,6 +241,7 @@ select.input{appearance:none;padding-right:36px;cursor:pointer}
 .form-section-title{font-size:12px;font-weight:700;color:var(--green);letter-spacing:.8px;text-transform:uppercase;margin:28px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--green-tint)}
 .photo-upload{border:2px dashed var(--border-dark);border-radius:var(--r);padding:36px;text-align:center;cursor:pointer;transition:all .18s;background:#FAFAFA}
 .photo-upload:hover{border-color:var(--green);background:var(--green-tint)}
+#videoUploadBox:hover{border-color:#7C3AED!important;background:#F5F3FF}
 .photo-upload-icon{font-size:40px;margin-bottom:10px}
 .photo-upload p{font-size:14px;color:var(--ink-muted)}
 .photo-upload strong{color:var(--green)}
