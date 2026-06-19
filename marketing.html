@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Makao Hub — Marketing Materials</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#111;color:#fff;padding:24px}
+h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:6px}
+.subtitle{text-align:center;color:#aaa;margin-bottom:32px;font-size:14px}
+.section-title{font-size:1.3rem;font-weight:800;color:#F59E0B;margin:40px 0 16px;padding:10px 16px;background:#1a1a2e;border-left:4px solid #7C3AED;border-radius:4px}
+.grid{display:flex;flex-wrap:wrap;gap:24px;margin-bottom:32px}
+.label{font-size:11px;color:#aaa;margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+
+/* ── LOGO SVG ── */
+.logo-mark{width:36px;height:36px;background:#7C3AED;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-mark svg{width:20px;height:20px}
+.logo-text{font-weight:800;font-size:18px;color:#fff}
+.logo-text span{color:#C084FC}
+.logo-row{display:flex;align-items:center;gap:8px}
+
+/* ══════════════════════════════════════════
+   GROUP A — Instagram Square 540×540
+══════════════════════════════════════════ */
+.sq{width:540px;height:540px;position:relative;overflow:hidden;flex-shrink:0;border-radius:8px}
+
+/* A1 Hero Launch */
+.a1{background:linear-gradient(135deg,#0F1923 0%,#1e0a3c 60%,#7C3AED 100%);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:48px}
+.a1 .big{font-size:64px;font-weight:900;line-height:1;color:#fff;margin:20px 0 8px}
+.a1 .big span{color:#C084FC}
+.a1 .tag{font-size:15px;color:#C084FC;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+.a1 .desc{font-size:18px;color:#d1d5db;margin:16px 0 24px;line-height:1.5}
+.a1 .url{font-size:14px;color:#F59E0B;font-weight:700;letter-spacing:1px}
+.a1 .house-icon{font-size:72px;margin-bottom:12px}
+
+/* A2 List Your Property */
+.a2{background:linear-gradient(160deg,#7C3AED,#4F1D96);display:flex;flex-direction:column;justify-content:space-between;padding:48px}
+.a2 .top-tag{background:rgba(255,255,255,.15);border-radius:20px;padding:6px 16px;font-size:13px;font-weight:700;color:#fff;width:fit-content}
+.a2 .main{font-size:56px;font-weight:900;line-height:1.05;color:#fff;margin:24px 0}
+.a2 .main span{color:#F59E0B}
+.a2 .cta-btn{background:#F59E0B;color:#0F1923;font-weight:800;font-size:18px;padding:14px 32px;border-radius:50px;width:fit-content}
+
+/* A3 Affordable Rentals */
+.a3{background:#fff;color:#0F1923;display:flex;flex-direction:column;padding:48px}
+.a3 .accent{width:60px;height:6px;background:#7C3AED;border-radius:3px;margin-bottom:24px}
+.a3 .head{font-size:44px;font-weight:900;line-height:1.1;color:#0F1923;margin-bottom:16px}
+.a3 .head span{color:#7C3AED}
+.a3 .price-row{display:flex;gap:16px;margin-top:24px;flex-wrap:wrap}
+.a3 .price-box{background:#F3F0FF;border-radius:12px;padding:16px 20px;flex:1}
+.a3 .price-box .type{font-size:12px;color:#7C3AED;font-weight:700;text-transform:uppercase}
+.a3 .price-box .amount{font-size:22px;font-weight:800;color:#0F1923;margin-top:4px}
+.a3 .bottom{margin-top:auto;font-size:13px;color:#7C3AED;font-weight:700}
+
+/* A4 County Filter */
+.a4{background:linear-gradient(180deg,#0F1923 0%,#1a0f2e 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px;text-align:center}
+.a4 .feature-badge{background:#7C3AED;border-radius:20px;padding:6px 18px;font-size:13px;font-weight:700;color:#fff;margin-bottom:24px}
+.a4 .head{font-size:46px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:24px}
+.a4 .head span{color:#C084FC}
+.a4 .counties{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px}
+.a4 .county-pill{background:rgba(124,58,237,.25);border:1px solid #7C3AED;border-radius:20px;padding:8px 18px;font-size:14px;font-weight:600;color:#C084FC}
+
+/* A5 Video Tours */
+.a5{background:#000;display:flex;flex-direction:column;justify-content:flex-end;padding:48px;position:relative}
+.a5::before{content:'🎥';font-size:200px;position:absolute;top:-20px;right:-20px;opacity:.15}
+.a5 .badge{background:#C084FC;color:#fff;font-size:12px;font-weight:700;padding:4px 14px;border-radius:4px;width:fit-content;margin-bottom:20px}
+.a5 .head{font-size:50px;font-weight:900;color:#fff;line-height:1.1}
+.a5 .sub{font-size:16px;color:#aaa;margin-top:12px;line-height:1.5}
+.a5 .stat{font-size:14px;color:#C084FC;font-weight:700;margin-top:20px}
+
+/* A6 500+ Listings */
+.a6{background:linear-gradient(135deg,#7C3AED,#C084FC);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px}
+.a6 .num{font-size:120px;font-weight:900;color:#fff;line-height:1}
+.a6 .num-label{font-size:28px;font-weight:700;color:rgba(255,255,255,.8)}
+.a6 .desc{font-size:18px;color:rgba(255,255,255,.9);margin-top:16px;font-weight:500}
+
+/* A7 Testimonial */
+.a7{background:#fff;color:#0F1923;display:flex;flex-direction:column;justify-content:center;padding:48px}
+.a7 .stars{font-size:28px;color:#F59E0B;margin-bottom:20px}
+.a7 .quote{font-size:28px;font-weight:700;line-height:1.4;color:#0F1923;font-style:italic;margin-bottom:24px}
+.a7 .quote::before{content:'"';font-size:72px;color:#7C3AED;line-height:0;vertical-align:-28px;margin-right:4px}
+.a7 .author{font-size:15px;color:#7C3AED;font-weight:700}
+.a7 .role{font-size:13px;color:#888}
+
+/* A8 No Agent Fees */
+.a8{background:#0F1923;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px}
+.a8 .icon{font-size:80px;margin-bottom:16px}
+.a8 .head{font-size:52px;font-weight:900;color:#F59E0B;line-height:1.1}
+.a8 .sub{font-size:18px;color:#d1d5db;margin-top:12px;font-weight:500}
+.a8 .cta{margin-top:32px;background:#7C3AED;border-radius:50px;padding:14px 40px;font-size:16px;font-weight:800;color:#fff}
+
+/* A9 Property Types */
+.a9{background:linear-gradient(160deg,#1e0a3c,#0F1923);display:flex;flex-direction:column;padding:40px}
+.a9 .head{font-size:36px;font-weight:900;color:#fff;margin-bottom:8px}
+.a9 .head span{color:#C084FC}
+.a9 .types{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;flex:1}
+.a9 .type-card{background:rgba(124,58,237,.2);border:1px solid rgba(124,58,237,.4);border-radius:14px;padding:20px;display:flex;align-items:center;gap:12px}
+.a9 .type-card .ico{font-size:32px}
+.a9 .type-card .name{font-size:16px;font-weight:700;color:#fff}
+.a9 .type-card .from{font-size:12px;color:#C084FC}
+
+/* A10 Landlord 10K */
+.a10{background:linear-gradient(135deg,#F59E0B,#D97706);display:flex;flex-direction:column;padding:48px;justify-content:space-between}
+.a10 .head{font-size:52px;font-weight:900;color:#0F1923;line-height:1.1}
+.a10 .num{font-size:90px;font-weight:900;color:#fff;line-height:1}
+.a10 .sub{font-size:18px;color:#0F1923;font-weight:600}
+.a10 .cta{background:#0F1923;color:#F59E0B;font-weight:800;font-size:16px;padding:14px 32px;border-radius:50px;width:fit-content}
+
+/* A11 Android */
+.a11{background:linear-gradient(160deg,#0F1923,#1a1a3e);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px}
+.a11 .android-icon{font-size:80px;margin-bottom:12px}
+.a11 .head{font-size:42px;font-weight:900;color:#fff;line-height:1.2}
+.a11 .head span{color:#C084FC}
+.a11 .steps{margin-top:24px;text-align:left;width:100%}
+.a11 .step{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.a11 .step .num{width:28px;height:28px;background:#7C3AED;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0}
+.a11 .step .text{font-size:14px;color:#d1d5db}
+
+/* A12 New Year */
+.a12{background:linear-gradient(135deg,#0F1923,#1e0a3c);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px;position:relative;overflow:hidden}
+.a12::before{content:'✨🎉🏠🎊✨';font-size:40px;position:absolute;top:20px;left:0;right:0;text-align:center;opacity:.5}
+.a12 .year{font-size:100px;font-weight:900;color:rgba(124,58,237,.3);position:absolute;bottom:-20px;left:50%;transform:translateX(-50%)}
+.a12 .head{font-size:42px;font-weight:900;color:#fff;line-height:1.2;position:relative;z-index:1}
+.a12 .head span{color:#F59E0B}
+.a12 .sub{font-size:16px;color:#C084FC;margin-top:16px;font-weight:600;position:relative;z-index:1}
+
+/* A13 Verified */
+.a13{background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px}
+.a13 .shield{font-size:100px;margin-bottom:16px}
+.a13 .head{font-size:44px;font-weight:900;color:#0F1923;line-height:1.1}
+.a13 .head span{color:#7C3AED}
+.a13 .sub{font-size:16px;color:#555;margin-top:12px;line-height:1.5}
+.a13 .badges{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;justify-content:center}
+.a13 .badge{background:#F3F0FF;border:2px solid #7C3AED;border-radius:20px;padding:8px 18px;font-size:13px;font-weight:700;color:#7C3AED}
+
+/* A14 3-Step */
+.a14{background:linear-gradient(180deg,#7C3AED 0%,#4F1D96 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px}
+.a14 .head{font-size:48px;font-weight:900;color:#fff;margin-bottom:40px}
+.a14 .steps-row{display:flex;gap:0;width:100%}
+.a14 .step-item{flex:1;display:flex;flex-direction:column;align-items:center;position:relative}
+.a14 .step-item:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:30px;font-size:24px;color:rgba(255,255,255,.5)}
+.a14 .step-num{width:64px;height:64px;background:rgba(255,255,255,.2);border:3px solid rgba(255,255,255,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:#fff;margin-bottom:16px}
+.a14 .step-label{font-size:18px;font-weight:800;color:#fff}
+.a14 .step-sub{font-size:13px;color:rgba(255,255,255,.7);margin-top:6px}
+
+/* A15 Cities */
+.a15{background:#0F1923;display:flex;flex-direction:column;padding:48px}
+.a15 .head{font-size:38px;font-weight:900;color:#fff;margin-bottom:8px}
+.a15 .head span{color:#7C3AED}
+.a15 .sub{font-size:15px;color:#aaa;margin-bottom:32px}
+.a15 .city-list{display:flex;flex-direction:column;gap:12px;flex:1}
+.a15 .city{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);border-radius:12px}
+.a15 .city-name{font-size:18px;font-weight:700;color:#fff}
+.a15 .city-count{font-size:13px;color:#C084FC;font-weight:600}
+
+/* ══════════════════════════════════════════
+   GROUP B — Story 270×480
+══════════════════════════════════════════ */
+.st{width:270px;height:480px;position:relative;overflow:hidden;flex-shrink:0;border-radius:16px}
+
+.b16{background:linear-gradient(180deg,#7C3AED 0%,#0F1923 100%);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:32px 24px;text-align:center}
+.b16 .top{font-size:13px;font-weight:700;color:#C084FC;text-transform:uppercase;letter-spacing:1px}
+.b16 .big{font-size:44px;font-weight:900;color:#fff;line-height:1.1}
+.b16 .big span{color:#F59E0B}
+.b16 .sub{font-size:14px;color:#d1d5db;line-height:1.5}
+.b16 .btn{background:#F59E0B;color:#0F1923;font-weight:800;font-size:15px;padding:14px 32px;border-radius:50px}
+
+.b17{background:#fff;color:#0F1923;display:flex;flex-direction:column;padding:32px 24px}
+.b17 .head{font-size:28px;font-weight:900;line-height:1.2;color:#0F1923;margin-bottom:24px}
+.b17 .head span{color:#7C3AED}
+.b17 .step{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px}
+.b17 .step .n{width:32px;height:32px;background:#7C3AED;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;flex-shrink:0}
+.b17 .step .t{font-size:14px;font-weight:600;color:#333;padding-top:6px}
+.b17 .url{margin-top:auto;font-size:13px;color:#7C3AED;font-weight:800}
+
+.b18{background:linear-gradient(180deg,#1e0a3c,#0F1923);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 24px}
+.b18 .emoji{font-size:64px;margin-bottom:16px}
+.b18 .head{font-size:30px;font-weight:900;color:#fff;line-height:1.2}
+.b18 .head span{color:#C084FC}
+.b18 .sub{font-size:14px;color:#aaa;margin-top:12px;line-height:1.5}
+
+.b19{background:linear-gradient(160deg,#F59E0B,#D97706);display:flex;flex-direction:column;padding:32px 24px;justify-content:space-between}
+.b19 .top{font-size:12px;font-weight:800;color:#0F1923;text-transform:uppercase;letter-spacing:1px}
+.b19 .head{font-size:38px;font-weight:900;color:#0F1923;line-height:1.1}
+.b19 .perks{display:flex;flex-direction:column;gap:8px}
+.b19 .perk{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#0F1923}
+.b19 .btn{background:#0F1923;color:#F59E0B;font-weight:800;font-size:14px;padding:12px 24px;border-radius:50px;width:fit-content}
+
+.b20{background:#0F1923;display:flex;flex-direction:column;padding:32px 24px}
+.b20 .head{font-size:26px;font-weight:900;color:#fff;margin-bottom:20px}
+.b20 .head span{color:#7C3AED}
+.b20 .map-pin{font-size:32px;margin-bottom:12px}
+.b20 .county{padding:10px 14px;background:rgba(124,58,237,.2);border-left:3px solid #7C3AED;border-radius:4px;font-size:14px;font-weight:700;color:#fff;margin-bottom:8px}
+.b20 .cta{margin-top:auto;font-size:13px;color:#C084FC;font-weight:700}
+
+.b21{background:#fff;display:flex;flex-direction:column;padding:32px 24px}
+.b21 .head{font-size:24px;font-weight:900;color:#0F1923;margin-bottom:20px}
+.b21 .row{display:flex;gap:8px;margin-bottom:8px}
+.b21 .col-h{flex:1;text-align:center;font-size:11px;font-weight:800;color:#aaa;text-transform:uppercase}
+.b21 .col-makao{flex:1;text-align:center;font-size:11px;font-weight:800;color:#7C3AED}
+.b21 .col-others{flex:1;text-align:center;font-size:11px;font-weight:800;color:#aaa}
+.b21 .feat{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:8px;padding:10px 0;border-bottom:1px solid #f0f0f0;align-items:center}
+.b21 .feat .fname{font-size:12px;font-weight:600;color:#333}
+.b21 .feat .yes{text-align:center;font-size:16px}
+.b21 .feat .no{text-align:center;font-size:16px}
+
+.b22{background:linear-gradient(180deg,#7C3AED,#0F1923);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 24px}
+.b22 .before{background:rgba(255,255,255,.1);border-radius:12px;padding:16px;margin-bottom:20px}
+.b22 .before .lbl{font-size:11px;font-weight:700;color:#ff6b6b;text-transform:uppercase}
+.b22 .before .text{font-size:14px;color:#ddd;margin-top:6px;font-style:italic}
+.b22 .arrow{font-size:28px;margin:12px 0;color:#F59E0B}
+.b22 .after{background:rgba(124,58,237,.3);border:2px solid #C084FC;border-radius:12px;padding:16px}
+.b22 .after .lbl{font-size:11px;font-weight:700;color:#C084FC;text-transform:uppercase}
+.b22 .after .text{font-size:14px;color:#fff;margin-top:6px;font-weight:700}
+
+.b23{background:#0F1923;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 24px}
+.b23 .num{font-size:90px;font-weight:900;color:#7C3AED;line-height:1}
+.b23 .unit{font-size:22px;font-weight:800;color:#fff}
+.b23 .desc{font-size:15px;color:#aaa;margin-top:12px;line-height:1.5}
+.b23 .month{margin-top:20px;font-size:13px;color:#F59E0B;font-weight:700}
+
+.b24{background:#000;display:flex;flex-direction:column;padding:32px 24px;justify-content:space-between}
+.b24 .play{width:64px;height:64px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px}
+.b24 .head{font-size:28px;font-weight:900;color:#fff;line-height:1.2}
+.b24 .sub{font-size:13px;color:#aaa;margin-top:10px;line-height:1.5}
+.b24 .stat{font-size:13px;color:#C084FC;font-weight:700;margin-top:auto}
+
+.b25{background:linear-gradient(160deg,#7C3AED,#4F1D96);display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;padding:32px 24px}
+.b25 .icon{font-size:64px}
+.b25 .head{font-size:30px;font-weight:900;color:#fff;line-height:1.2}
+.b25 .sub{font-size:13px;color:rgba(255,255,255,.8);line-height:1.5}
+.b25 .platforms{display:flex;gap:12px;justify-content:center}
+.b25 .plat{background:rgba(255,255,255,.15);border-radius:20px;padding:8px 16px;font-size:12px;font-weight:700;color:#fff}
+
+/* ══════════════════════════════════════════
+   GROUP C — Banner 540×304
+══════════════════════════════════════════ */
+.bn{width:540px;height:304px;position:relative;overflow:hidden;flex-shrink:0;border-radius:8px}
+
+.c26{background:linear-gradient(135deg,#0F1923 0%,#1e0a3c 50%,#7C3AED 100%);display:flex;align-items:center;justify-content:space-between;padding:40px 48px}
+.c26 .left .head{font-size:42px;font-weight:900;color:#fff;line-height:1.1}
+.c26 .left .head span{color:#C084FC}
+.c26 .left .sub{font-size:14px;color:#aaa;margin-top:8px}
+.c26 .right{text-align:right}
+.c26 .right .url{font-size:20px;font-weight:800;color:#F59E0B}
+.c26 .right .tagline{font-size:13px;color:#C084FC;margin-top:4px}
+
+.c27{background:linear-gradient(135deg,#7C3AED,#C084FC);display:flex;align-items:center;justify-content:center;text-align:center;padding:40px}
+.c27 .head{font-size:52px;font-weight:900;color:#fff;line-height:1.1}
+.c27 .sub{font-size:16px;color:rgba(255,255,255,.85);margin-top:10px}
+
+.c28{background:#0F1923;display:flex;align-items:center;gap:48px;padding:40px 48px}
+.c28 .pin{font-size:72px}
+.c28 .right .head{font-size:32px;font-weight:900;color:#fff;line-height:1.2}
+.c28 .right .head span{color:#C084FC}
+.c28 .right .sub{font-size:14px;color:#aaa;margin-top:8px}
+.c28 .tags{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.c28 .tag{background:rgba(124,58,237,.3);border:1px solid #7C3AED;border-radius:20px;padding:4px 14px;font-size:12px;font-weight:700;color:#C084FC}
+
+.c29{background:linear-gradient(135deg,#F59E0B,#D97706);display:flex;align-items:center;justify-content:space-between;padding:40px 48px}
+.c29 .left .head{font-size:36px;font-weight:900;color:#0F1923;line-height:1.2}
+.c29 .left .perks{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.c29 .left .perk{font-size:13px;font-weight:700;color:#0F1923}
+.c29 .right .cta{background:#0F1923;color:#F59E0B;font-weight:800;font-size:16px;padding:16px 28px;border-radius:50px;text-align:center}
+.c29 .right .url{font-size:13px;color:#0F1923;font-weight:600;text-align:center;margin-top:8px}
+
+.c30{background:#0F1923;display:flex;align-items:center;justify-content:space-between;padding:40px 48px}
+.c30 .left .head{font-size:36px;font-weight:900;color:#fff}
+.c30 .left .head span{color:#7C3AED}
+.c30 .left .sub{font-size:14px;color:#aaa;margin-top:8px}
+.c30 .right{text-align:right}
+.c30 .right .num{font-size:64px;font-weight:900;color:#7C3AED}
+.c30 .right .label{font-size:14px;color:#aaa}
+
+.c31{background:linear-gradient(135deg,#0a2a3a,#0F1923);display:flex;align-items:center;justify-content:space-between;padding:40px 48px;border-top:4px solid #06b6d4}
+.c31 .left .tag{font-size:11px;font-weight:700;color:#06b6d4;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.c31 .left .head{font-size:36px;font-weight:900;color:#fff;line-height:1.2}
+.c31 .left .sub{font-size:13px;color:#aaa;margin-top:8px}
+.c31 .right .icon{font-size:80px}
+
+.c32{background:linear-gradient(135deg,#1a0f2e,#0F1923);display:flex;align-items:center;justify-content:space-between;padding:40px 48px}
+.c32 .left .tag{font-size:11px;font-weight:700;color:#F59E0B;text-transform:uppercase;margin-bottom:10px}
+.c32 .left .head{font-size:36px;font-weight:900;color:#fff;line-height:1.2}
+.c32 .left .sub{font-size:13px;color:#aaa;margin-top:8px}
+.c32 .right .icon{font-size:80px}
+
+.c33{background:#fff;display:flex;align-items:center;justify-content:space-between;padding:40px 48px}
+.c33 .left .tag{font-size:11px;font-weight:700;color:#7C3AED;text-transform:uppercase;margin-bottom:10px}
+.c33 .left .head{font-size:32px;font-weight:900;color:#0F1923;line-height:1.2}
+.c33 .left .sub{font-size:13px;color:#555;margin-top:8px}
+.c33 .right{display:flex;flex-direction:column;gap:8px}
+.c33 .right .area{background:#F3F0FF;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:700;color:#7C3AED}
+
+.c34{background:linear-gradient(135deg,#0F1923,#1e0a3c);display:flex;align-items:center;justify-content:space-between;padding:40px 48px}
+.c34 .left .head{font-size:34px;font-weight:900;color:#fff;line-height:1.2}
+.c34 .left .head span{color:#C084FC}
+.c34 .left .sub{font-size:13px;color:#aaa;margin-top:8px}
+.c34 .right .icon{font-size:80px}
+
+.c35{background:linear-gradient(135deg,#7C3AED,#4F1D96);display:flex;align-items:center;justify-content:space-between;padding:40px 48px}
+.c35 .left .head{font-size:36px;font-weight:900;color:#fff;line-height:1.2}
+.c35 .left .sub{font-size:14px;color:rgba(255,255,255,.8);margin-top:8px}
+.c35 .right .cta{background:#F59E0B;color:#0F1923;font-weight:800;font-size:16px;padding:16px 28px;border-radius:50px}
+
+/* ══════════════════════════════════════════
+   GROUP D — WhatsApp Status 270×480
+══════════════════════════════════════════ */
+.d36{background:#0F1923;display:flex;flex-direction:column;padding:32px 24px}
+.d36 .head{font-size:22px;font-weight:900;color:#F59E0B;margin-bottom:20px;line-height:1.3}
+.d36 .tip{background:rgba(245,158,11,.1);border-left:3px solid #F59E0B;border-radius:4px;padding:12px 14px;font-size:13px;color:#d1d5db;line-height:1.5;margin-bottom:10px}
+.d36 .url{margin-top:auto;font-size:12px;color:#7C3AED;font-weight:700}
+
+.d37{background:linear-gradient(160deg,#1e0a3c,#0F1923);display:flex;flex-direction:column;padding:32px 24px}
+.d37 .tag{background:#7C3AED;border-radius:20px;padding:4px 14px;font-size:11px;font-weight:700;color:#fff;width:fit-content;margin-bottom:16px}
+.d37 .area{font-size:32px;font-weight:900;color:#fff}
+.d37 .type{font-size:16px;color:#C084FC;font-weight:600;margin:4px 0 20px}
+.d37 .price{font-size:48px;font-weight:900;color:#F59E0B;line-height:1}
+.d37 .per{font-size:14px;color:#aaa}
+.d37 .feats{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.d37 .feat{background:rgba(124,58,237,.2);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:600;color:#C084FC}
+
+.d38{background:#fff;display:flex;flex-direction:column;padding:32px 24px}
+.d38 .tag{background:#0F1923;border-radius:4px;padding:4px 12px;font-size:11px;font-weight:700;color:#C084FC;width:fit-content;margin-bottom:16px}
+.d38 .area{font-size:28px;font-weight:900;color:#0F1923}
+.d38 .type{font-size:14px;color:#7C3AED;font-weight:700;margin:4px 0 16px}
+.d38 .price{font-size:44px;font-weight:900;color:#7C3AED;line-height:1}
+.d38 .per{font-size:13px;color:#888}
+.d38 .feats{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.d38 .feat{background:#F3F0FF;border-radius:6px;padding:4px 10px;font-size:11px;font-weight:700;color:#7C3AED}
+.d38 .url{margin-top:auto;font-size:12px;color:#7C3AED;font-weight:800}
+
+.d39{background:linear-gradient(160deg,#1a1a3e,#0F1923);display:flex;flex-direction:column;padding:32px 24px}
+.d39 .tag{background:#C084FC;border-radius:20px;padding:4px 14px;font-size:11px;font-weight:700;color:#fff;width:fit-content;margin-bottom:16px}
+.d39 .area{font-size:28px;font-weight:900;color:#fff}
+.d39 .type{font-size:14px;color:#C084FC;font-weight:600;margin:4px 0 16px}
+.d39 .price{font-size:44px;font-weight:900;color:#C084FC;line-height:1}
+.d39 .per{font-size:13px;color:#aaa}
+.d39 .desc{font-size:12px;color:#aaa;margin-top:12px;line-height:1.5}
+.d39 .url{margin-top:auto;font-size:12px;color:#F59E0B;font-weight:800}
+
+.d40{background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 24px}
+.d40 .icon{font-size:64px;margin-bottom:16px}
+.d40 .head{font-size:26px;font-weight:900;color:#fff;line-height:1.3}
+.d40 .stat{font-size:48px;font-weight:900;color:#C084FC;margin:16px 0 8px}
+.d40 .sub{font-size:14px;color:#aaa;line-height:1.5}
+
+.d41{background:linear-gradient(180deg,#1e0a3c,#0F1923);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 24px}
+.d41 .head{font-size:28px;font-weight:900;color:#fff;line-height:1.3;font-style:italic}
+.d41 .emoji{font-size:48px;margin:16px 0}
+.d41 .sub{font-size:14px;color:#C084FC;font-weight:600;line-height:1.5}
+.d41 .cta{margin-top:20px;background:#7C3AED;border-radius:50px;padding:10px 24px;font-size:13px;font-weight:800;color:#fff}
+
+.d42{background:#fff;display:flex;flex-direction:column;padding:32px 24px}
+.d42 .icon{font-size:48px;margin-bottom:16px}
+.d42 .head{font-size:24px;font-weight:900;color:#0F1923;line-height:1.3;margin-bottom:16px}
+.d42 .tips{display:flex;flex-direction:column;gap:10px;flex:1}
+.d42 .tip{display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#333;line-height:1.5}
+.d42 .tip .ico{font-size:18px;flex-shrink:0}
+.d42 .url{font-size:12px;color:#7C3AED;font-weight:800;margin-top:16px}
+
+.d43{background:linear-gradient(160deg,#7C3AED,#4F1D96);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 24px}
+.d43 .icon{font-size:64px;margin-bottom:16px}
+.d43 .head{font-size:28px;font-weight:900;color:#fff;line-height:1.3}
+.d43 .sub{font-size:14px;color:rgba(255,255,255,.8);margin-top:12px;line-height:1.5}
+.d43 .forward{margin-top:20px;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border-radius:20px;padding:8px 16px}
+.d43 .forward-text{font-size:13px;font-weight:700;color:#fff}
+
+.d44{background:linear-gradient(160deg,#F59E0B,#D97706);display:flex;flex-direction:column;padding:32px 24px;justify-content:space-between}
+.d44 .icon{font-size:48px;margin-bottom:12px}
+.d44 .head{font-size:26px;font-weight:900;color:#0F1923;line-height:1.3}
+.d44 .perks{display:flex;flex-direction:column;gap:8px;margin:16px 0}
+.d44 .perk{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#0F1923}
+.d44 .cta{background:#0F1923;color:#F59E0B;font-weight:800;font-size:14px;padding:12px 24px;border-radius:50px;width:fit-content}
+
+.d45{background:linear-gradient(180deg,#7C3AED,#4F1D96);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 24px}
+.d45 .icon{font-size:64px;margin-bottom:16px}
+.d45 .head{font-size:32px;font-weight:900;color:#fff;line-height:1.2}
+.d45 .num{font-size:80px;font-weight:900;color:#F59E0B;line-height:1}
+.d45 .users{font-size:20px;font-weight:700;color:rgba(255,255,255,.8)}
+.d45 .sub{font-size:13px;color:rgba(255,255,255,.7);margin-top:12px;line-height:1.5}
+
+/* ══════════════════════════════════════════
+   GROUP E — Twitter Square 400×400
+══════════════════════════════════════════ */
+.tw{width:400px;height:400px;position:relative;overflow:hidden;flex-shrink:0;border-radius:12px}
+
+.e46{background:linear-gradient(135deg,#0F1923,#1e0a3c);display:flex;flex-direction:column;padding:40px;justify-content:space-between}
+.e46 .rocket{font-size:56px}
+.e46 .head{font-size:38px;font-weight:900;color:#fff;line-height:1.1}
+.e46 .head span{color:#7C3AED}
+.e46 .sub{font-size:15px;color:#aaa;line-height:1.5}
+.e46 .hashtag{font-size:14px;color:#C084FC;font-weight:700;margin-top:8px}
+
+.e47{background:#fff;display:flex;flex-direction:column;padding:40px}
+.e47 .num{font-size:48px;font-weight:900;color:#7C3AED}
+.e47 .head{font-size:24px;font-weight:900;color:#0F1923;margin:8px 0 16px;line-height:1.2}
+.e47 .items{display:flex;flex-direction:column;gap:8px;flex:1}
+.e47 .item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#333;line-height:1.4}
+.e47 .item .ico{font-size:16px;flex-shrink:0}
+
+.e48{background:linear-gradient(135deg,#7C3AED,#4F1D96);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px}
+.e48 .icon{font-size:56px;margin-bottom:16px}
+.e48 .head{font-size:30px;font-weight:900;color:#fff;line-height:1.3}
+.e48 .options{display:flex;flex-direction:column;gap:8px;margin-top:16px;width:100%}
+.e48 .option{background:rgba(255,255,255,.15);border-radius:8px;padding:10px 16px;font-size:14px;font-weight:600;color:#fff;text-align:left}
+
+.e49{background:#0F1923;display:flex;flex-direction:column;padding:40px;justify-content:space-between}
+.e49 .badge{background:#7C3AED;border-radius:20px;padding:4px 14px;font-size:12px;font-weight:700;color:#fff;width:fit-content;margin-bottom:20px}
+.e49 .head{font-size:34px;font-weight:900;color:#fff;line-height:1.2}
+.e49 .head span{color:#C084FC}
+.e49 .sub{font-size:14px;color:#aaa;margin-top:8px}
+.e49 .icons{font-size:32px;margin-top:16px}
+
+.e50{background:linear-gradient(135deg,#F59E0B,#D97706);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px}
+.e50 .icon{font-size:56px;margin-bottom:16px}
+.e50 .head{font-size:28px;font-weight:900;color:#0F1923;line-height:1.3}
+.e50 .sub{font-size:14px;color:#0F1923;margin-top:10px;font-weight:600;opacity:.8}
+.e50 .rt{margin-top:20px;background:#0F1923;border-radius:20px;padding:8px 20px;font-size:13px;font-weight:800;color:#F59E0B}
+
+/* ══════════════════════════════════════════
+   BILLBOARDS 800×300
+══════════════════════════════════════════ */
+.bb{width:800px;height:300px;position:relative;overflow:hidden;flex-shrink:0;border-radius:8px;border:3px solid #333}
+
+.bb51{background:linear-gradient(135deg,#0F1923 0%,#1e0a3c 60%,#7C3AED 100%);display:flex;align-items:center;justify-content:space-between;padding:40px 64px}
+.bb51 .left .small{font-size:13px;font-weight:700;color:#C084FC;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
+.bb51 .left .head{font-size:56px;font-weight:900;color:#fff;line-height:1.1}
+.bb51 .left .head span{color:#C084FC}
+.bb51 .left .sub{font-size:16px;color:#aaa;margin-top:8px}
+.bb51 .right{text-align:right}
+.bb51 .right .url{font-size:28px;font-weight:900;color:#F59E0B}
+.bb51 .right .qr{width:80px;height:80px;background:#fff;border-radius:8px;margin-top:12px;margin-left:auto;display:flex;align-items:center;justify-content:center;font-size:10px;color:#333;font-weight:700;text-align:center;padding:4px}
+
+.bb52{background:linear-gradient(135deg,#0a2a3a,#0F1923);display:flex;align-items:center;justify-content:space-between;padding:40px 64px;border-top:6px solid #06b6d4}
+.bb52 .left .small{font-size:13px;font-weight:700;color:#06b6d4;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
+.bb52 .left .head{font-size:52px;font-weight:900;color:#fff;line-height:1.1}
+.bb52 .left .head span{color:#06b6d4}
+.bb52 .left .sub{font-size:15px;color:#aaa;margin-top:8px}
+.bb52 .right{text-align:right}
+.bb52 .right .url{font-size:26px;font-weight:900;color:#F59E0B}
+.bb52 .right .icon{font-size:64px;margin-top:8px;display:block}
+
+.bb53{background:linear-gradient(135deg,#0a1a0a,#0F1923);display:flex;align-items:center;justify-content:space-between;padding:40px 64px;border-top:6px solid #22c55e}
+.bb53 .left .small{font-size:13px;font-weight:700;color:#22c55e;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
+.bb53 .left .head{font-size:52px;font-weight:900;color:#fff;line-height:1.1}
+.bb53 .left .head span{color:#22c55e}
+.bb53 .left .sub{font-size:15px;color:#aaa;margin-top:8px}
+.bb53 .right{text-align:right}
+.bb53 .right .url{font-size:26px;font-weight:900;color:#F59E0B}
+.bb53 .right .icon{font-size:64px;margin-top:8px;display:block}
+
+.bb54{background:linear-gradient(135deg,#1a0a00,#0F1923);display:flex;align-items:center;justify-content:space-between;padding:40px 64px;border-top:6px solid #F59E0B}
+.bb54 .left .small{font-size:13px;font-weight:700;color:#F59E0B;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
+.bb54 .left .head{font-size:52px;font-weight:900;color:#fff;line-height:1.1}
+.bb54 .left .head span{color:#F59E0B}
+.bb54 .left .sub{font-size:15px;color:#aaa;margin-top:8px}
+.bb54 .right{text-align:right}
+.bb54 .right .url{font-size:26px;font-weight:900;color:#F59E0B}
+.bb54 .right .icon{font-size:64px;margin-top:8px;display:block}
+
+.bb55{background:linear-gradient(135deg,#1a001a,#0F1923);display:flex;align-items:center;justify-content:space-between;padding:40px 64px;border-top:6px solid #C084FC}
+.bb55 .left .small{font-size:13px;font-weight:700;color:#C084FC;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
+.bb55 .left .head{font-size:52px;font-weight:900;color:#fff;line-height:1.1}
+.bb55 .left .head span{color:#C084FC}
+.bb55 .left .sub{font-size:15px;color:#aaa;margin-top:8px}
+.bb55 .right{text-align:right}
+.bb55 .right .url{font-size:26px;font-weight:900;color:#F59E0B}
+.bb55 .right .icon{font-size:64px;margin-top:8px;display:block}
+
+@media print{body{background:#fff;padding:0}.section-title{color:#333;background:#eee}.label{color:#333}}
+</style>
+</head>
+<body>
+
+<h1>🏠 Makao Hub — Marketing Materials</h1>
+<p class="subtitle">55 designs · 50 Social Media Posters · 5 Roadside Billboards · Screenshot or Print each design</p>
+
+<!-- ════════════════════════════════════════ -->
+<div class="section-title">📸 GROUP A — Instagram Square (1080×1080) · 15 Designs</div>
+<div class="grid">
+
+<!-- A1 Hero Launch -->
+<div><div class="label">A1 · Hero Launch Poster</div>
+<div class="sq a1">
+  <div class="house-icon">🏠</div>
+  <div class="tag">Kenya's Rental Platform</div>
+  <div class="big"><span>Makao</span> Hub</div>
+  <div class="desc">Find your perfect home across Kenya.<br>Nairobi · Mombasa · Kisumu · Nakuru & more.</div>
+  <div class="logo-row" style="justify-content:center;margin-bottom:8px">
+    <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="#fff"/></svg></div>
+  </div>
+  <div class="url">makaohub.co.ke</div>
+</div></div>
+
+<!-- A2 List Your Property -->
+<div><div class="label">A2 · Landlords — List Your Property</div>
+<div class="sq a2">
+  <div class="top-tag">📣 Attention Landlords</div>
+  <div>
+    <div class="main">List Your<br><span>Property</span><br>For Free</div>
+    <div style="font-size:16px;color:rgba(255,255,255,.8);line-height:1.5">Reach thousands of tenants actively searching in your area. Photos, videos & full details.</div>
+  </div>
+  <div class="cta-btn">Start Listing — Free →</div>
+  <div style="font-size:13px;color:rgba(255,255,255,.6);margin-top:12px">makaohub.co.ke</div>
+</div></div>
+
+<!-- A3 Affordable Rentals -->
+<div><div class="label">A3 · Affordable Rentals</div>
+<div class="sq a3">
+  <div class="accent"></div>
+  <div class="head">Affordable<br><span>Rentals</span><br>Near You</div>
+  <div style="font-size:15px;color:#555;line-height:1.5;margin-top:10px">From a cosy bedsitter to a spacious maisonette — Makao Hub has something for every budget.</div>
+  <div class="price-row">
+    <div class="price-box"><div class="type">Bedsitter</div><div class="amount">From KES 8,500</div></div>
+    <div class="price-box"><div class="type">1 Bedroom</div><div class="amount">From KES 16,500</div></div>
+    <div class="price-box"><div class="type">2 Bedrooms</div><div class="amount">From KES 35,000</div></div>
+  </div>
+  <div class="bottom" style="margin-top:20px">makaohub.co.ke</div>
+</div></div>
+
+<!-- A4 County Filter -->
+<div><div class="label">A4 · New Feature — Filter by County</div>
+<div class="sq a4">
+  <div class="feature-badge">✨ New Feature</div>
+  <div class="head">Search by<br><span>County</span></div>
+  <div style="font-size:16px;color:#aaa;line-height:1.5">Find homes exactly where you want to live — now filter listings by county across Kenya.</div>
+  <div class="counties">
+    <div class="county-pill">📍 Nairobi</div>
+    <div class="county-pill">📍 Mombasa</div>
+    <div class="county-pill">📍 Kisumu</div>
+    <div class="county-pill">📍 Nakuru</div>
+    <div class="county-pill">📍 Kiambu</div>
+    <div class="county-pill">📍 Eldoret</div>
+    <div class="county-pill">📍 Meru</div>
+    <div class="county-pill">📍 Nyeri</div>
+  </div>
+  <div style="font-size:13px;color:#F59E0B;font-weight:700;margin-top:20px">makaohub.co.ke</div>
+</div></div>
+
+<!-- A5 Video Tours -->
+<div><div class="label">A5 · Video Tours Feature</div>
+<div class="sq a5">
+  <div class="badge">🎥 Now Available</div>
+  <div class="head">Video<br>Tours<br>Are Here</div>
+  <div class="sub">Take a virtual walkthrough of a property before you ever step through the door. Save time. Find faster.</div>
+  <div class="stat">📊 Listings with video tours get 6× more enquiries</div>
+  <div style="font-size:13px;color:#F59E0B;font-weight:700;margin-top:16px">makaohub.co.ke</div>
+</div></div>
+
+<!-- A6 500+ Listings -->
+<div><div class="label">A6 · Social Proof</div>
+<div class="sq a6">
+  <div class="logo-row" style="justify-content:center;margin-bottom:32px">
+    <div class="logo-mark" style="width:48px;height:48px"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="#fff"/></svg></div>
+    <div class="logo-text"><span>Makao</span> Hub</div>
+  </div>
+  <div class="num">500+</div>
+  <div class="num-label">Active Listings</div>
+  <div class="desc">Houses, apartments, studios & more — updated daily across Kenya</div>
+  <div style="font-size:14px;color:rgba(255,255,255,.7);margin-top:16px">makaohub.co.ke</div>
+</div></div>
+
+<!-- A7 Testimonial -->
+<div><div class="label">A7 · Testimonial</div>
+<div class="sq a7">
+  <div style="margin-bottom:auto"></div>
+  <div class="stars">★★★★★</div>
+  <div class="quote">Found my dream apartment in Kilimani in just 3 days. The video tour saved me 2 site visits!</div>
+  <div class="author">— James K., Nairobi</div>
+  <div class="role">Software Engineer · Tenant since 2024</div>
+  <div style="margin-top:32px;display:flex;align-items:center;gap:8px">
+    <div class="logo-mark" style="width:32px;height:32px"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="#fff"/></svg></div>
+    <div style="font-size:13px;font-weight:800;color:#7C3AED">Makao Hub · makaohub.co.ke</div>
+  </div>
+</div></div>
+
+<!-- A8 No Agent Fees -->
+<div><div class="label">A8 · No Agent Fees</div>
+<div class="sq a8">
+  <div class="icon">🚫💸</div>
+  <div class="head">Zero<br>Agent<br>Fees</div>
+  <div class="sub">Connect directly with landlords. No middlemen. No hidden charges. Just your next home.</div>
+  <div class="cta">Find a Home Free →</div>
+  <div style="font-size:13px;color:#C084FC;font-weight:600;margin-top:16px">makaohub.co.ke</div>
+</div></div>
+
+<!-- A9 Property Types -->
+<div><div class="label">A9 · Property Types</div>
+<div class="sq a9">
+  <div class="head">Every<br><span>Type of Home</span><br>in One Place</div>
+  <div class="types">
+    <div class="type-card"><div class="ico">🛏️</div><div><div class="name">Bedsitter</div><div class="from">From KES 8,500</div></div></div>
+    <div class="type-card"><div class="ico">🏙️</div><div><div class="name">Studio</div><div class="from">From KES 22,000</div></div></div>
+    <div class="type-card"><div class="ico">🏠</div><div><div class="name">1 Bedroom</div><div class="from">From KES 16,500</div></div></div>
+    <div class="type-card"><div class="ico">🏢</div><div><div class="name">2 Bedrooms</div><div class="from">From KES 35,000</div></div></div>
+    <div class="type-card"><div class="ico">🏬</div><div><div class="name">3 Bedrooms+</div><div class="from">From KES 60,000</div></div></div>
+    <div class="type-card"><div class="ico">🏡</div><div><div class="name">Maisonette</div><div class="from">From KES 95,000</div></div></div>
+  </div>
+  <div style="font-size:13px;color:#C084FC;font-weight:700;margin-top:16px">makaohub.co.ke</div>
+</div></div>
+
+<!-- A10 Landlord 10K -->
+<div><div class="label">A10 · Landlord — Reach 10,000+ Tenants</div>
+<div class="sq a10">
+  <div>
+    <div class="head">Your Listing.<br>Their Home.</div>
+    <div style="font-size:16px;color:#0F1923;margin-top:8px;font-weight:600">Reach active house hunters in your area every single day.</div>
+  </div>
+  <div>
+    <div class="num">10,000+</div>
+    <div class="sub">tenants searching monthly on Makao Hub</div>
+  </div>
+  <div class="cta">List Free Today →</div>
+</div></div>
+
+<!-- A11 Android -->
+<div><div class="label">A11 · Android App — Install Guide</div>
+<div class="sq a11">
+  <div class="android-icon">📱</div>
+  <div class="head"><span>Makao Hub</span><br>Now on Android</div>
+  <div style="font-size:14px;color:#aaa;margin-top:8px">Install in seconds. No app store needed.</div>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><div class="text">Open Chrome on your Android phone</div></div>
+    <div class="step"><div class="num">2</div><div class="text">Visit makaohub.co.ke</div></div>
+    <div class="step"><div class="num">3</div><div class="text">Tap ⋮ → "Add to Home screen"</div></div>
+    <div class="step"><div class="num">4</div><div class="text">Tap Install — done! Works offline too ✓</div></div>
+  </div>
+</div></div>
+
+<!-- A12 New Year -->
+<div><div class="label">A12 · New Year, New Home</div>
+<div class="sq a12">
+  <div class="year">2025</div>
+  <div class="head">New Year,<br><span>New Home</span></div>
+  <div class="sub">Start 2025 in the home you deserve.<br>Browse fresh listings on Makao Hub today.</div>
+  <div style="font-size:64px;margin:20px 0;position:relative;z-index:1">🏠✨</div>
+  <div style="font-size:15px;color:#F59E0B;font-weight:800;position:relative;z-index:1">makaohub.co.ke</div>
+</div></div>
+
+<!-- A13 Verified Listings -->
+<div><div class="label">A13 · Verified Listings Only</div>
+<div class="sq a13">
+  <div class="shield">🛡️</div>
+  <div class="head">100%<br><span>Verified</span><br>Listings</div>
+  <div class="sub">Every property on Makao Hub is reviewed before going live. No fake listings. No scams. Just real homes.</div>
+  <div class="badges">
+    <div class="badge">✓ Verified</div>
+    <div class="badge">✓ Safe</div>
+    <div class="badge">✓ Real Photos</div>
+    <div class="badge">✓ Direct Contact</div>
+  </div>
+  <div style="font-size:13px;color:#7C3AED;font-weight:800;margin-top:16px">makaohub.co.ke</div>
+</div></div>
+
+<!-- A14 3-Step Process -->
+<div><div class="label">A14 · Search. Find. Move In.</div>
+<div class="sq a14">
+  <div class="head">Search.<br>Find.<br>Move In.</div>
+  <div class="steps-row">
+    <div class="step-item">
+      <div class="step-num">🔍</div>
+      <div class="step-label">Search</div>
+      <div class="step-sub">By county, type & budget</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">🏠</div>
+      <div class="step-label">Find</div>
+      <div class="step-sub">Watch video tours</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">🎉</div>
+      <div class="step-label">Move In</div>
+      <div class="step-sub">Contact landlord directly</div>
+    </div>
+  </div>
+  <div style="font-size:14px;color:rgba(255,255,255,.7);margin-top:20px">makaohub.co.ke</div>
+</div></div>
+
+<!-- A15 Cities -->
+<div><div class="label">A15 · Serving All Major Cities</div>
+<div class="sq a15">
+  <div class="head">We're <span>Everywhere</span><br>You Are</div>
+  <div class="sub">Makao Hub serves all major Kenyan towns and counties</div>
+  <div class="city-list">
+    <div class="city"><div class="city-name">📍 Nairobi</div><div class="city-count">200+ listings</div></div>
+    <div class="city"><div class="city-name">📍 Mombasa</div><div class="city-count">80+ listings</div></div>
+    <div class="city"><div class="city-name">📍 Kisumu</div><div class="city-count">60+ listings</div></div>
+    <div class="city"><div class="city-name">📍 Nakuru</div><div class="city-count">50+ listings</div></div>
+    <div class="city"><div class="city-name">📍 Eldoret</div><div class="city-count">40+ listings</div></div>
+  </div>
+  <div style="font-size:13px;color:#C084FC;font-weight:700;margin-top:16px">makaohub.co.ke</div>
+</div></div>
+
+</div><!-- /grid -->
+
+<!-- ════════════════════════════════════════ -->
+<div class="section-title">📱 GROUP B — Instagram/Facebook Story (9:16) · 10 Designs</div>
+<div class="grid">
+
+<!-- B16 -->
+<div><div class="label">B16 · Launch Story — Swipe Up</div>
+<div class="st b16">
+  <div class="top">🏠 Now Live in Kenya</div>
+  <div>
+    <div class="big"><span>Makao</span> Hub</div>
+    <div class="sub">Kenya's newest rental platform. Find verified homes near you — instantly.</div>
+  </div>
+  <div class="btn">Find Your Home →</div>
+  <div style="font-size:12px;color:rgba(255,255,255,.6)">makaohub.co.ke</div>
+</div></div>
+
+<!-- B17 -->
+<div><div class="label">B17 · Find a House in 5 Minutes</div>
+<div class="st b17">
+  <div class="head">Find a House<br>in Under<br><span>5 Minutes</span></div>
+  <div>
+    <div class="step"><div class="n">1</div><div class="t">Open Makao Hub on your phone</div></div>
+    <div class="step"><div class="n">2</div><div class="t">Select your county & budget</div></div>
+    <div class="step"><div class="n">3</div><div class="t">Browse listings with video tours</div></div>
+    <div class="step"><div class="n">4</div><div class="t">Call the landlord directly</div></div>
+    <div class="step"><div class="n">5</div><div class="t">Move into your new home 🎉</div></div>
+  </div>
+  <div class="url">makaohub.co.ke</div>
+</div></div>
+
+<!-- B18 -->
+<div><div class="label">B18 · Morning Motivation</div>
+<div class="st b18">
+  <div class="emoji">🌅</div>
+  <div class="head">Your Dream<br><span>Home</span> is<br>One Tap Away</div>
+  <div class="sub">Stop scrolling WhatsApp groups.<br>Start browsing real, verified listings on Makao Hub — right now.</div>
+  <div style="margin-top:24px;font-size:14px;color:#F59E0B;font-weight:800">makaohub.co.ke</div>
+</div></div>
+
+<!-- B19 -->
+<div><div class="label">B19 · Landlord Story</div>
+<div class="st b19">
+  <div class="top">📣 For Landlords</div>
+  <div class="head">List FREE<br>Today</div>
+  <div class="perks">
+    <div class="perk">✅ Free to list</div>
+    <div class="perk">✅ Add photos & video</div>
+    <div class="perk">✅ Reach 10,000+ tenants</div>
+    <div class="perk">✅ Direct contact — no agent</div>
+    <div class="perk">✅ Listing live in minutes</div>
+  </div>
+  <div class="btn">Start Now →</div>
+  <div style="font-size:12px;color:#0F1923;font-weight:700">makaohub.co.ke</div>
+</div></div>
+
+<!-- B20 -->
+<div><div class="label">B20 · County Picker Feature</div>
+<div class="st b20">
+  <div class="map-pin">🗺️</div>
+  <div class="head"><span>Filter</span> by<br>County</div>
+  <div style="font-size:13px;color:#aaa;margin-bottom:16px">Now find homes in exactly the county you want to live in.</div>
+  <div class="county">📍 Nairobi County</div>
+  <div class="county">📍 Mombasa County</div>
+  <div class="county">📍 Kisumu County</div>
+  <div class="county">📍 Kiambu County</div>
+  <div class="county">📍 + 10 more counties</div>
+  <div class="cta">Try it now →</div>
+</div></div>
+
+<!-- B21 -->
+<div><div class="label">B21 · Makao Hub vs The Rest</div>
+<div class="st b21">
+  <div class="head">Why Choose<br>Makao Hub?</div>
+  <div class="row">
+    <div class="col-h">Feature</div>
+    <div class="col-makao">Makao Hub</div>
+    <div class="col-others">Others</div>
+  </div>
+  <div class="feat"><div class="fname">Free Listing</div><div class="yes">✅</div><div class="no">❌</div></div>
+  <div class="feat"><div class="fname">Video Tours</div><div class="yes">✅</div><div class="no">❌</div></div>
+  <div class="feat"><div class="fname">County Filter</div><div class="yes">✅</div><div class="no">❌</div></div>
+  <div class="feat"><div class="fname">Android App</div><div class="yes">✅</div><div class="no">❌</div></div>
+  <div class="feat"><div class="fname">No Agent Fee</div><div class="yes">✅</div><div class="no">❌</div></div>
+  <div class="feat"><div class="fname">Direct Contact</div><div class="yes">✅</div><div class="no">⚠️</div></div>
+  <div style="margin-top:16px;font-size:12px;color:#7C3AED;font-weight:800">makaohub.co.ke</div>
+</div></div>
+
+<!-- B22 -->
+<div><div class="label">B22 · Before & After</div>
+<div class="st b22">
+  <div style="font-size:28px;font-weight:900;color:#fff;margin-bottom:20px">House Hunting<br>Has Changed</div>
+  <div class="before">
+    <div class="lbl">😩 Before Makao Hub</div>
+    <div class="text">"Walking estate to estate, calling agents, paying viewing fees, getting scammed..."</div>
+  </div>
+  <div class="arrow">⬇️</div>
+  <div class="after">
+    <div class="lbl">😊 With Makao Hub</div>
+    <div class="text">"Browsed 20 listings, watched video tours, called landlord directly. Moved in same week."</div>
+  </div>
+  <div style="font-size:12px;color:#F59E0B;font-weight:800;margin-top:16px">makaohub.co.ke</div>
+</div></div>
+
+<!-- B23 -->
+<div><div class="label">B23 · 100s of Kenyans Found Homes</div>
+<div class="st b23">
+  <div class="num">1,000</div>
+  <div class="unit">Kenyans</div>
+  <div class="desc">found their homes through Makao Hub this year alone — and counting 📈</div>
+  <div class="month">🔥 100+ new tenants every month</div>
+  <div style="margin-top:20px;font-size:13px;color:#aaa">Be the next one →</div>
+  <div style="font-size:13px;color:#7C3AED;font-weight:800;margin-top:8px">makaohub.co.ke</div>
+</div></div>
+
+<!-- B24 -->
+<div><div class="label">B24 · Video Tour Story</div>
+<div class="st b24">
+  <div class="play">▶️</div>
+  <div class="head">Take a Virtual<br>Tour Before<br>You Visit</div>
+  <div class="sub">Watch real video walkthroughs of properties before committing to a site visit. Save petrol. Save time.</div>
+  <div class="stat">🎥 Video tours now available on all premium listings</div>
+  <div style="font-size:12px;color:#F59E0B;font-weight:800;margin-top:8px">makaohub.co.ke</div>
+</div></div>
+
+<!-- B25 -->
+<div><div class="label">B25 · Download — Android & iOS</div>
+<div class="st b25">
+  <div class="icon">📲</div>
+  <div class="head">Makao Hub<br>in Your Pocket</div>
+  <div class="sub">Works on Android and iOS. Install directly from your browser — no app store required. Offline too!</div>
+  <div class="platforms">
+    <div class="plat">🤖 Android</div>
+    <div class="plat">🍎 iOS</div>
+  </div>
+  <div style="font-size:13px;color:rgba(255,255,255,.7);margin-top:12px">Visit makaohub.co.ke in Chrome → Add to Home Screen</div>
+</div></div>
+
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<div class="section-title">🖥️ GROUP C — Facebook/Twitter Banner (16:9) · 10 Designs</div>
+<div class="grid">
+
+<!-- C26 -->
+<div><div class="label">C26 · Brand Banner</div>
+<div class="bn c26">
+  <div class="left">
+    <div class="logo-row" style="margin-bottom:12px">
+      <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="#fff"/></svg></div>
+      <div class="logo-text"><span>Makao</span> Hub</div>
+    </div>
+    <div class="head"><span>Find Your</span><br>Next Home</div>
+    <div class="sub">Kenya's premier property rental platform</div>
+  </div>
+  <div class="right">
+    <div class="url">makaohub.co.ke</div>
+    <div class="tagline">Search · Find · Move In</div>
+    <div style="font-size:48px;margin-top:12px">🏠</div>
+  </div>
+</div></div>
+
+<!-- C27 -->
+<div><div class="label">C27 · #1 Rental Platform</div>
+<div class="bn c27">
+  <div>
+    <div class="head">Kenya's #1<br>Rental Platform</div>
+    <div class="sub">500+ verified listings · No agent fees · Find your home today at makaohub.co.ke</div>
+  </div>
+</div></div>
+
+<!-- C28 -->
+<div><div class="label">C28 · County Filter Banner</div>
+<div class="bn c28">
+  <div class="pin">📍</div>
+  <div class="right">
+    <div class="head">New: Filter<br>Listings by<br><span>County</span></div>
+    <div class="sub">Find homes in exactly the county you want across all of Kenya</div>
+    <div class="tags">
+      <div class="tag">Nairobi</div><div class="tag">Mombasa</div><div class="tag">Kisumu</div>
+      <div class="tag">Nakuru</div><div class="tag">Kiambu</div><div class="tag">Eldoret</div>
+    </div>
+  </div>
+</div></div>
+
+<!-- C29 -->
+<div><div class="label">C29 · Landlord Recruitment Banner</div>
+<div class="bn c29">
+  <div class="left">
+    <div class="head">List Your<br>Property Free<br>on Makao Hub</div>
+    <div class="perks">
+      <div class="perk">✅ Free listing</div>
+      <div class="perk">✅ Reach 10,000+ tenants</div>
+      <div class="perk">✅ Photos + Video support</div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="cta">List Now<br>For Free →</div>
+    <div class="url">makaohub.co.ke</div>
+  </div>
+</div></div>
+
+<!-- C30 -->
+<div><div class="label">C30 · New Listings Daily</div>
+<div class="bn c30">
+  <div class="left">
+    <div class="head">New <span>Listings</span><br>Added Daily</div>
+    <div class="sub">Fresh properties posted every day across Kenya. Never miss your perfect home.</div>
+  </div>
+  <div class="right">
+    <div class="num">500+</div>
+    <div class="label" style="font-size:15px;color:#aaa">active listings</div>
+  </div>
+</div></div>
+
+<!-- C31 -->
+<div><div class="label">C31 · Mombasa Coastal Rentals</div>
+<div class="bn c31">
+  <div class="left">
+    <div class="tag">🌊 Mombasa County</div>
+    <div class="head">Coastal Living.<br>Find Your<br>Mombasa Home</div>
+    <div class="sub">Beachfront to city centre — discover Mombasa rentals on Makao Hub</div>
+  </div>
+  <div class="right"><div class="icon">🌴</div></div>
+</div></div>
+
+<!-- C32 -->
+<div><div class="label">C32 · Nairobi City Apartments</div>
+<div class="bn c32">
+  <div class="left">
+    <div class="tag">🏙️ Nairobi County</div>
+    <div class="head">Nairobi<br>Apartments &<br>Houses</div>
+    <div class="sub">Kilimani · Westlands · Karen · South B and more — search Nairobi on Makao Hub</div>
+  </div>
+  <div class="right"><div class="icon">🌆</div></div>
+</div></div>
+
+<!-- C33 -->
+<div><div class="label">C33 · Student Housing</div>
+<div class="bn c33">
+  <div class="left">
+    <div class="tag">🎓 Student Housing</div>
+    <div class="head">University Area<br>Rentals From<br>KES 8,500/mo</div>
+    <div class="sub">Near UoN, JKUAT, KU, Strathmore & more</div>
+  </div>
+  <div class="right">
+    <div class="area">📍 Ruiru</div>
+    <div class="area">📍 Kahawa</div>
+    <div class="area">📍 Rongai</div>
+    <div class="area">📍 Thika Rd</div>
+  </div>
+</div></div>
+
+<!-- C34 -->
+<div><div class="label">C34 · Seasonal — Before the Rains</div>
+<div class="bn c34">
+  <div class="left">
+    <div class="head">Find Your Home<br>Before the<br><span>Rains Hit</span></div>
+    <div class="sub">Don't wait until listings are gone. Browse now on Makao Hub and secure your next home today.</div>
+  </div>
+  <div class="right"><div class="icon">🌧️🏠</div></div>
+</div></div>
+
+<!-- C35 -->
+<div><div class="label">C35 · End of Year</div>
+<div class="bn c35">
+  <div class="left">
+    <div class="head">Start Fresh.<br>Find Your Next<br>Home Today.</div>
+    <div class="sub">New year, new home. Browse 500+ verified listings at makaohub.co.ke</div>
+  </div>
+  <div class="right"><div class="cta">Browse Now →</div></div>
+</div></div>
+
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<div class="section-title">💬 GROUP D — WhatsApp Status · 10 Designs</div>
+<div class="grid">
+
+<!-- D36 -->
+<div><div class="label">D36 · Renting Tip</div>
+<div class="st d36">
+  <div class="head">💡 House Hunting Tip</div>
+  <div class="tip">Always ask for a receipt when paying any deposit. A receipt protects you legally if a dispute arises later.</div>
+  <div class="tip">Visit the property twice — once during the day and once at night. Neighbourhood changes!</div>
+  <div class="tip">Check water pressure, phone signal & security before signing any agreement.</div>
+  <div class="url">More tips at makaohub.co.ke</div>
+</div></div>
+
+<!-- D37 -->
+<div><div class="label">D37 · Ruaka 1BR Spotlight</div>
+<div class="st d37">
+  <div class="tag">🏠 Available Now</div>
+  <div class="area">Ruaka</div>
+  <div class="type">1 Bedroom Apartment · Kiambu County</div>
+  <div class="price">KES 18,000</div>
+  <div class="per">per month</div>
+  <div class="feats">
+    <div class="feat">Balcony</div>
+    <div class="feat">Parking</div>
+    <div class="feat">Fibre-Ready</div>
+    <div class="feat">2nd Floor</div>
+    <div class="feat">Near Two Rivers</div>
+  </div>
+  <div style="font-size:12px;color:#F59E0B;font-weight:800;margin-top:auto;padding-top:20px">View listing → makaohub.co.ke</div>
+</div></div>
+
+<!-- D38 -->
+<div><div class="label">D38 · Karen 3BR Luxury</div>
+<div class="st d38">
+  <div class="tag">⭐ Luxury Listing</div>
+  <div class="area">Karen</div>
+  <div class="type">3BR Maisonette with DSQ · Nairobi</div>
+  <div class="price">KES 95,000</div>
+  <div class="per">per month</div>
+  <div class="feats">
+    <div class="feat">DSQ</div>
+    <div class="feat">Garden</div>
+    <div class="feat">Parking ×2</div>
+    <div class="feat">Generator</div>
+    <div class="feat">Borehole</div>
+    <div class="feat">CCTV</div>
+  </div>
+  <div class="url">View on makaohub.co.ke</div>
+</div></div>
+
+<!-- D39 -->
+<div><div class="label">D39 · Westlands Studio</div>
+<div class="st d39">
+  <div class="tag">🏙️ Young Professionals</div>
+  <div class="area">Westlands</div>
+  <div class="type">Studio Apartment · 7th Floor · Nairobi</div>
+  <div class="price">KES 28,000</div>
+  <div class="per">per month</div>
+  <div class="desc">City views. Walking distance to Sarit Centre. Gym, elevator & fibre included. Perfect for professionals.</div>
+  <div class="url">makaohub.co.ke</div>
+</div></div>
+
+<!-- D40 -->
+<div><div class="label">D40 · Video Tours Stat</div>
+<div class="st d40">
+  <div class="icon">🎥</div>
+  <div class="head">Did You Know?</div>
+  <div class="stat">6×</div>
+  <div class="sub">Listings with video tours get 6 times more enquiries than those without.</div>
+  <div style="margin-top:20px;font-size:13px;color:#F59E0B;font-weight:800">Add a video tour → makaohub.co.ke</div>
+</div></div>
+
+<!-- D41 -->
+<div><div class="label">D41 · Relatable Landlord Joke</div>
+<div class="st d41">
+  <div class="head">"Water is available 24 hours"</div>
+  <div class="emoji">👀💧</div>
+  <div class="sub">We've all heard that before.<br><br>On Makao Hub, tenants leave honest reviews so you know exactly what you're getting into. Real listings. Real info.</div>
+  <div class="cta">Check listings → makaohub.co.ke</div>
+</div></div>
+
+<!-- D42 -->
+<div><div class="label">D42 · Renting Safety Tips</div>
+<div class="st d42">
+  <div class="icon">🔐</div>
+  <div class="head">Before You Pay<br>Any Deposit</div>
+  <div class="tips">
+    <div class="tip"><div class="ico">✅</div>Visit the property in person at least once</div>
+    <div class="tip"><div class="ico">✅</div>Confirm the landlord owns the property</div>
+    <div class="tip"><div class="ico">✅</div>Get a signed tenancy agreement</div>
+    <div class="tip"><div class="ico">✅</div>Pay via Mpesa — keep the receipt</div>
+    <div class="tip"><div class="ico">✅</div>Check water, electricity & security</div>
+  </div>
+  <div class="url">makaohub.co.ke</div>
+</div></div>
+
+<!-- D43 -->
+<div><div class="label">D43 · Send to Someone House-Hunting</div>
+<div class="st d43">
+  <div class="icon">🏠</div>
+  <div class="head">Send This to Someone House-Hunting!</div>
+  <div class="sub">Makao Hub has 500+ verified listings across Kenya. Bedsitters, 1BR, 2BR, Maisonettes & more.<br><br>No agent fees. No scams. Direct contact with landlords.</div>
+  <div class="forward">
+    <div style="font-size:20px">➡️</div>
+    <div class="forward-text">Forward this status!</div>
+  </div>
+  <div style="font-size:12px;color:#F59E0B;font-weight:800;margin-top:12px">makaohub.co.ke</div>
+</div></div>
+
+<!-- D44 -->
+<div><div class="label">D44 · Agent/Partner CTA</div>
+<div class="st d44">
+  <div class="icon">🤝</div>
+  <div class="head">Are You a Property Agent or Developer?</div>
+  <div class="perks">
+    <div class="perk">📣 List unlimited properties</div>
+    <div class="perk">📊 Track views & enquiries</div>
+    <div class="perk">💼 Professional agent profile</div>
+    <div class="perk">🎯 Targeted to your county</div>
+  </div>
+  <div class="cta">Partner with Makao Hub →</div>
+  <div style="font-size:12px;color:#0F1923;font-weight:700;margin-top:8px">makaohub.co.ke</div>
+</div></div>
+
+<!-- D45 -->
+<div><div class="label">D45 · Thank You — 1,000 Users</div>
+<div class="st d45">
+  <div class="icon">🎉</div>
+  <div class="head">Thank You!</div>
+  <div class="num">1,000</div>
+  <div class="users">Makao Hub Users</div>
+  <div class="sub">One thousand Kenyans have found their homes through Makao Hub. We're just getting started. 🏠🇰🇪</div>
+  <div style="font-size:12px;color:rgba(255,255,255,.7);margin-top:12px">makaohub.co.ke</div>
+</div></div>
+
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<div class="section-title">🐦 GROUP E — Twitter/X Post Square · 5 Designs</div>
+<div class="grid">
+
+<!-- E46 -->
+<div><div class="label">E46 · Launch Tweet Card</div>
+<div class="tw e46">
+  <div class="rocket">🚀</div>
+  <div>
+    <div class="head"><span>Makao Hub</span><br>is Live!</div>
+    <div class="sub">Kenya's new rental platform is here. Find verified homes across Kenya — no agent fees, no scams. Just real homes.</div>
+    <div class="hashtag">#MakaoHub #NairobiHomes #KenyaRentals</div>
+  </div>
+</div></div>
+
+<!-- E47 -->
+<div><div class="label">E47 · Thread Starter</div>
+<div class="tw e47">
+  <div class="num">🧵</div>
+  <div class="head">5 Things to Check Before Renting in Nairobi</div>
+  <div class="items">
+    <div class="item"><div class="ico">1️⃣</div>Water availability (not "available" — test it)</div>
+    <div class="item"><div class="ico">2️⃣</div>Security — guard, lighting, neighbourhood at night</div>
+    <div class="item"><div class="ico">3️⃣</div>Electricity — pre-paid or postpaid? Any arrears?</div>
+    <div class="item"><div class="ico">4️⃣</div>Parking — is it allocated or first-come-first-served?</div>
+    <div class="item"><div class="ico">5️⃣</div>Lease terms — get everything in writing</div>
+  </div>
+</div></div>
+
+<!-- E48 -->
+<div><div class="label">E48 · Engagement Poll</div>
+<div class="tw e48">
+  <div class="icon">🏠</div>
+  <div class="head">What's your budget for a 1BR in Nairobi?</div>
+  <div class="options">
+    <div class="option">A · Under KES 15,000</div>
+    <div class="option">B · KES 15,000 – 25,000</div>
+    <div class="option">C · KES 25,000 – 40,000</div>
+    <div class="option">D · Above KES 40,000</div>
+  </div>
+</div></div>
+
+<!-- E49 -->
+<div><div class="label">E49 · County Filter Feature Drop</div>
+<div class="tw e49">
+  <div class="badge">✨ Feature Update</div>
+  <div class="head">New: Filter by<br><span>County</span> is Here</div>
+  <div class="sub">You can now filter Makao Hub listings by county — Nairobi, Mombasa, Kisumu, Nakuru & more. Find exactly where you want to live.</div>
+  <div class="icons">📍🗺️🏠</div>
+</div></div>
+
+<!-- E50 -->
+<div><div class="label">E50 · Retweet Prompt</div>
+<div class="tw e50">
+  <div class="icon">😤</div>
+  <div class="head">RT if you're tired of paying agent fees just to view a house</div>
+  <div class="sub">On Makao Hub, you contact landlords directly. Zero agent fees. Zero nonsense. Just your next home. 🏠</div>
+  <div class="rt">🔁 Retweet to help a friend</div>
+</div></div>
+
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<div class="section-title">🛣️ ROADSIDE BILLBOARDS — 5 Designs (Major Kenyan Towns)</div>
+<div style="font-size:13px;color:#aaa;margin-bottom:20px">Production size: 12m × 4m (landscape). Print at 300 DPI for mounting.</div>
+<div class="grid" style="flex-direction:column">
+
+<!-- BB51 Nairobi -->
+<div><div class="label">BILLBOARD 1 · Nairobi — Uhuru Highway</div>
+<div class="bb bb51">
+  <div class="left">
+    <div class="small">🏙️ Nairobi · Uhuru Highway</div>
+    <div class="head">Find Your<br><span>Nairobi</span> Home</div>
+    <div class="sub">500+ verified apartments, bedsitters & houses across Nairobi</div>
+  </div>
+  <div class="right">
+    <div style="font-size:13px;color:#aaa;margin-bottom:8px">Kenya's Rental Platform</div>
+    <div class="url">makaohub.co.ke</div>
+    <div class="qr">📱 Scan to<br>browse<br>listings</div>
+  </div>
+</div></div>
+
+<!-- BB52 Mombasa -->
+<div><div class="label">BILLBOARD 2 · Mombasa — Moi Avenue</div>
+<div class="bb bb52">
+  <div class="left">
+    <div class="small">🌊 Mombasa County · Moi Avenue</div>
+    <div class="head">Coastal<br><span>Living</span><br>Made Easy</div>
+    <div class="sub">Find verified rental homes across Mombasa — from the city centre to the coast</div>
+  </div>
+  <div class="right">
+    <div style="font-size:13px;color:#aaa;margin-bottom:8px">makaohub.co.ke</div>
+    <div class="url">Browse Now →</div>
+    <span class="icon">🌴</span>
+  </div>
+</div></div>
+
+<!-- BB53 Kisumu -->
+<div><div class="label">BILLBOARD 3 · Kisumu — Oginga Odinga Street</div>
+<div class="bb bb53">
+  <div class="left">
+    <div class="small">🐟 Kisumu County · Oginga Odinga Street</div>
+    <div class="head">Lake City's<br>#1 Rental<br><span>Platform</span></div>
+    <div class="sub">Find bedsitters, apartments & houses in Kisumu on Makao Hub</div>
+  </div>
+  <div class="right">
+    <div style="font-size:13px;color:#aaa;margin-bottom:8px">makaohub.co.ke</div>
+    <div class="url">Browse Listings →</div>
+    <span class="icon">🏡</span>
+  </div>
+</div></div>
+
+<!-- BB54 Nakuru -->
+<div><div class="label">BILLBOARD 4 · Nakuru — Kenyatta Avenue</div>
+<div class="bb bb54">
+  <div class="left">
+    <div class="small">🦩 Nakuru County · Kenyatta Avenue</div>
+    <div class="head">Nakuru<br>Rentals<br><span>Made Easy</span></div>
+    <div class="sub">Apartments, bedsitters & maisonettes in Nakuru — verified and ready to move in</div>
+  </div>
+  <div class="right">
+    <div style="font-size:13px;color:#aaa;margin-bottom:8px">makaohub.co.ke</div>
+    <div class="url">Find Your Home →</div>
+    <span class="icon">🏘️</span>
+  </div>
+</div></div>
+
+<!-- BB55 Eldoret -->
+<div><div class="label">BILLBOARD 5 · Eldoret — Uganda Road</div>
+<div class="bb bb55">
+  <div class="left">
+    <div class="small">🏃 Uasin Gishu County · Uganda Road</div>
+    <div class="head">Eldoret<br>Homes on<br><span>Makao Hub</span></div>
+    <div class="sub">Find your next rental in Eldoret — all budgets, all sizes, directly from landlords</div>
+  </div>
+  <div class="right">
+    <div style="font-size:13px;color:#aaa;margin-bottom:8px">makaohub.co.ke</div>
+    <div class="url">List or Browse →</div>
+    <span class="icon">🏠</span>
+  </div>
+</div></div>
+
+</div><!-- /billboard grid -->
+
+<div style="text-align:center;margin:60px 0 32px;padding:32px;background:#1a1a2e;border-radius:12px;border:1px solid #7C3AED">
+  <div style="font-size:24px;font-weight:900;color:#7C3AED;margin-bottom:8px">🏠 Makao Hub</div>
+  <div style="font-size:16px;color:#aaa;margin-bottom:8px">Kenya's Premier Property Rental Platform</div>
+  <div style="font-size:20px;font-weight:800;color:#F59E0B">makaohub.co.ke</div>
+  <div style="font-size:13px;color:#555;margin-top:16px">Screenshot each design individually · Print this page for physical review · All 55 designs above</div>
+</div>
+
+</body>
+</html>
