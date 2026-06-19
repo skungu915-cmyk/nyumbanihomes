@@ -35,7 +35,7 @@ const TENANTS = [
   {initials:"MA",color:"#DC2626",bg:"#FEE2E2",name:"Mary Atieno",unit:"Unit 4, South B",phone:"+254 711 999 000",since:"Nov 2024",rent:10000,status:"overdue",lease:"31 Oct 2025"},
   {initials:"JK",color:"#0369A1",bg:"#E0F2FE",name:"James Kamau",unit:"Unit 7, Karen",phone:"+254 723 112 334",since:"Feb 2025",rent:95000,status:"paid",lease:"31 Jan 2026"},
   {initials:"SW",color:"#D97706",bg:"#FEF3C7",name:"Salome Wanjiru",unit:"Unit 9, Westlands",phone:"+254 700 445 667",since:"Apr 2024",rent:28000,status:"paid",lease:"30 Apr 2026"},
-  {initials:"DM",color:"#1B4332",bg:"#D8F3DC",name:"David Mutua",unit:"Unit 11, Runda",phone:"+254 733 889 000",since:"Sep 2024",rent:180000,status:"paid",lease:"31 Aug 2026"},
+  {initials:"DM",color:"#4F1D96",bg:"#F3F0FF",name:"David Mutua",unit:"Unit 11, Runda",phone:"+254 733 889 000",since:"Sep 2024",rent:180000,status:"paid",lease:"31 Aug 2026"},
 ];
 
 const MAINTENANCE = [
@@ -316,7 +316,7 @@ function updateActiveFilters(loc, type, budget, amenity, county) {
   if(amenity) tags.push({label: amenity, clear: ()=>{document.getElementById('filterAmenity').value='';activeAmenityFilter='';applyFilters();}});
   if(county) tags.push({label: '🗺️ ' + county, clear: ()=>{document.getElementById('filterCounty').value='';applyFilters();}});
   container.innerHTML = tags.map((t,i) => `
-    <div style="display:inline-flex;align-items:center;gap:6px;background:#EDE9FE;color:#6D28D9;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer" onclick="clearFilterTag(${i})">
+    <div style="display:inline-flex;align-items:center;gap:6px;background:#F3F0FF;color:#7C3AED;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer" onclick="clearFilterTag(${i})">
       ${t.label} <span style="font-size:16px;line-height:1">×</span>
     </div>
   `).join('');
