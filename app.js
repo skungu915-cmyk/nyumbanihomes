@@ -998,3 +998,9 @@ renderEstates();
 filteredData = LISTINGS;
 updateSavedCount();
 document.getElementById('heroListingCount').textContent = LISTINGS.length + '+';
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
