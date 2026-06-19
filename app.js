@@ -793,6 +793,7 @@ function updateRegProgress() {
   const fields = [
     document.getElementById('regTitle'),
     document.getElementById('regType'),
+    document.getElementById('regCounty'),
     document.getElementById('regArea'),
     document.getElementById('regAddress'),
     document.getElementById('regRent'),
@@ -865,11 +866,50 @@ function handleVideoUpload(input) {
   if (valid.length) showToast('🎥 ' + valid.length + ' video' + (valid.length>1?'s':'') + ' added');
 }
 
+const COUNTY_AREAS = {
+  'Nairobi': ['Kilimani','Kileleshwa','Westlands','Karen','Lang\'ata','South B','South C','Eastleigh','Roysambu','Kasarani','Embakasi','Ngong Road','Lavington','Spring Valley','Runda','Muthaiga','Parklands','Gigiri','Ridgeways','Loresho'],
+  'Kiambu': ['Ruaka','Thika Road','Kiambu Town','Githunguri','Limuru','Kikuyu','Banana','Karura','Juja','Gatundu'],
+  'Machakos': ['Machakos Town','Athi River','Mlolongo','Syokimau','Mavoko','Kangundo','Tala'],
+  'Kajiado': ['Rongai','Ngong','Kiserian','Kitengela','Isinya','Namanga','Kajiado Town'],
+  'Nakuru': ['Nakuru Town','Naivasha','Gilgil','Molo','Njoro','Subukia'],
+  'Mombasa': ['Nyali','Bamburi','Shanzu','Likoni','Changamwe','Mikindani','Old Town'],
+  'Kisumu': ['Kisumu CBD','Milimani','Mamboleo','Nyalenda','Kondele','Kibos'],
+  'Uasin Gishu': ['Eldoret','Kapsabet','Burnt Forest','Turbo'],
+  'Meru': ['Meru Town','Nkubu','Timau','Maua'],
+  'Nyeri': ['Nyeri Town','Karatina','Othaya','Mukurweini'],
+  'Kirinyaga': ['Kerugoya','Kutus','Sagana','Wanguru'],
+  'Murang\'a': ['Murang\'a Town','Maragua','Kangema','Kenol'],
+  'Nyandarua': ['Ol Kalou','Engineer','Nyahururu'],
+  'Laikipia': ['Nanyuki','Rumuruti','Nyahururu'],
+};
+
+function updateAreasByCounty() {
+  const county = document.getElementById('regCounty').value;
+  const areaSelect = document.getElementById('regArea');
+  const areas = COUNTY_AREAS[county] || [];
+  areaSelect.innerHTML = '<option value="">Select area</option>';
+  if (areas.length) {
+    areas.forEach(a => {
+      const opt = document.createElement('option');
+      opt.value = a; opt.textContent = a;
+      areaSelect.appendChild(opt);
+    });
+  } else {
+    // fallback: show all areas
+    ['Kilimani','Kileleshwa','Westlands','Karen','Lang\'ata','South B','South C','Eastleigh','Roysambu','Ruaka','Kasarani','Embakasi','Ngong Road','Lavington','Spring Valley','Runda','Muthaiga','Parklands','Gigiri','Ridgeways','Loresho','Rongai','Athi River','Thika Road'].forEach(a => {
+      const opt = document.createElement('option');
+      opt.value = a; opt.textContent = a;
+      areaSelect.appendChild(opt);
+    });
+  }
+}
+
 function submitListing() {
   let valid = true;
   const checks = [
     {id:'regTitle',err:'regTitleErr'},
     {id:'regType',err:'regTypeErr',notVal:''},
+    {id:'regCounty',err:'regCountyErr',notVal:''},
     {id:'regArea',err:'regAreaErr',notVal:''},
     {id:'regAddress',err:'regAddressErr'},
     {id:'regName',err:'regNameErr'},
