@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Makao Hub — Marketing Materials</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:#111;color:#fff;padding:24px}
@@ -469,6 +470,11 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
 .bb55 .right .icon{font-size:64px;margin-top:8px;display:block}
 
 @media print{body{background:#fff;padding:0}.section-title{color:#333;background:#eee}.label{color:#333}}
+.card-wrap{display:flex;flex-direction:column;gap:8px}
+.dl-btn{background:#7C3AED;color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .2s;display:flex;align-items:center;gap:8px;width:100%}
+.dl-btn:hover{background:#6D28D9}
+.dl-btn.loading{background:#555;cursor:not-allowed}
+.dl-btn .ico{font-size:16px}
 </style>
 </head>
 <body>
@@ -481,8 +487,8 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
 <div class="grid">
 
 <!-- A1 Hero Launch -->
-<div><div class="label">A1 · Hero Launch Poster</div>
-<div class="sq a1">
+<div class="card-wrap"><div class="label">A1 · Hero Launch Poster</div>
+<div data-design class="sq a1">
   <div class="house-icon">🏠</div>
   <div class="tag">Kenya's Rental Platform</div>
   <div class="big"><span>Makao</span> Hub</div>
@@ -491,11 +497,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="#fff"/></svg></div>
   </div>
   <div class="url">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-a1-hero-launch-poster')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- A2 List Your Property -->
-<div><div class="label">A2 · Landlords — List Your Property</div>
-<div class="sq a2">
+<div class="card-wrap"><div class="label">A2 · Landlords — List Your Property</div>
+<div data-design class="sq a2">
   <div class="top-tag">📣 Attention Landlords</div>
   <div>
     <div class="main">List Your<br><span>Property</span><br>For Free</div>
@@ -503,11 +511,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
   </div>
   <div class="cta-btn">Start Listing — Free →</div>
   <div style="font-size:13px;color:rgba(255,255,255,.6);margin-top:12px">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-a2-landlords-list-your-property')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- A3 Affordable Rentals -->
-<div><div class="label">A3 · Affordable Rentals</div>
-<div class="sq a3">
+<div class="card-wrap"><div class="label">A3 · Affordable Rentals</div>
+<div data-design class="sq a3">
   <div class="accent"></div>
   <div class="head">Affordable<br><span>Rentals</span><br>Near You</div>
   <div style="font-size:15px;color:#555;line-height:1.5;margin-top:10px">From a cosy bedsitter to a spacious maisonette — Makao Hub has something for every budget.</div>
@@ -517,11 +527,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="price-box"><div class="type">2 Bedrooms</div><div class="amount">From KES 35,000</div></div>
   </div>
   <div class="bottom" style="margin-top:20px">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-a3-affordable-rentals')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- A4 County Filter -->
-<div><div class="label">A4 · New Feature — Filter by County</div>
-<div class="sq a4">
+<div class="card-wrap"><div class="label">A4 · New Feature — Filter by County</div>
+<div data-design class="sq a4">
   <div class="feature-badge">✨ New Feature</div>
   <div class="head">Search by<br><span>County</span></div>
   <div style="font-size:16px;color:#aaa;line-height:1.5">Find homes exactly where you want to live — now filter listings by county across Kenya.</div>
@@ -536,21 +548,25 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="county-pill">📍 Nyeri</div>
   </div>
   <div style="font-size:13px;color:#F59E0B;font-weight:700;margin-top:20px">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-a4-new-feature-filter-by-county')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- A5 Video Tours -->
-<div><div class="label">A5 · Video Tours Feature</div>
-<div class="sq a5">
+<div class="card-wrap"><div class="label">A5 · Video Tours Feature</div>
+<div data-design class="sq a5">
   <div class="badge">🎥 Now Available</div>
   <div class="head">Video<br>Tours<br>Are Here</div>
   <div class="sub">Take a virtual walkthrough of a property before you ever step through the door. Save time. Find faster.</div>
   <div class="stat">📊 Listings with video tours get 6× more enquiries</div>
   <div style="font-size:13px;color:#F59E0B;font-weight:700;margin-top:16px">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-a5-video-tours-feature')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- A6 500+ Listings -->
-<div><div class="label">A6 · Social Proof</div>
-<div class="sq a6">
+<div class="card-wrap"><div class="label">A6 · Social Proof</div>
+<div data-design class="sq a6">
   <div class="logo-row" style="justify-content:center;margin-bottom:32px">
     <div class="logo-mark" style="width:48px;height:48px"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="#fff"/></svg></div>
     <div class="logo-text"><span>Makao</span> Hub</div>
@@ -559,11 +575,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
   <div class="num-label">Active Listings</div>
   <div class="desc">Houses, apartments, studios & more — updated daily across Kenya</div>
   <div style="font-size:14px;color:rgba(255,255,255,.7);margin-top:16px">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-a6-social-proof')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- A7 Testimonial -->
-<div><div class="label">A7 · Testimonial</div>
-<div class="sq a7">
+<div class="card-wrap"><div class="label">A7 · Testimonial</div>
+<div data-design class="sq a7">
   <div style="margin-bottom:auto"></div>
   <div class="stars">★★★★★</div>
   <div class="quote">Found my dream apartment in Kilimani in just 3 days. The video tour saved me 2 site visits!</div>
@@ -573,21 +591,25 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="logo-mark" style="width:32px;height:32px"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="#fff"/></svg></div>
     <div style="font-size:13px;font-weight:800;color:#7C3AED">Makao Hub · makaohub.co.ke</div>
   </div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-a7-testimonial')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- A8 No Agent Fees -->
-<div><div class="label">A8 · No Agent Fees</div>
-<div class="sq a8">
+<div class="card-wrap"><div class="label">A8 · No Agent Fees</div>
+<div data-design class="sq a8">
   <div class="icon">🚫💸</div>
   <div class="head">Zero<br>Agent<br>Fees</div>
   <div class="sub">Connect directly with landlords. No middlemen. No hidden charges. Just your next home.</div>
   <div class="cta">Find a Home Free →</div>
   <div style="font-size:13px;color:#C084FC;font-weight:600;margin-top:16px">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-a8-no-agent-fees')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- A9 Property Types -->
-<div><div class="label">A9 · Property Types</div>
-<div class="sq a9">
+<div class="card-wrap"><div class="label">A9 · Property Types</div>
+<div data-design class="sq a9">
   <div class="head">Every<br><span>Type of Home</span><br>in One Place</div>
   <div class="types">
     <div class="type-card"><div class="ico">🛏️</div><div><div class="name">Bedsitter</div><div class="from">From KES 8,500</div></div></div>
@@ -598,11 +620,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="type-card"><div class="ico">🏡</div><div><div class="name">Maisonette</div><div class="from">From KES 95,000</div></div></div>
   </div>
   <div style="font-size:13px;color:#C084FC;font-weight:700;margin-top:16px">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-a9-property-types')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- A10 Landlord 10K -->
-<div><div class="label">A10 · Landlord — Reach 10,000+ Tenants</div>
-<div class="sq a10">
+<div class="card-wrap"><div class="label">A10 · Landlord — Reach 10,000+ Tenants</div>
+<div data-design class="sq a10">
   <div>
     <div class="head">Your Listing.<br>Their Home.</div>
     <div style="font-size:16px;color:#0F1923;margin-top:8px;font-weight:600">Reach active house hunters in your area every single day.</div>
@@ -612,11 +636,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="sub">tenants searching monthly on Makao Hub</div>
   </div>
   <div class="cta">List Free Today →</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-a10-landlord-reach-10-000-tenants')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- A11 Android -->
-<div><div class="label">A11 · Android App — Install Guide</div>
-<div class="sq a11">
+<div class="card-wrap"><div class="label">A11 · Android App — Install Guide</div>
+<div data-design class="sq a11">
   <div class="android-icon">📱</div>
   <div class="head"><span>Makao Hub</span><br>Now on Android</div>
   <div style="font-size:14px;color:#aaa;margin-top:8px">Install in seconds. No app store needed.</div>
@@ -626,21 +652,25 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="step"><div class="num">3</div><div class="text">Tap ⋮ → "Add to Home screen"</div></div>
     <div class="step"><div class="num">4</div><div class="text">Tap Install — done! Works offline too ✓</div></div>
   </div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-a11-android-app-install-guide')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- A12 New Year -->
-<div><div class="label">A12 · New Year, New Home</div>
-<div class="sq a12">
+<div class="card-wrap"><div class="label">A12 · New Year, New Home</div>
+<div data-design class="sq a12">
   <div class="year">2025</div>
   <div class="head">New Year,<br><span>New Home</span></div>
   <div class="sub">Start 2025 in the home you deserve.<br>Browse fresh listings on Makao Hub today.</div>
   <div style="font-size:64px;margin:20px 0;position:relative;z-index:1">🏠✨</div>
   <div style="font-size:15px;color:#F59E0B;font-weight:800;position:relative;z-index:1">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-a12-new-year-new-home')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- A13 Verified Listings -->
-<div><div class="label">A13 · Verified Listings Only</div>
-<div class="sq a13">
+<div class="card-wrap"><div class="label">A13 · Verified Listings Only</div>
+<div data-design class="sq a13">
   <div class="shield">🛡️</div>
   <div class="head">100%<br><span>Verified</span><br>Listings</div>
   <div class="sub">Every property on Makao Hub is reviewed before going live. No fake listings. No scams. Just real homes.</div>
@@ -651,11 +681,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="badge">✓ Direct Contact</div>
   </div>
   <div style="font-size:13px;color:#7C3AED;font-weight:800;margin-top:16px">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-a13-verified-listings-only')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- A14 3-Step Process -->
-<div><div class="label">A14 · Search. Find. Move In.</div>
-<div class="sq a14">
+<div class="card-wrap"><div class="label">A14 · Search. Find. Move In.</div>
+<div data-design class="sq a14">
   <div class="head">Search.<br>Find.<br>Move In.</div>
   <div class="steps-row">
     <div class="step-item">
@@ -675,11 +707,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     </div>
   </div>
   <div style="font-size:14px;color:rgba(255,255,255,.7);margin-top:20px">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-a14-search-find-move-in')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- A15 Cities -->
-<div><div class="label">A15 · Serving All Major Cities</div>
-<div class="sq a15">
+<div class="card-wrap"><div class="label">A15 · Serving All Major Cities</div>
+<div data-design class="sq a15">
   <div class="head">We're <span>Everywhere</span><br>You Are</div>
   <div class="sub">Makao Hub serves all major Kenyan towns and counties</div>
   <div class="city-list">
@@ -690,7 +724,9 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="city"><div class="city-name">📍 Eldoret</div><div class="city-count">40+ listings</div></div>
   </div>
   <div style="font-size:13px;color:#C084FC;font-weight:700;margin-top:16px">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-a15-serving-all-major-cities')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 </div><!-- /grid -->
 
@@ -699,8 +735,8 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
 <div class="grid">
 
 <!-- B16 -->
-<div><div class="label">B16 · Launch Story — Swipe Up</div>
-<div class="st b16">
+<div class="card-wrap"><div class="label">B16 · Launch Story — Swipe Up</div>
+<div data-design class="st b16">
   <div class="top">🏠 Now Live in Kenya</div>
   <div>
     <div class="big"><span>Makao</span> Hub</div>
@@ -708,11 +744,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
   </div>
   <div class="btn">Find Your Home →</div>
   <div style="font-size:12px;color:rgba(255,255,255,.6)">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-b16-launch-story-swipe-up')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- B17 -->
-<div><div class="label">B17 · Find a House in 5 Minutes</div>
-<div class="st b17">
+<div class="card-wrap"><div class="label">B17 · Find a House in 5 Minutes</div>
+<div data-design class="st b17">
   <div class="head">Find a House<br>in Under<br><span>5 Minutes</span></div>
   <div>
     <div class="step"><div class="n">1</div><div class="t">Open Makao Hub on your phone</div></div>
@@ -722,20 +760,24 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="step"><div class="n">5</div><div class="t">Move into your new home 🎉</div></div>
   </div>
   <div class="url">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-b17-find-a-house-in-5-minutes')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- B18 -->
-<div><div class="label">B18 · Morning Motivation</div>
-<div class="st b18">
+<div class="card-wrap"><div class="label">B18 · Morning Motivation</div>
+<div data-design class="st b18">
   <div class="emoji">🌅</div>
   <div class="head">Your Dream<br><span>Home</span> is<br>One Tap Away</div>
   <div class="sub">Stop scrolling WhatsApp groups.<br>Start browsing real, verified listings on Makao Hub — right now.</div>
   <div style="margin-top:24px;font-size:14px;color:#F59E0B;font-weight:800">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-b18-morning-motivation')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- B19 -->
-<div><div class="label">B19 · Landlord Story</div>
-<div class="st b19">
+<div class="card-wrap"><div class="label">B19 · Landlord Story</div>
+<div data-design class="st b19">
   <div class="top">📣 For Landlords</div>
   <div class="head">List FREE<br>Today</div>
   <div class="perks">
@@ -747,11 +789,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
   </div>
   <div class="btn">Start Now →</div>
   <div style="font-size:12px;color:#0F1923;font-weight:700">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-b19-landlord-story')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- B20 -->
-<div><div class="label">B20 · County Picker Feature</div>
-<div class="st b20">
+<div class="card-wrap"><div class="label">B20 · County Picker Feature</div>
+<div data-design class="st b20">
   <div class="map-pin">🗺️</div>
   <div class="head"><span>Filter</span> by<br>County</div>
   <div style="font-size:13px;color:#aaa;margin-bottom:16px">Now find homes in exactly the county you want to live in.</div>
@@ -761,11 +805,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
   <div class="county">📍 Kiambu County</div>
   <div class="county">📍 + 10 more counties</div>
   <div class="cta">Try it now →</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-b20-county-picker-feature')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- B21 -->
-<div><div class="label">B21 · Makao Hub vs The Rest</div>
-<div class="st b21">
+<div class="card-wrap"><div class="label">B21 · Makao Hub vs The Rest</div>
+<div data-design class="st b21">
   <div class="head">Why Choose<br>Makao Hub?</div>
   <div class="row">
     <div class="col-h">Feature</div>
@@ -779,11 +825,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
   <div class="feat"><div class="fname">No Agent Fee</div><div class="yes">✅</div><div class="no">❌</div></div>
   <div class="feat"><div class="fname">Direct Contact</div><div class="yes">✅</div><div class="no">⚠️</div></div>
   <div style="margin-top:16px;font-size:12px;color:#7C3AED;font-weight:800">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-b21-makao-hub-vs-the-rest')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- B22 -->
-<div><div class="label">B22 · Before & After</div>
-<div class="st b22">
+<div class="card-wrap"><div class="label">B22 · Before & After</div>
+<div data-design class="st b22">
   <div style="font-size:28px;font-weight:900;color:#fff;margin-bottom:20px">House Hunting<br>Has Changed</div>
   <div class="before">
     <div class="lbl">😩 Before Makao Hub</div>
@@ -795,32 +843,38 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="text">"Browsed 20 listings, watched video tours, called landlord directly. Moved in same week."</div>
   </div>
   <div style="font-size:12px;color:#F59E0B;font-weight:800;margin-top:16px">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-b22-before-after')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- B23 -->
-<div><div class="label">B23 · 100s of Kenyans Found Homes</div>
-<div class="st b23">
+<div class="card-wrap"><div class="label">B23 · 100s of Kenyans Found Homes</div>
+<div data-design class="st b23">
   <div class="num">1,000</div>
   <div class="unit">Kenyans</div>
   <div class="desc">found their homes through Makao Hub this year alone — and counting 📈</div>
   <div class="month">🔥 100+ new tenants every month</div>
   <div style="margin-top:20px;font-size:13px;color:#aaa">Be the next one →</div>
   <div style="font-size:13px;color:#7C3AED;font-weight:800;margin-top:8px">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-b23-100s-of-kenyans-found-homes')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- B24 -->
-<div><div class="label">B24 · Video Tour Story</div>
-<div class="st b24">
+<div class="card-wrap"><div class="label">B24 · Video Tour Story</div>
+<div data-design class="st b24">
   <div class="play">▶️</div>
   <div class="head">Take a Virtual<br>Tour Before<br>You Visit</div>
   <div class="sub">Watch real video walkthroughs of properties before committing to a site visit. Save petrol. Save time.</div>
   <div class="stat">🎥 Video tours now available on all premium listings</div>
   <div style="font-size:12px;color:#F59E0B;font-weight:800;margin-top:8px">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-b24-video-tour-story')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- B25 -->
-<div><div class="label">B25 · Download — Android & iOS</div>
-<div class="st b25">
+<div class="card-wrap"><div class="label">B25 · Download — Android & iOS</div>
+<div data-design class="st b25">
   <div class="icon">📲</div>
   <div class="head">Makao Hub<br>in Your Pocket</div>
   <div class="sub">Works on Android and iOS. Install directly from your browser — no app store required. Offline too!</div>
@@ -829,7 +883,9 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="plat">🍎 iOS</div>
   </div>
   <div style="font-size:13px;color:rgba(255,255,255,.7);margin-top:12px">Visit makaohub.co.ke in Chrome → Add to Home Screen</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-b25-download-android-ios')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 </div>
 
@@ -838,8 +894,8 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
 <div class="grid">
 
 <!-- C26 -->
-<div><div class="label">C26 · Brand Banner</div>
-<div class="bn c26">
+<div class="card-wrap"><div class="label">C26 · Brand Banner</div>
+<div data-design class="bn c26">
   <div class="left">
     <div class="logo-row" style="margin-bottom:12px">
       <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="#fff"/></svg></div>
@@ -853,20 +909,24 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="tagline">Search · Find · Move In</div>
     <div style="font-size:48px;margin-top:12px">🏠</div>
   </div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-c26-brand-banner')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- C27 -->
-<div><div class="label">C27 · #1 Rental Platform</div>
-<div class="bn c27">
+<div class="card-wrap"><div class="label">C27 · #1 Rental Platform</div>
+<div data-design class="bn c27">
   <div>
     <div class="head">Kenya's #1<br>Rental Platform</div>
     <div class="sub">500+ verified listings · No agent fees · Find your home today at makaohub.co.ke</div>
   </div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-c27-1-rental-platform')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- C28 -->
-<div><div class="label">C28 · County Filter Banner</div>
-<div class="bn c28">
+<div class="card-wrap"><div class="label">C28 · County Filter Banner</div>
+<div data-design class="bn c28">
   <div class="pin">📍</div>
   <div class="right">
     <div class="head">New: Filter<br>Listings by<br><span>County</span></div>
@@ -876,11 +936,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
       <div class="tag">Nakuru</div><div class="tag">Kiambu</div><div class="tag">Eldoret</div>
     </div>
   </div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-c28-county-filter-banner')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- C29 -->
-<div><div class="label">C29 · Landlord Recruitment Banner</div>
-<div class="bn c29">
+<div class="card-wrap"><div class="label">C29 · Landlord Recruitment Banner</div>
+<div data-design class="bn c29">
   <div class="left">
     <div class="head">List Your<br>Property Free<br>on Makao Hub</div>
     <div class="perks">
@@ -893,11 +955,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="cta">List Now<br>For Free →</div>
     <div class="url">makaohub.co.ke</div>
   </div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-c29-landlord-recruitment-banner')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- C30 -->
-<div><div class="label">C30 · New Listings Daily</div>
-<div class="bn c30">
+<div class="card-wrap"><div class="label">C30 · New Listings Daily</div>
+<div data-design class="bn c30">
   <div class="left">
     <div class="head">New <span>Listings</span><br>Added Daily</div>
     <div class="sub">Fresh properties posted every day across Kenya. Never miss your perfect home.</div>
@@ -906,33 +970,39 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="num">500+</div>
     <div class="label" style="font-size:15px;color:#aaa">active listings</div>
   </div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-c30-new-listings-daily')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- C31 -->
-<div><div class="label">C31 · Mombasa Coastal Rentals</div>
-<div class="bn c31">
+<div class="card-wrap"><div class="label">C31 · Mombasa Coastal Rentals</div>
+<div data-design class="bn c31">
   <div class="left">
     <div class="tag">🌊 Mombasa County</div>
     <div class="head">Coastal Living.<br>Find Your<br>Mombasa Home</div>
     <div class="sub">Beachfront to city centre — discover Mombasa rentals on Makao Hub</div>
   </div>
   <div class="right"><div class="icon">🌴</div></div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-c31-mombasa-coastal-rentals')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- C32 -->
-<div><div class="label">C32 · Nairobi City Apartments</div>
-<div class="bn c32">
+<div class="card-wrap"><div class="label">C32 · Nairobi City Apartments</div>
+<div data-design class="bn c32">
   <div class="left">
     <div class="tag">🏙️ Nairobi County</div>
     <div class="head">Nairobi<br>Apartments &<br>Houses</div>
     <div class="sub">Kilimani · Westlands · Karen · South B and more — search Nairobi on Makao Hub</div>
   </div>
   <div class="right"><div class="icon">🌆</div></div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-c32-nairobi-city-apartments')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- C33 -->
-<div><div class="label">C33 · Student Housing</div>
-<div class="bn c33">
+<div class="card-wrap"><div class="label">C33 · Student Housing</div>
+<div data-design class="bn c33">
   <div class="left">
     <div class="tag">🎓 Student Housing</div>
     <div class="head">University Area<br>Rentals From<br>KES 8,500/mo</div>
@@ -944,27 +1014,33 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="area">📍 Rongai</div>
     <div class="area">📍 Thika Rd</div>
   </div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-c33-student-housing')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- C34 -->
-<div><div class="label">C34 · Seasonal — Before the Rains</div>
-<div class="bn c34">
+<div class="card-wrap"><div class="label">C34 · Seasonal — Before the Rains</div>
+<div data-design class="bn c34">
   <div class="left">
     <div class="head">Find Your Home<br>Before the<br><span>Rains Hit</span></div>
     <div class="sub">Don't wait until listings are gone. Browse now on Makao Hub and secure your next home today.</div>
   </div>
   <div class="right"><div class="icon">🌧️🏠</div></div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-c34-seasonal-before-the-rains')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- C35 -->
-<div><div class="label">C35 · End of Year</div>
-<div class="bn c35">
+<div class="card-wrap"><div class="label">C35 · End of Year</div>
+<div data-design class="bn c35">
   <div class="left">
     <div class="head">Start Fresh.<br>Find Your Next<br>Home Today.</div>
     <div class="sub">New year, new home. Browse 500+ verified listings at makaohub.co.ke</div>
   </div>
   <div class="right"><div class="cta">Browse Now →</div></div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-c35-end-of-year')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 </div>
 
@@ -973,18 +1049,20 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
 <div class="grid">
 
 <!-- D36 -->
-<div><div class="label">D36 · Renting Tip</div>
-<div class="st d36">
+<div class="card-wrap"><div class="label">D36 · Renting Tip</div>
+<div data-design class="st d36">
   <div class="head">💡 House Hunting Tip</div>
   <div class="tip">Always ask for a receipt when paying any deposit. A receipt protects you legally if a dispute arises later.</div>
   <div class="tip">Visit the property twice — once during the day and once at night. Neighbourhood changes!</div>
   <div class="tip">Check water pressure, phone signal & security before signing any agreement.</div>
   <div class="url">More tips at makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-d36-renting-tip')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- D37 -->
-<div><div class="label">D37 · Ruaka 1BR Spotlight</div>
-<div class="st d37">
+<div class="card-wrap"><div class="label">D37 · Ruaka 1BR Spotlight</div>
+<div data-design class="st d37">
   <div class="tag">🏠 Available Now</div>
   <div class="area">Ruaka</div>
   <div class="type">1 Bedroom Apartment · Kiambu County</div>
@@ -998,11 +1076,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="feat">Near Two Rivers</div>
   </div>
   <div style="font-size:12px;color:#F59E0B;font-weight:800;margin-top:auto;padding-top:20px">View listing → makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-d37-ruaka-1br-spotlight')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- D38 -->
-<div><div class="label">D38 · Karen 3BR Luxury</div>
-<div class="st d38">
+<div class="card-wrap"><div class="label">D38 · Karen 3BR Luxury</div>
+<div data-design class="st d38">
   <div class="tag">⭐ Luxury Listing</div>
   <div class="area">Karen</div>
   <div class="type">3BR Maisonette with DSQ · Nairobi</div>
@@ -1017,11 +1097,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="feat">CCTV</div>
   </div>
   <div class="url">View on makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-d38-karen-3br-luxury')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- D39 -->
-<div><div class="label">D39 · Westlands Studio</div>
-<div class="st d39">
+<div class="card-wrap"><div class="label">D39 · Westlands Studio</div>
+<div data-design class="st d39">
   <div class="tag">🏙️ Young Professionals</div>
   <div class="area">Westlands</div>
   <div class="type">Studio Apartment · 7th Floor · Nairobi</div>
@@ -1029,30 +1111,36 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
   <div class="per">per month</div>
   <div class="desc">City views. Walking distance to Sarit Centre. Gym, elevator & fibre included. Perfect for professionals.</div>
   <div class="url">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-d39-westlands-studio')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- D40 -->
-<div><div class="label">D40 · Video Tours Stat</div>
-<div class="st d40">
+<div class="card-wrap"><div class="label">D40 · Video Tours Stat</div>
+<div data-design class="st d40">
   <div class="icon">🎥</div>
   <div class="head">Did You Know?</div>
   <div class="stat">6×</div>
   <div class="sub">Listings with video tours get 6 times more enquiries than those without.</div>
   <div style="margin-top:20px;font-size:13px;color:#F59E0B;font-weight:800">Add a video tour → makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-d40-video-tours-stat')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- D41 -->
-<div><div class="label">D41 · Relatable Landlord Joke</div>
-<div class="st d41">
+<div class="card-wrap"><div class="label">D41 · Relatable Landlord Joke</div>
+<div data-design class="st d41">
   <div class="head">"Water is available 24 hours"</div>
   <div class="emoji">👀💧</div>
   <div class="sub">We've all heard that before.<br><br>On Makao Hub, tenants leave honest reviews so you know exactly what you're getting into. Real listings. Real info.</div>
   <div class="cta">Check listings → makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-d41-relatable-landlord-joke')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- D42 -->
-<div><div class="label">D42 · Renting Safety Tips</div>
-<div class="st d42">
+<div class="card-wrap"><div class="label">D42 · Renting Safety Tips</div>
+<div data-design class="st d42">
   <div class="icon">🔐</div>
   <div class="head">Before You Pay<br>Any Deposit</div>
   <div class="tips">
@@ -1063,11 +1151,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="tip"><div class="ico">✅</div>Check water, electricity & security</div>
   </div>
   <div class="url">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-d42-renting-safety-tips')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- D43 -->
-<div><div class="label">D43 · Send to Someone House-Hunting</div>
-<div class="st d43">
+<div class="card-wrap"><div class="label">D43 · Send to Someone House-Hunting</div>
+<div data-design class="st d43">
   <div class="icon">🏠</div>
   <div class="head">Send This to Someone House-Hunting!</div>
   <div class="sub">Makao Hub has 500+ verified listings across Kenya. Bedsitters, 1BR, 2BR, Maisonettes & more.<br><br>No agent fees. No scams. Direct contact with landlords.</div>
@@ -1076,11 +1166,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="forward-text">Forward this status!</div>
   </div>
   <div style="font-size:12px;color:#F59E0B;font-weight:800;margin-top:12px">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-d43-send-to-someone-house-hunting')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- D44 -->
-<div><div class="label">D44 · Agent/Partner CTA</div>
-<div class="st d44">
+<div class="card-wrap"><div class="label">D44 · Agent/Partner CTA</div>
+<div data-design class="st d44">
   <div class="icon">🤝</div>
   <div class="head">Are You a Property Agent or Developer?</div>
   <div class="perks">
@@ -1091,18 +1183,22 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
   </div>
   <div class="cta">Partner with Makao Hub →</div>
   <div style="font-size:12px;color:#0F1923;font-weight:700;margin-top:8px">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-d44-agent-partner-cta')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- D45 -->
-<div><div class="label">D45 · Thank You — 1,000 Users</div>
-<div class="st d45">
+<div class="card-wrap"><div class="label">D45 · Thank You — 1,000 Users</div>
+<div data-design class="st d45">
   <div class="icon">🎉</div>
   <div class="head">Thank You!</div>
   <div class="num">1,000</div>
   <div class="users">Makao Hub Users</div>
   <div class="sub">One thousand Kenyans have found their homes through Makao Hub. We're just getting started. 🏠🇰🇪</div>
   <div style="font-size:12px;color:rgba(255,255,255,.7);margin-top:12px">makaohub.co.ke</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-d45-thank-you-1-000-users')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 </div>
 
@@ -1111,19 +1207,21 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
 <div class="grid">
 
 <!-- E46 -->
-<div><div class="label">E46 · Launch Tweet Card</div>
-<div class="tw e46">
+<div class="card-wrap"><div class="label">E46 · Launch Tweet Card</div>
+<div data-design class="tw e46">
   <div class="rocket">🚀</div>
   <div>
     <div class="head"><span>Makao Hub</span><br>is Live!</div>
     <div class="sub">Kenya's new rental platform is here. Find verified homes across Kenya — no agent fees, no scams. Just real homes.</div>
     <div class="hashtag">#MakaoHub #NairobiHomes #KenyaRentals</div>
   </div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-e46-launch-tweet-card')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- E47 -->
-<div><div class="label">E47 · Thread Starter</div>
-<div class="tw e47">
+<div class="card-wrap"><div class="label">E47 · Thread Starter</div>
+<div data-design class="tw e47">
   <div class="num">🧵</div>
   <div class="head">5 Things to Check Before Renting in Nairobi</div>
   <div class="items">
@@ -1133,11 +1231,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="item"><div class="ico">4️⃣</div>Parking — is it allocated or first-come-first-served?</div>
     <div class="item"><div class="ico">5️⃣</div>Lease terms — get everything in writing</div>
   </div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-e47-thread-starter')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- E48 -->
-<div><div class="label">E48 · Engagement Poll</div>
-<div class="tw e48">
+<div class="card-wrap"><div class="label">E48 · Engagement Poll</div>
+<div data-design class="tw e48">
   <div class="icon">🏠</div>
   <div class="head">What's your budget for a 1BR in Nairobi?</div>
   <div class="options">
@@ -1146,25 +1246,31 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="option">C · KES 25,000 – 40,000</div>
     <div class="option">D · Above KES 40,000</div>
   </div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-e48-engagement-poll')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- E49 -->
-<div><div class="label">E49 · County Filter Feature Drop</div>
-<div class="tw e49">
+<div class="card-wrap"><div class="label">E49 · County Filter Feature Drop</div>
+<div data-design class="tw e49">
   <div class="badge">✨ Feature Update</div>
   <div class="head">New: Filter by<br><span>County</span> is Here</div>
   <div class="sub">You can now filter Makao Hub listings by county — Nairobi, Mombasa, Kisumu, Nakuru & more. Find exactly where you want to live.</div>
   <div class="icons">📍🗺️🏠</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-e49-county-filter-feature-drop')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- E50 -->
-<div><div class="label">E50 · Retweet Prompt</div>
-<div class="tw e50">
+<div class="card-wrap"><div class="label">E50 · Retweet Prompt</div>
+<div data-design class="tw e50">
   <div class="icon">😤</div>
   <div class="head">RT if you're tired of paying agent fees just to view a house</div>
   <div class="sub">On Makao Hub, you contact landlords directly. Zero agent fees. Zero nonsense. Just your next home. 🏠</div>
   <div class="rt">🔁 Retweet to help a friend</div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-e50-retweet-prompt')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 </div>
 
@@ -1174,8 +1280,8 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
 <div class="grid" style="flex-direction:column">
 
 <!-- BB51 Nairobi -->
-<div><div class="label">BILLBOARD 1 · Nairobi — Uhuru Highway</div>
-<div class="bb bb51">
+<div class="card-wrap"><div class="label">BILLBOARD 1 · Nairobi — Uhuru Highway</div>
+<div data-design class="bb bb51">
   <div class="left">
     <div class="small">🏙️ Nairobi · Uhuru Highway</div>
     <div class="head">Find Your<br><span>Nairobi</span> Home</div>
@@ -1186,11 +1292,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="url">makaohub.co.ke</div>
     <div class="qr">📱 Scan to<br>browse<br>listings</div>
   </div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-billboard-1-nairobi-uhuru-highway')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- BB52 Mombasa -->
-<div><div class="label">BILLBOARD 2 · Mombasa — Moi Avenue</div>
-<div class="bb bb52">
+<div class="card-wrap"><div class="label">BILLBOARD 2 · Mombasa — Moi Avenue</div>
+<div data-design class="bb bb52">
   <div class="left">
     <div class="small">🌊 Mombasa County · Moi Avenue</div>
     <div class="head">Coastal<br><span>Living</span><br>Made Easy</div>
@@ -1201,11 +1309,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="url">Browse Now →</div>
     <span class="icon">🌴</span>
   </div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-billboard-2-mombasa-moi-avenue')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- BB53 Kisumu -->
-<div><div class="label">BILLBOARD 3 · Kisumu — Oginga Odinga Street</div>
-<div class="bb bb53">
+<div class="card-wrap"><div class="label">BILLBOARD 3 · Kisumu — Oginga Odinga Street</div>
+<div data-design class="bb bb53">
   <div class="left">
     <div class="small">🐟 Kisumu County · Oginga Odinga Street</div>
     <div class="head">Lake City's<br>#1 Rental<br><span>Platform</span></div>
@@ -1216,11 +1326,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="url">Browse Listings →</div>
     <span class="icon">🏡</span>
   </div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-billboard-3-kisumu-oginga-odinga-street')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- BB54 Nakuru -->
-<div><div class="label">BILLBOARD 4 · Nakuru — Kenyatta Avenue</div>
-<div class="bb bb54">
+<div class="card-wrap"><div class="label">BILLBOARD 4 · Nakuru — Kenyatta Avenue</div>
+<div data-design class="bb bb54">
   <div class="left">
     <div class="small">🦩 Nakuru County · Kenyatta Avenue</div>
     <div class="head">Nakuru<br>Rentals<br><span>Made Easy</span></div>
@@ -1231,11 +1343,13 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="url">Find Your Home →</div>
     <span class="icon">🏘️</span>
   </div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-billboard-4-nakuru-kenyatta-avenue')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 <!-- BB55 Eldoret -->
-<div><div class="label">BILLBOARD 5 · Eldoret — Uganda Road</div>
-<div class="bb bb55">
+<div class="card-wrap"><div class="label">BILLBOARD 5 · Eldoret — Uganda Road</div>
+<div data-design class="bb bb55">
   <div class="left">
     <div class="small">🏃 Uasin Gishu County · Uganda Road</div>
     <div class="head">Eldoret<br>Homes on<br><span>Makao Hub</span></div>
@@ -1246,7 +1360,9 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
     <div class="url">List or Browse →</div>
     <span class="icon">🏠</span>
   </div>
-</div></div>
+</div>
+<button class="dl-btn" onclick="dlDesign(this,'makaohub-billboard-5-eldoret-uganda-road')"><span class="ico">⬇️</span> Download PNG</button>
+</div>
 
 </div><!-- /billboard grid -->
 
@@ -1257,5 +1373,31 @@ h1{text-align:center;font-size:2rem;font-weight:900;color:#7C3AED;margin-bottom:
   <div style="font-size:13px;color:#555;margin-top:16px">Screenshot each design individually · Print this page for physical review · All 55 designs above</div>
 </div>
 
+<script>
+function dlDesign(btn, filename) {
+  const wrap = btn.closest('.card-wrap');
+  const target = wrap.querySelector('[data-design]');
+  btn.classList.add('loading');
+  btn.innerHTML = '<span class="ico">⏳</span> Generating PNG…';
+  html2canvas(target, {
+    scale: 2,
+    useCORS: true,
+    backgroundColor: null,
+    logging: false
+  }).then(canvas => {
+    const a = document.createElement('a');
+    a.href = canvas.toDataURL('image/png');
+    a.download = filename + '.png';
+    a.click();
+    btn.classList.remove('loading');
+    btn.innerHTML = '<span class="ico">✅</span> Downloaded!';
+    setTimeout(() => { btn.innerHTML = '<span class="ico">⬇️</span> Download PNG'; }, 2500);
+  }).catch(() => {
+    btn.classList.remove('loading');
+    btn.innerHTML = '<span class="ico">❌</span> Try again';
+    setTimeout(() => { btn.innerHTML = '<span class="ico">⬇️</span> Download PNG'; }, 2000);
+  });
+}
+</script>
 </body>
 </html>
