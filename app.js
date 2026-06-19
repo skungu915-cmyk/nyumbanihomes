@@ -461,7 +461,7 @@ function toggleSaveFromModal() {
 
 function shareListingWhatsApp() {
   if(!currentListing) return;
-  const msg = encodeURIComponent(`Check out this listing on Nyumbani Homes: ${currentListing.name} in ${currentListing.area} — KES ${currentListing.price.toLocaleString()}/month`);
+  const msg = encodeURIComponent(`Check out this listing on Makao Hub: ${currentListing.name} in ${currentListing.area} — KES ${currentListing.price.toLocaleString()}/month`);
   window.open('https://wa.me/?text=' + msg, '_blank');
 }
 
