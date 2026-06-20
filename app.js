@@ -56,8 +56,8 @@ const PAYMENTS_LOG = [
 ];
 
 const FAQS = [
-  {q:"How does the KES 500 unlock work?",a:"When you find a listing you like, click 'Unlock for KES 500'. Enter your M-Pesa number and an STK Push is sent to your phone. Enter your PIN to confirm. The owner's contacts appear instantly."},
-  {q:"Is KES 500 per property or for all listings?",a:"It's KES 500 per individual property. Once unlocked, you can access that listing's contacts anytime — no expiry."},
+  {q:"How does the KES 1,000 unlock work?",a:"When you find a listing you like, click 'Unlock for KES 1,000'. Enter your M-Pesa number and an STK Push is sent to your phone. Enter your PIN to confirm. The owner's contacts appear instantly."},
+  {q:"Is KES 1,000 per property or for all listings?",a:"It's KES 1,000 per individual property. Once unlocked, you can access that listing's contacts anytime — no expiry."},
   {q:"Can I get a refund?",a:"If contacts turn out to be invalid or the property is no longer available and you report it within 24 hours, we will issue a full refund."},
   {q:"How long does it take for my listing to go live?",a:"Our team reviews every listing before publishing. Standard listings are live within 2 hours. Premium listings are fast-tracked within 30 minutes."},
   {q:"How do tenants pay rent via M-Pesa?",a:"Tenants pay to your registered Paybill (522100) or directly to your M-Pesa number using your unit number as the account reference. You receive an instant SMS for each payment."},
@@ -263,7 +263,7 @@ function buildListingCard(l) {
       ${locked
         ? `<div class="unlock-bar">
             <div class="unlock-bar-text">🔒 Address & contacts locked</div>
-            <button class="unlock-btn" onclick="event.stopPropagation();openMpesa(${l.id})">Unlock · KES 500</button>
+            <button class="unlock-btn" onclick="event.stopPropagation();openMpesa(${l.id})">Unlock · KES 1,000</button>
            </div>`
         : `<div class="unlocked-bar"><span>✅ Contacts unlocked — tap to view</span></div>`
       }
@@ -440,8 +440,8 @@ function openListing(id) {
     <div class="contact-locked">
       <div class="contact-locked-icon">🔒</div>
       <h4>Full address & contacts are locked</h4>
-      <p>Pay <strong>KES 500</strong> via M-Pesa to instantly reveal the owner's phone number, WhatsApp, and the full property address. One-time payment per listing.</p>
-      <button class="btn btn-amber btn-lg w-full" onclick="closeModal();openMpesa(${id})">📱 Unlock for KES 500</button>
+      <p>Pay <strong>KES 1,000</strong> via M-Pesa to instantly reveal the owner's phone number, WhatsApp, and the full property address. One-time payment per listing.</p>
+      <button class="btn btn-amber btn-lg w-full" onclick="closeModal();openMpesa(${id})">📱 Unlock for KES 1,000</button>
     </div>`;
   }
   document.getElementById('listingModal').classList.add('open');
@@ -506,7 +506,7 @@ function processMpesa() {
     document.getElementById('mpesaModal').classList.remove('open');
     document.getElementById('mpesaProcessing').style.display = 'none';
     document.getElementById('mpesaNormal').style.display = 'block';
-    showToast('✅ Payment confirmed! KES 500 received. Contacts unlocked.');
+    showToast('✅ Payment confirmed! KES 1,000 received. Contacts unlocked.');
     if(currentListing) {
       unlockedListings.add(currentListing.id);
       persistState();
@@ -837,6 +837,80 @@ function handlePhotoUpload(input) {
     reader.readAsDataURL(file);
   });
   showToast('📸 ' + files.length + ' photo' + (files.length>1?'s':'') + ' uploaded');
+}
+
+// ── Pick Location (GPS → reverse geocode → fill address) ──
+function pickLocation() {
+  const btn = document.getElementById('pickLocationBtn');
+  const status = document.getElementById('pickLocationStatus');
+  const input = document.getElementById('regAddress');
+
+  if (!navigator.geolocation) {
+    showStatus('❌ Your browser does not support location access.', 'error');
+    return;
+  }
+
+  btn.disabled = true;
+  btn.innerHTML = '⏳ Locating…';
+  showStatus('📡 Getting your GPS coordinates…', 'info');
+
+  navigator.geolocation.getCurrentPosition(
+    pos => {
+      const { latitude, longitude } = pos.coords;
+      showStatus('🌐 Found location — looking up address…', 'info');
+
+      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&addressdetails=1`)
+        .then(r => r.json())
+        .then(data => {
+          const a = data.address || {};
+          // Build a readable address from the parts available
+          const parts = [
+            a.house_number,
+            a.road || a.pedestrian,
+            a.suburb || a.neighbourhood || a.quarter,
+            a.city_district || a.county,
+            a.city || a.town || a.village,
+            a.state
+          ].filter(Boolean);
+
+          const address = parts.length ? parts.join(', ') : data.display_name;
+          input.value = address;
+          updateRegProgress();
+          showStatus(`✅ Address filled from GPS. Review and correct any details.`, 'success');
+          btn.disabled = false;
+          btn.innerHTML = '📍 Pick Location';
+        })
+        .catch(() => {
+          // Fallback: just put coordinates if reverse geocode fails
+          input.value = `GPS: ${latitude.toFixed(6)}, ${longitude.toFixed(6)}`;
+          showStatus('⚠️ Could not look up address — coordinates added. Please type the full address manually.', 'warn');
+          btn.disabled = false;
+          btn.innerHTML = '📍 Pick Location';
+        });
+    },
+    err => {
+      const msgs = {1:'Location access denied. Please allow location in your browser settings.', 2:'Could not determine your location. Try again.', 3:'Location request timed out. Try again.'};
+      showStatus('❌ ' + (msgs[err.code] || 'Location error.'), 'error');
+      btn.disabled = false;
+      btn.innerHTML = '📍 Pick Location';
+    },
+    { timeout: 10000, enableHighAccuracy: true }
+  );
+
+  function showStatus(msg, type) {
+    const colors = {
+      info:    { bg:'#EFF6FF', border:'#BFDBFE', color:'#1D4ED8' },
+      success: { bg:'var(--green-tint)', border:'var(--green-light)', color:'var(--green-mid)' },
+      warn:    { bg:'#FEF3C7', border:'#FDE68A', color:'#92400E' },
+      error:   { bg:'#FEE2E2', border:'#FECACA', color:'#DC2626' }
+    };
+    const c = colors[type] || colors.info;
+    status.style.display = 'block';
+    status.style.background = c.bg;
+    status.style.border = `1px solid ${c.border}`;
+    status.style.color = c.color;
+    status.textContent = msg;
+  }
 }
 
 function triggerVideoUpload() {
