@@ -116,6 +116,7 @@ function showPage(id) {
   if(id === 'dashboard') initDashboard();
   if(id === 'saved') renderSaved();
   if(id === 'home') renderEstates();
+  if(id === 'referral') { if(referralState) renderReferralDashboard(); }
 }
 
 function switchRole(role) {
@@ -507,6 +508,12 @@ function processMpesa() {
     document.getElementById('mpesaProcessing').style.display = 'none';
     document.getElementById('mpesaNormal').style.display = 'block';
     showToast('✅ Payment confirmed! KES 1,000 received. Contacts unlocked.');
+    // Credit referrer if this is first unlock and user came via referral
+    const incomingRef = sessionStorage.getItem('mh_incoming_ref');
+    if (incomingRef && unlockedListings.size === 1) {
+      creditReferrer(incomingRef);
+      showToast('🎁 Your referrer has earned KES 200 — thanks for using their link!');
+    }
     if(currentListing) {
       unlockedListings.add(currentListing.id);
       persistState();
@@ -1072,6 +1079,200 @@ renderEstates();
 filteredData = LISTINGS;
 updateSavedCount();
 document.getElementById('heroListingCount').textContent = LISTINGS.length + '+';
+checkIncomingReferral();
+
+// ════════════════════════════════════════════════════════════
+// REFERRAL SYSTEM
+// ════════════════════════════════════════════════════════════
+
+// Load persisted referral state
+let referralState = JSON.parse(localStorage.getItem('mh_referral') || 'null');
+
+function generateRefCode(name) {
+  const base = name.replace(/\s+/g,'').toLowerCase().slice(0,6);
+  const rand = Math.random().toString(36).slice(2,6);
+  return base + rand;
+}
+
+function refLink(code) {
+  return window.location.origin + window.location.pathname + '?ref=' + code;
+}
+
+function validateRefReg() {
+  const name  = document.getElementById('refName').value.trim();
+  const email = document.getElementById('refEmail').value.trim();
+  const phone = document.getElementById('refPhone').value.trim();
+  const btn   = document.getElementById('refRegBtn');
+  const ok = name.length > 1 && /\S+@\S+\.\S+/.test(email) && /^\d{9}$/.test(phone);
+  btn.disabled = !ok;
+  btn.style.opacity = ok ? '1' : '.5';
+}
+
+function registerReferrer() {
+  const name  = document.getElementById('refName').value.trim();
+  const email = document.getElementById('refEmail').value.trim();
+  const phone = document.getElementById('refPhone').value.trim();
+
+  if (!name || !email || !/^\d{9}$/.test(phone)) {
+    document.getElementById('refRegErr').style.display = 'block';
+    document.getElementById('refRegErr').textContent = 'Please fill all fields correctly.';
+    return;
+  }
+
+  const code = generateRefCode(name);
+  referralState = { name, email, phone: '+254' + phone, code, wallet: 0, referrals: [] };
+  localStorage.setItem('mh_referral', JSON.stringify(referralState));
+  renderReferralDashboard();
+  showToast('🎉 Account created! Share your link to start earning.');
+}
+
+function renderReferralDashboard() {
+  if (!referralState) return;
+  document.getElementById('refNotRegistered').style.display = 'none';
+  document.getElementById('refRegistered').style.display = 'block';
+
+  const link = refLink(referralState.code);
+  document.getElementById('refLinkInput').value = link;
+
+  const earned = referralState.referrals.filter(r => r.unlocked).length * 200;
+  referralState.wallet = earned;
+  localStorage.setItem('mh_referral', JSON.stringify(referralState));
+
+  document.getElementById('refWalletAmount').textContent = 'KES ' + earned.toLocaleString();
+  document.getElementById('refWalletSub').textContent =
+    referralState.referrals.length + ' friend' + (referralState.referrals.length !== 1 ? 's' : '') + ' referred · KES ' + earned.toLocaleString() + ' earned';
+
+  const hist = document.getElementById('refHistory');
+  if (!referralState.referrals.length) {
+    hist.innerHTML = '<div style="text-align:center;padding:32px;color:var(--ink-muted);font-size:14px">No referrals yet. Share your link to start earning!</div>';
+    return;
+  }
+  hist.innerHTML = referralState.referrals.map(r => `
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--green-tint);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--green-mid)">${r.name.slice(0,2).toUpperCase()}</div>
+        <div>
+          <div style="font-size:14px;font-weight:600">${r.name}</div>
+          <div style="font-size:12px;color:var(--ink-muted)">${r.date}</div>
+        </div>
+      </div>
+      <div style="text-align:right">
+        ${r.unlocked
+          ? '<div style="font-size:14px;font-weight:800;color:var(--green-mid)">+KES 200</div><div style="font-size:11px;color:var(--ink-muted)">Earned</div>'
+          : '<div style="font-size:13px;color:var(--ink-muted)">Pending unlock</div>'}
+      </div>
+    </div>`).join('');
+}
+
+function copyRefLink() {
+  const input = document.getElementById('refLinkInput');
+  navigator.clipboard.writeText(input.value).then(() => {
+    const btn = document.getElementById('copyRefBtn');
+    btn.textContent = '✅ Copied!';
+    setTimeout(() => { btn.textContent = '📋 Copy'; }, 2000);
+    showToast('🔗 Referral link copied!');
+  }).catch(() => {
+    input.select();
+    document.execCommand('copy');
+    showToast('🔗 Referral link copied!');
+  });
+}
+
+function shareRefWhatsApp() {
+  const link = document.getElementById('refLinkInput').value;
+  const msg = encodeURIComponent(`Hey! I use Makao Hub to find rental homes in Kenya — it's really good. Sign up using my link and browse 500+ verified listings: ${link}`);
+  window.open('https://wa.me/?text=' + msg, '_blank');
+}
+
+function shareRefSMS() {
+  const link = document.getElementById('refLinkInput').value;
+  const msg = encodeURIComponent(`Find your next home on Makao Hub! Sign up with my link: ${link}`);
+  window.open('sms:?body=' + msg);
+}
+
+function shareRefNative() {
+  const link = document.getElementById('refLinkInput').value;
+  if (navigator.share) {
+    navigator.share({ title: 'Makao Hub', text: 'Find your next home in Kenya!', url: link });
+  } else {
+    copyRefLink();
+  }
+}
+
+function withdrawReferral() {
+  if (!referralState || referralState.wallet < 200) {
+    showToast('⚠️ Minimum withdrawal is KES 200. Keep referring!');
+    return;
+  }
+  showToast('📱 M-Pesa withdrawal of KES ' + referralState.wallet + ' initiated to ' + referralState.phone + '. Processing in 1–2 minutes.');
+  referralState.wallet = 0;
+  referralState.referrals.forEach(r => { r.unlocked = false; });
+  localStorage.setItem('mh_referral', JSON.stringify(referralState));
+  renderReferralDashboard();
+}
+
+// Called when a referred user completes their first unlock
+function creditReferrer(refCode) {
+  // In a real app this would be a server call; here we simulate it locally
+  const allData = JSON.parse(localStorage.getItem('mh_referral') || 'null');
+  if (allData && allData.code === refCode) {
+    const existing = allData.referrals.find(r => r.code === refCode);
+    if (existing && !existing.unlocked) {
+      existing.unlocked = true;
+      localStorage.setItem('mh_referral', JSON.stringify(allData));
+      referralState = allData;
+    }
+  }
+}
+
+function completeRefSignup() {
+  const name  = document.getElementById('refSignupName').value.trim();
+  const email = document.getElementById('refSignupEmail').value.trim();
+  const phone = document.getElementById('refSignupPhone').value.trim();
+
+  if (!name || !email) { showToast('⚠️ Please enter your name and email'); return; }
+
+  // Store this signup under the referrer's state
+  const refCode = sessionStorage.getItem('mh_incoming_ref');
+  const allData = JSON.parse(localStorage.getItem('mh_referral') || 'null');
+  if (allData && allData.code === refCode) {
+    allData.referrals.push({
+      name,
+      date: new Date().toLocaleDateString('en-KE', { day:'numeric', month:'short', year:'numeric' }),
+      unlocked: false,
+      code: refCode
+    });
+    localStorage.setItem('mh_referral', JSON.stringify(allData));
+    referralState = allData;
+  }
+
+  document.getElementById('refSignupOverlay').style.display = 'none';
+  showToast('🎉 Welcome to Makao Hub, ' + name.split(' ')[0] + '! Browse listings below.');
+  showPage('listings');
+}
+
+// Check for incoming referral link on page load
+function checkIncomingReferral() {
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get('ref');
+  if (!ref) return;
+
+  sessionStorage.setItem('mh_incoming_ref', ref);
+
+  // Find referrer name from stored state (local sim)
+  const stored = JSON.parse(localStorage.getItem('mh_referral') || 'null');
+  const refName = (stored && stored.code === ref) ? stored.name : 'A friend';
+
+  document.getElementById('refSignupMsg').textContent =
+    `${refName} invited you to Makao Hub! Sign up below to start finding your next home — it's completely free to browse.`;
+  document.getElementById('refSignupOverlay').style.display = 'flex';
+
+  // Clean URL without reloading
+  window.history.replaceState({}, '', window.location.pathname);
+}
+
+// Init referral page when navigated to
+const _origShowPage = typeof showPage === 'function' ? showPage : null;
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
