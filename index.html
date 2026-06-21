@@ -267,7 +267,7 @@
     <div class="container">
       <div class="search-row" style="grid-template-columns:1.5fr 1fr 1fr 1fr 1fr auto">
         <div class="form-group"><input class="input" placeholder="Search by estate or name..." id="filterLoc" onkeydown="if(event.key==='Enter')applyFilters()"></div>
-        <div class="select-wrap"><select class="input" id="filterType" onchange="applyFilters()"><option value="">All Types</option><option>Bedsitter</option><option>Single Room</option><option>1 Bedroom</option><option>2 Bedrooms</option><option>3 Bedrooms</option><option>4+ Bedrooms</option><option>Maisonette</option><option>Studio</option></select></div>
+        <div class="select-wrap"><select class="input" id="filterType" onchange="applyFilters()"><option value="">All Types</option><option>Bedsitter</option><option>Single Room</option><option>1 Bedroom</option><option>2 Bedrooms</option><option>3 Bedrooms</option><option>4+ Bedrooms</option><option>Maisonette</option><option>Bungalow</option><option>Townhouse</option><option>Studio</option><option>BnB</option></select></div>
         <div class="select-wrap"><select class="input" id="filterBudget" onchange="applyFilters()"><option value="">Any Budget</option><option value="10000">Under KES 10k</option><option value="20000">KES 10k – 20k</option><option value="35000">KES 20k – 35k</option><option value="60000">KES 35k – 60k</option><option value="100000">KES 60k – 100k</option><option value="999999">Over KES 100k</option></select></div>
         <div class="select-wrap"><select class="input" id="filterAmenity" onchange="applyFilters()"><option value="">Any Amenity</option><option>Parking</option><option>24hr Water</option><option>Furnished</option><option>Ensuite</option><option>Fibre-ready</option><option>Generator</option><option>Swimming Pool</option><option>DSQ</option><option>Garden</option><option>Elevator</option></select></div>
         <div class="select-wrap"><select class="input" id="filterCounty" onchange="applyFilters()"><option value="">Any County</option><option>Nairobi</option><option>Kiambu</option><option>Kajiado</option><option>Machakos</option><option>Nakuru</option><option>Mombasa</option></select></div>
@@ -285,6 +285,7 @@
           <button class="chip" data-filter="1 Bedroom" onclick="setChip(this,'1 Bedroom')">1 Bed</button>
           <button class="chip" data-filter="2 Bedrooms" onclick="setChip(this,'2 Bedrooms')">2 Bed</button>
           <button class="chip" data-filter="3 Bedrooms" onclick="setChip(this,'3 Bedrooms')">3 Bed+</button>
+          <button class="chip" data-filter="BnB" onclick="setChip(this,'BnB')">BnB</button>
           <button class="chip" data-filter="Furnished" onclick="setChipAmenity(this,'Furnished')">Furnished</button>
         </div>
         <select class="sort-select" id="sortSelect" onchange="applyFilters()"><option value="newest">Newest first</option><option value="price-asc">Price: Low → High</option><option value="price-desc">Price: High → Low</option><option value="popular">Most viewed</option></select>
@@ -336,7 +337,7 @@
       <div style="display:flex;flex-direction:column;gap:16px">
         <div class="form-row">
           <div class="form-group"><label class="form-label">Property Title <span style="color:var(--red)">*</span></label><input class="input" id="regTitle" placeholder="e.g. Spacious 2BR apartment in Kilimani with parking" oninput="updateRegProgress()"><div class="form-error" id="regTitleErr">Please enter a title for your property</div></div>
-          <div class="form-group"><label class="form-label">Property Type <span style="color:var(--red)">*</span></label><div class="select-wrap"><select class="input" id="regType" onchange="updateRegProgress()"><option value="">Select type</option><option>Bedsitter</option><option>Single Room</option><option>Studio Apartment</option><option>1 Bedroom</option><option>2 Bedrooms</option><option>3 Bedrooms</option><option>4+ Bedrooms</option><option>Maisonette</option><option>Bungalow</option><option>Townhouse</option></select></div><div class="form-error" id="regTypeErr">Please select a property type</div></div>
+          <div class="form-group"><label class="form-label">Property Type <span style="color:var(--red)">*</span></label><div class="select-wrap"><select class="input" id="regType" onchange="updateRegProgress();toggleBedsField()"><option value="">Select type</option><option>Bedsitter</option><option>Single Room</option><option>Studio Apartment</option><option>1 Bedroom</option><option>2 Bedrooms</option><option>3 Bedrooms</option><option>4+ Bedrooms</option><option>Maisonette</option><option>Bungalow</option><option>Townhouse</option><option>BnB / Short Stay</option></select></div><div class="form-error" id="regTypeErr">Please select a property type</div></div>
         </div>
         <div class="form-row">
           <div class="form-group"><label class="form-label">County <span style="color:var(--red)">*</span></label><div class="select-wrap"><select class="input" id="regCounty" onchange="updateRegProgress();updateAreasByCounty()"><option value="">Select county</option><option>Nairobi</option><option>Kiambu</option><option>Machakos</option><option>Kajiado</option><option>Nakuru</option><option>Mombasa</option><option>Kisumu</option><option>Uasin Gishu</option><option>Meru</option><option>Nyeri</option><option>Kirinyaga</option><option>Murang'a</option><option>Nyandarua</option><option>Laikipia</option><option>Other</option></select></div><div class="form-error" id="regCountyErr">Please select a county</div></div>
@@ -363,7 +364,7 @@
           <div class="form-group"><label class="form-label">Deposit Required</label><div class="select-wrap"><select class="input" id="regDeposit"><option>1 month's rent</option><option>2 months' rent</option><option>3 months' rent</option><option>No deposit</option></select></div></div>
         </div>
         <div class="form-row">
-          <div class="form-group"><label class="form-label">Bedrooms <span style="color:var(--red)">*</span></label><div class="select-wrap"><select class="input" id="regBeds"><option value="0">Bedsitter / Studio</option><option value="1">1 Bedroom</option><option value="2">2 Bedrooms</option><option value="3">3 Bedrooms</option><option value="4">4+ Bedrooms</option></select></div></div>
+          <div id="bedsFieldGroup"><div class="form-group"><label class="form-label">Bedrooms <span style="color:var(--red)">*</span></label><div class="select-wrap"><select class="input" id="regBeds"><option value="0">Bedsitter / Studio</option><option value="1">1 Bedroom</option><option value="2">2 Bedrooms</option><option value="3">3 Bedrooms</option><option value="4">4+ Bedrooms</option></select></div></div></div>
           <div class="form-group"><label class="form-label">Bathrooms <span style="color:var(--red)">*</span></label><div class="select-wrap"><select class="input" id="regBaths"><option>1</option><option>2</option><option>3</option><option>4+</option></select></div></div>
         </div>
         <div class="form-row">
@@ -432,6 +433,16 @@
         <div class="pricing-card selected" onclick="selectPlan(this,'free')"><div class="pricing-card-price">Free</div><div class="pricing-card-label">Standard Listing</div><div class="pricing-card-duration">30 days</div><div class="pricing-card-features">✓ Listed in search<br>✓ Full analytics<br>✓ SMS alerts<br>✗ No top placement</div></div>
         <div class="pricing-card" onclick="selectPlan(this,'featured')"><div class="pricing-card-price">KES 299</div><div class="pricing-card-label">Featured Listing</div><div class="pricing-card-duration">60 days</div><div class="pricing-card-features">✓ Top of search results<br>✓ "Featured" badge<br>✓ Priority review<br>✓ All Standard benefits</div></div>
         <div class="pricing-card" onclick="selectPlan(this,'premium')"><div class="pricing-card-price">KES 599</div><div class="pricing-card-label">Premium Listing</div><div class="pricing-card-duration">90 days</div><div class="pricing-card-features">✓ Highlighted card<br>✓ Homepage featured<br>✓ Social media share<br>✓ All Featured benefits</div></div>
+      </div>
+      <!-- Payment section for paid plans -->
+      <div id="listingPaymentBox" style="display:none;margin-top:16px;background:linear-gradient(135deg,#083D2A,#0D5C3A);border-radius:var(--r);padding:20px;color:#fff">
+        <div style="font-size:13px;font-weight:700;margin-bottom:12px;color:rgba(255,255,255,.85)">💳 Pay via M-Pesa to activate your listing</div>
+        <div style="display:flex;gap:24px;margin-bottom:12px">
+          <div><div style="font-size:10px;opacity:.6;margin-bottom:2px">Paybill</div><div style="font-size:20px;font-weight:800;color:#E8A83A">542542</div></div>
+          <div><div style="font-size:10px;opacity:.6;margin-bottom:2px">Account</div><div style="font-size:20px;font-weight:800;color:#E8A83A">289989</div></div>
+          <div><div style="font-size:10px;opacity:.6;margin-bottom:2px">Amount</div><div style="font-size:20px;font-weight:800;color:#E8A83A" id="listingPayAmt">KES 299</div></div>
+        </div>
+        <div style="font-size:11px;opacity:.6">Send payment first, then submit your listing. We verify before publishing.</div>
       </div>
       <input type="hidden" id="regPlan" value="free">
       <div style="margin-top:28px;padding:20px;background:#F9FAFB;border:1px solid var(--border);border-radius:var(--r)">
@@ -794,6 +805,66 @@
   </div>
 </div>
 
+<!-- EDIT LISTING MODAL -->
+<div class="modal-overlay" id="editListingModal">
+  <div class="modal" style="max-width:520px">
+    <div style="background:linear-gradient(135deg,#083D2A,#0D5C3A);padding:24px;border-radius:22px 22px 0 0;display:flex;align-items:center;justify-content:space-between">
+      <div>
+        <h3 style="color:#fff;margin-bottom:2px" id="editListingTitle">Edit Listing</h3>
+        <p style="color:rgba(255,255,255,.65);font-size:13px">Update your property details</p>
+      </div>
+      <button style="background:rgba(255,255,255,.15);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:16px" onclick="document.getElementById('editListingModal').classList.remove('open')">✕</button>
+    </div>
+    <div style="padding:24px;display:flex;flex-direction:column;gap:16px">
+      <input type="hidden" id="editListingId">
+      <div class="form-group"><label class="form-label">Listing Name</label><input class="input" id="editName" placeholder="e.g. Modern 2BR Apartment"></div>
+      <div class="form-group"><label class="form-label">Monthly Rent (KES)</label><input class="input" type="number" id="editPrice" placeholder="e.g. 25000"></div>
+      <div class="form-group"><label class="form-label">Full Address (private)</label><input class="input" id="editAddress" placeholder="e.g. Apt 3B, Rose Court, Ngong Road"></div>
+      <div class="form-group"><label class="form-label">Description</label><textarea class="input" id="editDesc" rows="4" placeholder="Describe the property..." style="resize:vertical"></textarea></div>
+      <div style="display:flex;gap:10px">
+        <button class="btn btn-ghost w-full" onclick="document.getElementById('editListingModal').classList.remove('open')">Cancel</button>
+        <button class="btn btn-primary w-full" onclick="saveEditListing()">💾 Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- RENEW MODAL -->
+<div class="modal-overlay" id="renewModal">
+  <div class="modal" style="max-width:500px">
+    <div style="background:linear-gradient(135deg,#083D2A,#0D5C3A);padding:24px;border-radius:22px 22px 0 0;color:#fff;text-align:center">
+      <div style="font-size:36px;margin-bottom:8px">🔄</div>
+      <h3 style="color:#fff;margin-bottom:4px">Renew Listing</h3>
+      <p style="color:rgba(255,255,255,.75);font-size:13px" id="renewListingName"></p>
+    </div>
+    <div style="padding:24px">
+      <p style="font-size:13px;color:var(--ink-muted);margin-bottom:16px">Choose how long you'd like to renew this listing:</p>
+      <div class="pricing-cards" id="renewPlanCards" style="grid-template-columns:1fr 1fr 1fr">
+        <div class="pricing-card selected" onclick="document.querySelectorAll('#renewPlanCards .pricing-card').forEach(c=>c.classList.remove('selected'));this.classList.add('selected')">
+          <div class="pricing-card-price">Free</div>
+          <div class="pricing-card-label">Standard</div>
+          <div class="pricing-card-duration">30 days</div>
+          <div class="pricing-card-features">✓ Listed in search<br>✓ Full analytics<br>✓ SMS alerts</div>
+        </div>
+        <div class="pricing-card" onclick="document.querySelectorAll('#renewPlanCards .pricing-card').forEach(c=>c.classList.remove('selected'));this.classList.add('selected')">
+          <div class="pricing-card-price">KES 299</div>
+          <div class="pricing-card-label">Featured</div>
+          <div class="pricing-card-duration">60 days</div>
+          <div class="pricing-card-features">✓ Top of results<br>✓ Featured badge<br>✓ Priority review</div>
+        </div>
+        <div class="pricing-card" onclick="document.querySelectorAll('#renewPlanCards .pricing-card').forEach(c=>c.classList.remove('selected'));this.classList.add('selected')">
+          <div class="pricing-card-price">KES 599</div>
+          <div class="pricing-card-label">Premium</div>
+          <div class="pricing-card-duration">90 days</div>
+          <div class="pricing-card-features">✓ Homepage featured<br>✓ Social media share<br>✓ All Featured benefits</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:20px">
+        <button class="btn btn-ghost w-full" onclick="document.getElementById('renewModal').classList.remove('open')">Cancel</button>
+        <button class="btn btn-primary w-full" onclick="submitRenewal()">✅ Confirm Renewal</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="toast" id="toast"></div>
 <script src="app.js"></script>
 </body>

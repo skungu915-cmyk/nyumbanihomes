@@ -627,8 +627,8 @@ function buildListingPerf() {
     {name:'2BR Apartment',area:'Kileleshwa',rent:'35,000',views:142,unlocks:8,income:'KES 70,000',status:'Active'},
     {name:'1BR Apartment',area:'Kileleshwa',rent:'35,000',views:98,unlocks:5,income:'KES 35,000',status:'Active'},
     {name:'3BR Maisonette',area:'Karen',rent:'95,000',views:68,unlocks:4,income:'KES 47,500',status:'Active'},
-    {name:'Studio Apartment',area:'Westlands',rent:'28,000',views:187,unlocks:11,income:'KES 28,000',status:'Active'},
-    {name:'Bedsitter',area:'South B',rent:'10,000',views:62,unlocks:3,income:'KES 20,000',status:'Active'},
+    {name:'Studio Apartment',area:'Westlands',rent:'28,000',views:187,unlocks:11,income:'KES 28,000',status:'Expired'},
+    {name:'Bedsitter',area:'South B',rent:'10,000',views:62,unlocks:3,income:'KES 20,000',status:'Expired'},
   ];
   body.innerHTML = perfData.map(p => `
     <tr>
@@ -638,15 +638,27 @@ function buildListingPerf() {
       <td>${p.views}</td>
       <td><span class="badge badge-green">${p.unlocks} enquiries</span></td>
       <td style="font-weight:700">${p.income}</td>
-      <td><span class="badge badge-green">● ${p.status}</span></td>
+      <td><span class="badge ${p.status === 'Active' ? 'badge-green' : 'badge-red'}">● ${p.status}</span></td>
       <td>
         <div style="display:flex;gap:6px">
           <button class="btn btn-ghost btn-sm" onclick="showToast('✏️ Edit listing form coming soon')">Edit</button>
-          <button class="btn btn-ghost btn-sm" onclick="showToast('🔄 Listing renewed for 30 days')">Renew</button>
+          ${p.status === 'Expired' ? `<button class="btn btn-amber btn-sm" onclick="openRenewModal('${p.name}')">🔄 Renew</button>` : `<button class="btn btn-ghost btn-sm" onclick="openRenewModal('${p.name}')">🔄 Renew</button>`}
         </div>
       </td>
     </tr>
   `).join('');
+}
+
+function openRenewModal(name) {
+  document.getElementById('renewListingName').textContent = name;
+  document.getElementById('renewModal').classList.add('open');
+}
+function submitRenewal() {
+  const plan = document.querySelector('#renewPlanCards .pricing-card.selected');
+  const planName = plan ? plan.querySelector('.pricing-card-label').textContent : 'Standard';
+  const duration = plan ? plan.querySelector('.pricing-card-duration').textContent : '30 days';
+  document.getElementById('renewModal').classList.remove('open');
+  showToast(`✅ "${document.getElementById('renewListingName').textContent}" renewed as ${planName} for ${duration}`);
 }
 
 function buildMyListings() {
@@ -671,13 +683,38 @@ function buildMyListings() {
           <div style="font-size:12px;color:var(--ink-muted);margin-top:2px">Expires 16 Jul 2026</div>
         </div>
         <div style="display:flex;flex-direction:column;gap:6px;flex-shrink:0">
-          <button class="btn btn-outline btn-sm" onclick="showToast('✏️ Edit form coming soon')">Edit</button>
+          <button class="btn btn-outline btn-sm" onclick="openEditListing(${l.id})">✏️ Edit</button>
           <button class="btn btn-ghost btn-sm" onclick="openListing(${l.id})">Preview</button>
           <button class="btn btn-ghost btn-sm" style="color:var(--red);border-color:var(--red)" onclick="showToast('⚠️ Listing paused — no longer shown in search')">Pause</button>
         </div>
       </div>
     </div>
   `).join('');
+}
+
+function openEditListing(id) {
+  const l = LISTINGS.find(x => x.id === id);
+  if (!l) return;
+  document.getElementById('editListingTitle').textContent = 'Edit: ' + l.name;
+  document.getElementById('editName').value = l.name;
+  document.getElementById('editPrice').value = l.price;
+  document.getElementById('editDesc').value = l.desc;
+  document.getElementById('editAddress').value = l.fullAddress || '';
+  document.getElementById('editListingId').value = l.id;
+  document.getElementById('editListingModal').classList.add('open');
+}
+function saveEditListing() {
+  const id = parseInt(document.getElementById('editListingId').value);
+  const l = LISTINGS.find(x => x.id === id);
+  if (l) {
+    l.name = document.getElementById('editName').value;
+    l.price = parseInt(document.getElementById('editPrice').value) || l.price;
+    l.desc = document.getElementById('editDesc').value;
+    l.fullAddress = document.getElementById('editAddress').value;
+  }
+  document.getElementById('editListingModal').classList.remove('open');
+  showToast('✅ Listing updated successfully!');
+  buildMyListings();
 }
 
 function buildTenants() {
@@ -848,10 +885,23 @@ function updateRegProgress() {
   if(pct >= 90) document.getElementById('rdot4').style.background = 'var(--green)';
 }
 
-function selectPlan(el, plan) {
+function toggleBedsField() {
+  const type = document.getElementById('regType').value;
+  const bedsGroup = document.getElementById('bedsFieldGroup');
+  if (!bedsGroup) return;
+  const showBeds = ['Maisonette','Bungalow','Townhouse','3 Bedrooms','4+ Bedrooms','2 Bedrooms','1 Bedroom'].includes(type);
+  bedsGroup.style.display = showBeds ? '' : 'none';
+}
+
+function selectPlan(card, plan) {
   document.querySelectorAll('.pricing-card').forEach(c => c.classList.remove('selected'));
-  el.classList.add('selected');
+  card.classList.add('selected');
   document.getElementById('regPlan').value = plan;
+  const payBox = document.getElementById('listingPaymentBox');
+  const amtEl = document.getElementById('listingPayAmt');
+  if (plan === 'featured') { payBox.style.display = 'block'; amtEl.textContent = 'KES 299'; }
+  else if (plan === 'premium') { payBox.style.display = 'block'; amtEl.textContent = 'KES 599'; }
+  else { payBox.style.display = 'none'; }
 }
 
 function triggerPhotoUpload() {
@@ -895,21 +945,18 @@ function pickLocation() {
       const { latitude, longitude } = pos.coords;
       showStatus('🌐 Found location — looking up address…', 'info');
 
-      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&addressdetails=1`)
+      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&addressdetails=1&zoom=18`)
         .then(r => r.json())
         .then(data => {
           const a = data.address || {};
-          // Build a readable address from the parts available
-          const parts = [
-            a.house_number,
-            a.road || a.pedestrian,
-            a.suburb || a.neighbourhood || a.quarter,
-            a.city_district || a.county,
-            a.city || a.town || a.village,
-            a.state
-          ].filter(Boolean);
-
-          const address = parts.length ? parts.join(', ') : data.display_name;
+          const building = a.building || a.amenity || a.leisure || a.tourism || '';
+          const streetNum = a.house_number ? a.house_number + ' ' : '';
+          const street = a.road || a.pedestrian || a.footway || '';
+          const estate = a.residential || a.neighbourhood || a.suburb || a.quarter || '';
+          const district = a.city_district || a.county || '';
+          const city = a.city || a.town || a.village || '';
+          const parts = [building, streetNum + street, estate, district, city].filter(Boolean);
+          const address = parts.length >= 2 ? parts.join(', ') : data.display_name;
           input.value = address;
           updateRegProgress();
           showStatus(`✅ Address filled from GPS. Review and correct any details.`, 'success');
