@@ -532,7 +532,7 @@
       <!-- M-PESA PAYMENTS -->
       <div class="dash-tab-content" id="dash-payments">
         <div class="dash-header"><div><h2>📱 M-Pesa Payments</h2><p class="text-muted" style="font-size:14px">Real-time M-Pesa transaction log</p></div><button class="btn btn-ghost btn-sm" onclick="showToast('📊 Transaction log downloaded')">📥 Export CSV</button></div>
-        <div class="card" style="padding:24px;margin-bottom:20px;background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border-color:#BBF7D0"><div style="display:flex;align-items:center;gap:16px"><div style="font-size:40px">📱</div><div style="flex:1"><div style="font-size:15px;font-weight:700;margin-bottom:4px">M-Pesa Rent Collection — Active</div><div style="font-size:13px;color:var(--ink-muted);line-height:1.5">Your Paybill: <strong style="color:var(--green)">522100</strong> · Account: Your name or unit number · Tenants pay directly, you get an instant SMS.</div></div><button class="btn btn-primary btn-sm" onclick="showToast('⚙️ M-Pesa settings updated')">Configure</button></div></div>
+        <div class="card" style="padding:24px;margin-bottom:20px;background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border-color:#BBF7D0"><div style="display:flex;align-items:center;gap:16px"><div style="font-size:40px">📱</div><div style="flex:1"><div style="font-size:15px;font-weight:700;margin-bottom:4px">M-Pesa Rent Collection — Active</div><div style="font-size:13px;color:var(--ink-muted);line-height:1.5">Your Paybill: <strong style="color:var(--green)">542542</strong> · Account: Your name or unit number · Tenants pay directly, you get an instant SMS.</div></div><button class="btn btn-primary btn-sm" onclick="showToast('⚙️ M-Pesa settings updated')">Configure</button></div></div>
         <div class="dash-section"><div class="dash-section-hdr"><h3>Recent Transactions</h3><span class="badge badge-green">● Live</span></div><div style="overflow-x:auto"><table class="dash-table w-full"><thead><tr><th>Date & Time</th><th>From</th><th>Amount</th><th>M-Pesa Ref</th><th>Property</th><th>Status</th></tr></thead><tbody id="paymentsBody"></tbody></table></div></div>
       </div>
       <!-- MAINTENANCE -->
@@ -695,7 +695,7 @@
       <div class="footer-col"><h5>Got a House?</h5><a onclick="showPage('register')">List a Property</a><a onclick="showPage('dashboard')">Landlord Dashboard</a><a onclick="setDashTab(null,'rent');showPage('dashboard')">Rent Manager</a><a onclick="showToast('💰 Pricing details coming soon')">Pricing Plans</a><a onclick="showToast('🤝 Agent sign up coming soon')">Agent Sign Up</a><a onclick="showToast('📊 Analytics guide coming soon')">Analytics Guide</a></div>
       <div class="footer-col"><h5>Company</h5><a onclick="showToast('ℹ️ About page coming soon')">About Us</a><a onclick="showToast('📰 Blog coming soon')">Blog</a><a onclick="showToast('🔒 Privacy policy coming soon')">Privacy Policy</a><a onclick="showToast('📜 Terms of service coming soon')">Terms of Service</a><a onclick="showToast('🚩 Report form coming soon')">Report a Listing</a><a onclick="showToast('💼 Careers page coming soon')">Careers</a></div>
     </div>
-    <div class="footer-bottom"><p>© 2026 Makao Hub. Built with ❤️ in Nairobi, Kenya 🇰🇪</p><div style="display:flex;gap:16px;flex-wrap:wrap"><p style="color:rgba(255,255,255,.4)">Paybill: 522100</p><p style="color:rgba(255,255,255,.4)">Verified listings</p><p style="color:rgba(255,255,255,.4)">4,800+ properties</p></div></div>
+    <div class="footer-bottom"><p>© 2026 Makao Hub. Built with ❤️ in Nairobi, Kenya 🇰🇪</p><div style="display:flex;gap:16px;flex-wrap:wrap"><p style="color:rgba(255,255,255,.4)">Paybill: 542542</p><p style="color:rgba(255,255,255,.4)">Verified listings</p><p style="color:rgba(255,255,255,.4)">4,800+ properties</p></div></div>
   </div>
 </footer>
 
@@ -722,22 +722,50 @@
 <!-- M-PESA MODAL -->
 <div class="modal-overlay" id="mpesaModal">
   <div class="modal mpesa-modal">
-    <div class="mpesa-header"><div class="mpesa-logo">📱</div><h3>Unlock with M-Pesa</h3><p>Get the full address & contacts instantly</p></div>
+    <div class="mpesa-header"><div class="mpesa-logo">📱</div><h3>Unlock with M-Pesa</h3><p>Pay once — reveal full address &amp; contacts</p></div>
     <div class="mpesa-body">
       <div class="mpesa-amount"><div class="price">KES 1,000</div><div class="desc">One-time unlock for <strong id="mpesaListing"></strong></div></div>
-      <div class="mpesa-steps">
-        <div class="mpesa-step"><div class="mpesa-step-num">1</div><p>Enter your <strong>M-Pesa registered phone number</strong> below and tap "Pay".</p></div>
-        <div class="mpesa-step"><div class="mpesa-step-num">2</div><p>An <strong>STK Push prompt</strong> will appear on your phone — enter your M-Pesa PIN to confirm.</p></div>
-        <div class="mpesa-step"><div class="mpesa-step-num">3</div><p>The <strong>owner's contacts and full address</strong> will appear on screen instantly.</p></div>
+
+      <!-- Paybill details box -->
+      <div style="background:linear-gradient(135deg,#1A2332,#0D1520);border-radius:var(--r-sm);padding:16px;margin-bottom:16px;color:#fff;text-align:center">
+        <div style="font-size:12px;opacity:.7;margin-bottom:8px;letter-spacing:.05em;text-transform:uppercase">Send payment to</div>
+        <div style="display:flex;justify-content:center;gap:32px;margin-bottom:8px">
+          <div><div style="font-size:11px;opacity:.6;margin-bottom:2px">Paybill Number</div><div style="font-size:24px;font-weight:800;letter-spacing:.05em;color:#F4A468">542542</div></div>
+          <div><div style="font-size:11px;opacity:.6;margin-bottom:2px">Account Number</div><div style="font-size:24px;font-weight:800;letter-spacing:.05em;color:#F4A468">289989</div></div>
+        </div>
+        <div style="font-size:11px;opacity:.6">M-Pesa → Lipa na M-Pesa → Pay Bill</div>
       </div>
+
+      <!-- Steps -->
+      <div class="mpesa-steps" id="mpesaSteps">
+        <div class="mpesa-step"><div class="mpesa-step-num">1</div><p>Open <strong>M-Pesa</strong> on your phone → <strong>Lipa na M-Pesa</strong> → <strong>Pay Bill</strong></p></div>
+        <div class="mpesa-step"><div class="mpesa-step-num">2</div><p>Enter Paybill <strong>542542</strong>, Account <strong>289989</strong>, Amount <strong>1,000</strong> and your PIN</p></div>
+        <div class="mpesa-step"><div class="mpesa-step-num">3</div><p>Once you get the M-Pesa confirmation SMS, tap the button below</p></div>
+      </div>
+
+      <!-- Normal: paid button -->
       <div id="mpesaNormal">
-        <div class="mpesa-phone-row"><div class="mpesa-phone-code">🇰🇪 +254</div><input class="input" id="mpesaPhone" placeholder="7XX XXX XXX" maxlength="9" oninput="validateMpesaPhone(this)" onkeydown="if(event.key==='Enter')processMpesa()"></div>
-        <div class="form-error" id="mpesaPhoneErr" style="margin-bottom:12px">Please enter a valid Safaricom/Airtel number</div>
-        <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:var(--r-sm);padding:12px;margin-bottom:16px;font-size:12px;color:var(--green-mid);line-height:1.5">🔒 <strong>Secure payment.</strong> Powered by Safaricom M-Pesa. You will be asked to confirm with your PIN. No PIN is stored.</div>
-        <button class="btn btn-primary w-full btn-lg" onclick="processMpesa()" style="background:#16a34a;font-size:15px">📱 Pay KES 1,000 via M-Pesa</button>
-        <button class="btn btn-ghost w-full mt-8" onclick="document.getElementById('mpesaModal').classList.remove('open')">Maybe later</button>
+        <button class="btn btn-primary w-full btn-lg" onclick="processMpesa()" style="font-size:15px;margin-bottom:8px">✅ I've Paid — Reveal Contacts</button>
+        <button class="btn btn-ghost w-full" onclick="document.getElementById('mpesaModal').classList.remove('open')">Maybe later</button>
       </div>
-      <div class="mpesa-processing" id="mpesaProcessing"><div class="spinner"></div><div style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px">Sending STK Push…</div><div style="font-size:13px;color:var(--ink-muted)">Check your phone for the M-Pesa prompt</div></div>
+
+      <!-- Processing spinner -->
+      <div class="mpesa-processing" id="mpesaProcessing" style="display:none"><div class="spinner"></div><div style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px">Verifying payment…</div><div style="font-size:13px;color:var(--ink-muted)">Please wait a moment</div></div>
+
+      <!-- Success: revealed contacts -->
+      <div id="mpesaSuccess" style="display:none">
+        <div style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1px solid #BBF7D0;border-radius:var(--r-sm);padding:16px;margin-bottom:16px">
+          <div style="font-size:13px;font-weight:700;color:#15803D;margin-bottom:12px">🎉 Payment confirmed! Here are the details:</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px"><span style="font-size:18px">📍</span><div><div style="font-weight:600;color:var(--ink)">Full Address</div><div id="revealedAddress" style="color:var(--ink-muted)"></div></div></div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px"><span style="font-size:18px">📞</span><div><div style="font-weight:600;color:var(--ink)">Phone / Call</div><div id="revealedPhone" style="color:var(--ink-muted)"></div></div></div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px"><span style="font-size:18px">💬</span><div><div style="font-weight:600;color:var(--ink)">WhatsApp</div><div id="revealedWhatsApp" style="color:var(--ink-muted)"></div></div></div>
+          </div>
+        </div>
+        <a id="revealedCallBtn" href="#" class="btn btn-primary w-full btn-lg" style="margin-bottom:8px;text-align:center;display:block">📞 Call Now</a>
+        <a id="revealedWABtn" href="#" class="btn w-full btn-lg" style="background:#25D366;color:#fff;text-align:center;display:block;margin-bottom:8px">💬 Open WhatsApp</a>
+        <button class="btn btn-ghost w-full" onclick="document.getElementById('mpesaModal').classList.remove('open')">Close</button>
+      </div>
     </div>
   </div>
 </div>

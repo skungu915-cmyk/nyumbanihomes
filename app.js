@@ -473,54 +473,48 @@ function openMpesa(id) {
   const l = LISTINGS.find(x => x.id === id);
   currentListing = l;
   document.getElementById('mpesaListing').textContent = l.name;
-  document.getElementById('mpesaPhone').value = '';
-  document.getElementById('mpesaPhoneErr').classList.remove('show');
   document.getElementById('mpesaNormal').style.display = 'block';
   document.getElementById('mpesaProcessing').style.display = 'none';
+  document.getElementById('mpesaSuccess').style.display = 'none';
+  document.getElementById('mpesaSteps').style.display = '';
   document.getElementById('mpesaModal').classList.add('open');
 }
 
-function validateMpesaPhone(input) {
-  const val = input.value.replace(/\D/g,'');
-  input.value = val;
-  const err = document.getElementById('mpesaPhoneErr');
-  if(val.length > 0 && (val.length !== 9 || !['7','1'].includes(val[0]))) {
-    err.classList.add('show');
-  } else {
-    err.classList.remove('show');
-  }
-}
-
 function processMpesa() {
-  const phone = document.getElementById('mpesaPhone').value.replace(/\D/g,'');
-  const err = document.getElementById('mpesaPhoneErr');
-  if(!phone || phone.length !== 9 || !['7','1'].includes(phone[0])) {
-    err.classList.add('show');
-    return;
-  }
-  err.classList.remove('show');
   document.getElementById('mpesaNormal').style.display = 'none';
   document.getElementById('mpesaProcessing').style.display = 'block';
-  showToast('📱 STK Push sent to +254 ' + phone + ' — check your phone');
 
   setTimeout(() => {
-    document.getElementById('mpesaModal').classList.remove('open');
     document.getElementById('mpesaProcessing').style.display = 'none';
-    document.getElementById('mpesaNormal').style.display = 'block';
-    showToast('✅ Payment confirmed! KES 1,000 received. Contacts unlocked.');
+
     // Credit referrer if this is first unlock and user came via referral
     const incomingRef = sessionStorage.getItem('mh_incoming_ref');
-    if (incomingRef && unlockedListings.size === 1) {
+    if (incomingRef && unlockedListings.size === 0) {
       creditReferrer(incomingRef);
       showToast('🎁 Your referrer has earned KES 200 — thanks for using their link!');
     }
-    if(currentListing) {
+
+    if (currentListing) {
       unlockedListings.add(currentListing.id);
       persistState();
-      if(currentPage === 'listings') renderListings(filteredData);
-      setTimeout(() => openListing(currentListing.id), 600);
+      if (currentPage === 'listings') renderListings(filteredData);
+
+      // Reveal contacts inside modal
+      const phone = currentListing.phone || currentListing.contact || '+254 703 556 652';
+      const wa = currentListing.whatsapp || phone;
+      const addr = currentListing.fullAddress || currentListing.location || currentListing.area || 'Full address unlocked';
+
+      document.getElementById('revealedAddress').textContent = addr;
+      document.getElementById('revealedPhone').textContent = phone;
+      document.getElementById('revealedWhatsApp').textContent = wa;
+      document.getElementById('revealedCallBtn').href = 'tel:' + phone.replace(/\s/g,'');
+      document.getElementById('revealedWABtn').href = 'https://wa.me/' + wa.replace(/[^\d]/g,'');
+
+      document.getElementById('mpesaSteps').style.display = 'none';
+      document.getElementById('mpesaSuccess').style.display = 'block';
+      showToast('✅ Payment confirmed! Contacts revealed below.');
     }
-  }, 3000);
+  }, 2500);
 }
 
 // ════════════════════════════════════════════════════════════
