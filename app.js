@@ -478,7 +478,7 @@ function openMpesa(id) {
   document.getElementById('mpesaSuccess').style.display = 'none';
   if (document.getElementById('mpesaPhone')) document.getElementById('mpesaPhone').value = '';
   if (document.getElementById('mpesaPhoneErr')) document.getElementById('mpesaPhoneErr').classList.remove('show');
-  switchMpesaTab('stk');
+  switchMpesaTab('manual');
   document.getElementById('mpesaModal').classList.add('open');
 }
 
