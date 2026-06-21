@@ -722,44 +722,68 @@
 <!-- M-PESA MODAL -->
 <div class="modal-overlay" id="mpesaModal">
   <div class="modal mpesa-modal">
-    <div class="mpesa-header"><div class="mpesa-logo">📱</div><h3>Unlock with M-Pesa</h3><p>Pay once — reveal full address &amp; contacts</p></div>
+    <div class="mpesa-header"><div class="mpesa-logo">📱</div><h3>Unlock with M-Pesa</h3><p>Pay KES 1,000 — reveal full address &amp; contacts</p></div>
     <div class="mpesa-body">
       <div class="mpesa-amount"><div class="price">KES 1,000</div><div class="desc">One-time unlock for <strong id="mpesaListing"></strong></div></div>
 
-      <!-- Paybill details box -->
+      <!-- Paybill details box (always visible) -->
       <div style="background:linear-gradient(135deg,#1A2332,#0D1520);border-radius:var(--r-sm);padding:16px;margin-bottom:16px;color:#fff;text-align:center">
-        <div style="font-size:12px;opacity:.7;margin-bottom:8px;letter-spacing:.05em;text-transform:uppercase">Send payment to</div>
-        <div style="display:flex;justify-content:center;gap:32px;margin-bottom:8px">
-          <div><div style="font-size:11px;opacity:.6;margin-bottom:2px">Paybill Number</div><div style="font-size:24px;font-weight:800;letter-spacing:.05em;color:#F4A468">542542</div></div>
-          <div><div style="font-size:11px;opacity:.6;margin-bottom:2px">Account Number</div><div style="font-size:24px;font-weight:800;letter-spacing:.05em;color:#F4A468">289989</div></div>
+        <div style="font-size:11px;opacity:.6;margin-bottom:8px;letter-spacing:.06em;text-transform:uppercase">All payments go to</div>
+        <div style="display:flex;justify-content:center;gap:32px;margin-bottom:6px">
+          <div><div style="font-size:10px;opacity:.6;margin-bottom:2px">Paybill</div><div style="font-size:22px;font-weight:800;letter-spacing:.04em;color:#F4A468">542542</div></div>
+          <div style="width:1px;background:rgba(255,255,255,.15)"></div>
+          <div><div style="font-size:10px;opacity:.6;margin-bottom:2px">Account</div><div style="font-size:22px;font-weight:800;letter-spacing:.04em;color:#F4A468">289989</div></div>
         </div>
-        <div style="font-size:11px;opacity:.6">M-Pesa → Lipa na M-Pesa → Pay Bill</div>
+        <div style="font-size:10px;opacity:.5">M-Pesa → Lipa na M-Pesa → Pay Bill</div>
       </div>
 
-      <!-- Steps -->
-      <div class="mpesa-steps" id="mpesaSteps">
-        <div class="mpesa-step"><div class="mpesa-step-num">1</div><p>Open <strong>M-Pesa</strong> on your phone → <strong>Lipa na M-Pesa</strong> → <strong>Pay Bill</strong></p></div>
-        <div class="mpesa-step"><div class="mpesa-step-num">2</div><p>Enter Paybill <strong>542542</strong>, Account <strong>289989</strong>, Amount <strong>1,000</strong> and your PIN</p></div>
-        <div class="mpesa-step"><div class="mpesa-step-num">3</div><p>Once you get the M-Pesa confirmation SMS, tap the button below</p></div>
-      </div>
-
-      <!-- Normal: paid button -->
+      <!-- Payment method tabs -->
       <div id="mpesaNormal">
-        <button class="btn btn-primary w-full btn-lg" onclick="processMpesa()" style="font-size:15px;margin-bottom:8px">✅ I've Paid — Reveal Contacts</button>
+        <div style="display:flex;border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;margin-bottom:16px">
+          <button id="tabSTK" onclick="switchMpesaTab('stk')" style="flex:1;padding:10px 6px;font-size:12px;font-weight:700;border:none;cursor:pointer;background:var(--green-mid);color:#fff;transition:all .2s">⚡ STK Push</button>
+          <button id="tabManual" onclick="switchMpesaTab('manual')" style="flex:1;padding:10px 6px;font-size:12px;font-weight:700;border:none;cursor:pointer;background:var(--bg);color:var(--ink-muted);transition:all .2s">📲 Pay Manually</button>
+        </div>
+
+        <!-- STK Push tab -->
+        <div id="mpesaTabSTK">
+          <div class="mpesa-steps">
+            <div class="mpesa-step"><div class="mpesa-step-num">1</div><p>Enter your <strong>Safaricom number</strong> below — we'll send a payment prompt to your phone.</p></div>
+            <div class="mpesa-step"><div class="mpesa-step-num">2</div><p>An <strong>STK Push</strong> will pop up on your screen — enter your M-Pesa PIN to confirm.</p></div>
+            <div class="mpesa-step"><div class="mpesa-step-num">3</div><p>Payment goes to Paybill <strong>542542</strong> · Account <strong>289989</strong>. Contacts revealed instantly.</p></div>
+          </div>
+          <div class="mpesa-phone-row"><div class="mpesa-phone-code">🇰🇪 +254</div><input class="input" id="mpesaPhone" placeholder="7XX XXX XXX" maxlength="9" oninput="validateMpesaPhone(this)" onkeydown="if(event.key==='Enter')processMpesa('stk')"></div>
+          <div class="form-error" id="mpesaPhoneErr" style="margin-bottom:12px">Please enter a valid Safaricom number</div>
+          <button class="btn btn-primary w-full btn-lg" onclick="processMpesa('stk')" style="font-size:15px;margin-bottom:8px">📱 Send STK Push</button>
+        </div>
+
+        <!-- Manual Pay Bill tab -->
+        <div id="mpesaTabManual" style="display:none">
+          <div class="mpesa-steps">
+            <div class="mpesa-step"><div class="mpesa-step-num">1</div><p>Open <strong>M-Pesa</strong> → <strong>Lipa na M-Pesa</strong> → <strong>Pay Bill</strong></p></div>
+            <div class="mpesa-step"><div class="mpesa-step-num">2</div><p>Business No: <strong>542542</strong> · Account No: <strong>289989</strong> · Amount: <strong>1,000</strong></p></div>
+            <div class="mpesa-step"><div class="mpesa-step-num">3</div><p>Enter your PIN and send. Once you receive the <strong>M-Pesa SMS</strong>, tap below.</p></div>
+          </div>
+          <button class="btn btn-primary w-full btn-lg" onclick="processMpesa('manual')" style="font-size:15px;margin-bottom:8px">✅ I've Paid — Reveal Contacts</button>
+        </div>
+
         <button class="btn btn-ghost w-full" onclick="document.getElementById('mpesaModal').classList.remove('open')">Maybe later</button>
       </div>
 
       <!-- Processing spinner -->
-      <div class="mpesa-processing" id="mpesaProcessing" style="display:none"><div class="spinner"></div><div style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px">Verifying payment…</div><div style="font-size:13px;color:var(--ink-muted)">Please wait a moment</div></div>
+      <div class="mpesa-processing" id="mpesaProcessing" style="display:none">
+        <div class="spinner"></div>
+        <div id="mpesaProcessingMsg" style="font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px">Sending STK Push…</div>
+        <div id="mpesaProcessingHint" style="font-size:13px;color:var(--ink-muted)">Check your phone for the M-Pesa prompt</div>
+      </div>
 
       <!-- Success: revealed contacts -->
       <div id="mpesaSuccess" style="display:none">
         <div style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1px solid #BBF7D0;border-radius:var(--r-sm);padding:16px;margin-bottom:16px">
           <div style="font-size:13px;font-weight:700;color:#15803D;margin-bottom:12px">🎉 Payment confirmed! Here are the details:</div>
-          <div style="display:flex;flex-direction:column;gap:8px">
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px"><span style="font-size:18px">📍</span><div><div style="font-weight:600;color:var(--ink)">Full Address</div><div id="revealedAddress" style="color:var(--ink-muted)"></div></div></div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px"><span style="font-size:18px">📞</span><div><div style="font-weight:600;color:var(--ink)">Phone / Call</div><div id="revealedPhone" style="color:var(--ink-muted)"></div></div></div>
-            <div style="display:flex;align-items:center;gap:8px;font-size:13px"><span style="font-size:18px">💬</span><div><div style="font-weight:600;color:var(--ink)">WhatsApp</div><div id="revealedWhatsApp" style="color:var(--ink-muted)"></div></div></div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px"><span style="font-size:20px">📍</span><div><div style="font-weight:600;color:var(--ink)">Full Address</div><div id="revealedAddress" style="color:var(--ink-muted)"></div></div></div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px"><span style="font-size:20px">📞</span><div><div style="font-weight:600;color:var(--ink)">Phone / Call</div><div id="revealedPhone" style="color:var(--ink-muted)"></div></div></div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px"><span style="font-size:20px">💬</span><div><div style="font-weight:600;color:var(--ink)">WhatsApp</div><div id="revealedWhatsApp" style="color:var(--ink-muted)"></div></div></div>
           </div>
         </div>
         <a id="revealedCallBtn" href="#" class="btn btn-primary w-full btn-lg" style="margin-bottom:8px;text-align:center;display:block">📞 Call Now</a>

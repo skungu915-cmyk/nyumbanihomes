@@ -476,18 +476,55 @@ function openMpesa(id) {
   document.getElementById('mpesaNormal').style.display = 'block';
   document.getElementById('mpesaProcessing').style.display = 'none';
   document.getElementById('mpesaSuccess').style.display = 'none';
-  document.getElementById('mpesaSteps').style.display = '';
+  if (document.getElementById('mpesaPhone')) document.getElementById('mpesaPhone').value = '';
+  if (document.getElementById('mpesaPhoneErr')) document.getElementById('mpesaPhoneErr').classList.remove('show');
+  switchMpesaTab('stk');
   document.getElementById('mpesaModal').classList.add('open');
 }
 
-function processMpesa() {
+function switchMpesaTab(tab) {
+  const isSTK = tab === 'stk';
+  document.getElementById('mpesaTabSTK').style.display = isSTK ? 'block' : 'none';
+  document.getElementById('mpesaTabManual').style.display = isSTK ? 'none' : 'block';
+  document.getElementById('tabSTK').style.background = isSTK ? 'var(--green-mid)' : 'var(--bg)';
+  document.getElementById('tabSTK').style.color = isSTK ? '#fff' : 'var(--ink-muted)';
+  document.getElementById('tabManual').style.background = isSTK ? 'var(--bg)' : 'var(--green-mid)';
+  document.getElementById('tabManual').style.color = isSTK ? 'var(--ink-muted)' : '#fff';
+}
+
+function validateMpesaPhone(input) {
+  const val = input.value.replace(/\D/g,'');
+  input.value = val;
+  const err = document.getElementById('mpesaPhoneErr');
+  if (val.length > 0 && (val.length !== 9 || !['7','1'].includes(val[0]))) {
+    err.classList.add('show');
+  } else {
+    err.classList.remove('show');
+  }
+}
+
+function processMpesa(method) {
+  if (method === 'stk') {
+    const phone = document.getElementById('mpesaPhone').value.replace(/\D/g,'');
+    const err = document.getElementById('mpesaPhoneErr');
+    if (!phone || phone.length !== 9 || !['7','1'].includes(phone[0])) {
+      err.classList.add('show'); return;
+    }
+    err.classList.remove('show');
+    document.getElementById('mpesaProcessingMsg').textContent = 'Sending STK Push…';
+    document.getElementById('mpesaProcessingHint').textContent = 'Check your phone for the M-Pesa prompt (+254 ' + phone + ')';
+    showToast('📱 STK Push sent to +254 ' + phone + ' — check your phone');
+  } else {
+    document.getElementById('mpesaProcessingMsg').textContent = 'Verifying payment…';
+    document.getElementById('mpesaProcessingHint').textContent = 'Please wait a moment';
+  }
+
   document.getElementById('mpesaNormal').style.display = 'none';
   document.getElementById('mpesaProcessing').style.display = 'block';
 
   setTimeout(() => {
     document.getElementById('mpesaProcessing').style.display = 'none';
 
-    // Credit referrer if this is first unlock and user came via referral
     const incomingRef = sessionStorage.getItem('mh_incoming_ref');
     if (incomingRef && unlockedListings.size === 0) {
       creditReferrer(incomingRef);
@@ -499,7 +536,6 @@ function processMpesa() {
       persistState();
       if (currentPage === 'listings') renderListings(filteredData);
 
-      // Reveal contacts inside modal
       const phone = currentListing.phone || currentListing.contact || '+254 703 556 652';
       const wa = currentListing.whatsapp || phone;
       const addr = currentListing.fullAddress || currentListing.location || currentListing.area || 'Full address unlocked';
@@ -510,11 +546,10 @@ function processMpesa() {
       document.getElementById('revealedCallBtn').href = 'tel:' + phone.replace(/\s/g,'');
       document.getElementById('revealedWABtn').href = 'https://wa.me/' + wa.replace(/[^\d]/g,'');
 
-      document.getElementById('mpesaSteps').style.display = 'none';
       document.getElementById('mpesaSuccess').style.display = 'block';
       showToast('✅ Payment confirmed! Contacts revealed below.');
     }
-  }, 2500);
+  }, 3000);
 }
 
 // ════════════════════════════════════════════════════════════
