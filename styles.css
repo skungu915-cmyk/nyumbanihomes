@@ -69,7 +69,7 @@ select.input{appearance:none;padding-right:36px;cursor:pointer}
 /* ── Navbar ── */
 #navbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);transition:box-shadow .2s}
 #navbar.scrolled{box-shadow:var(--shadow-md)}
-.nav-inner{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:nowrap}
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:nowrap}
 .nav-logo{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .nav-logo-mark{width:34px;height:34px;background:var(--green-mid);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .nav-logo-mark svg{width:18px;height:18px;fill:#fff;stroke:none}
