@@ -29,13 +29,13 @@ const ESTATES = [
 
 const TENANTS = [
   {initials:"GW",color:"#1D4ED8",bg:"#DBEAFE",name:"Grace Wanjiku",unit:"Unit 3A, Kileleshwa",phone:"+254 712 111 222",since:"Jan 2025",rent:35000,status:"paid",lease:"31 Dec 2025"},
-  {initials:"BO",color:"#16A34A",bg:"#DCFCE7",name:"Brian Omondi",unit:"Unit 1B, South B",phone:"+254 722 333 444",since:"Mar 2024",rent:12000,status:"paid",lease:"28 Feb 2026"},
+  {initials:"BO",color:"#1A2B6B",bg:"#DDE3F5",name:"Brian Omondi",unit:"Unit 1B, South B",phone:"+254 722 333 444",since:"Mar 2024",rent:12000,status:"paid",lease:"28 Feb 2026"},
   {initials:"AM",color:"#B45309",bg:"#FEF3C7",name:"Aisha Mohamed",unit:"Unit 5, Ruaka",phone:"+254 733 555 666",since:"Jun 2025",rent:18500,status:"due",lease:"31 May 2026"},
-  {initials:"PN",color:"#C07800",bg:"#FFF4EE",name:"Peter Njoroge",unit:"Unit 2C, Kileleshwa",phone:"+254 700 777 888",since:"Aug 2023",rent:35000,status:"paid",lease:"31 Jul 2026"},
+  {initials:"PN",color:"#3468E5",bg:"#FFF4EE",name:"Peter Njoroge",unit:"Unit 2C, Kileleshwa",phone:"+254 700 777 888",since:"Aug 2023",rent:35000,status:"paid",lease:"31 Jul 2026"},
   {initials:"MA",color:"#DC2626",bg:"#FEE2E2",name:"Mary Atieno",unit:"Unit 4, South B",phone:"+254 711 999 000",since:"Nov 2024",rent:10000,status:"overdue",lease:"31 Oct 2025"},
   {initials:"JK",color:"#0369A1",bg:"#E0F2FE",name:"James Kamau",unit:"Unit 7, Karen",phone:"+254 723 112 334",since:"Feb 2025",rent:95000,status:"paid",lease:"31 Jan 2026"},
   {initials:"SW",color:"#D97706",bg:"#FEF3C7",name:"Salome Wanjiru",unit:"Unit 9, Westlands",phone:"+254 700 445 667",since:"Apr 2024",rent:28000,status:"paid",lease:"30 Apr 2026"},
-  {initials:"DM",color:"#083D2A",bg:"#FFF4EE",name:"David Mutua",unit:"Unit 11, Runda",phone:"+254 733 889 000",since:"Sep 2024",rent:180000,status:"paid",lease:"31 Aug 2026"},
+  {initials:"DM",color:"#1A2B6B",bg:"#FFF4EE",name:"David Mutua",unit:"Unit 11, Runda",phone:"+254 733 889 000",since:"Sep 2024",rent:180000,status:"paid",lease:"31 Aug 2026"},
 ];
 
 const MAINTENANCE = [
@@ -317,7 +317,7 @@ function updateActiveFilters(loc, type, budget, amenity, county) {
   if(amenity) tags.push({label: amenity, clear: ()=>{document.getElementById('filterAmenity').value='';activeAmenityFilter='';applyFilters();}});
   if(county) tags.push({label: '🗺️ ' + county, clear: ()=>{document.getElementById('filterCounty').value='';applyFilters();}});
   container.innerHTML = tags.map((t,i) => `
-    <div style="display:inline-flex;align-items:center;gap:6px;background:#FFF4EE;color:#C07800;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer" onclick="clearFilterTag(${i})">
+    <div style="display:inline-flex;align-items:center;gap:6px;background:#FFF4EE;color:#3468E5;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer" onclick="clearFilterTag(${i})">
       ${t.label} <span style="font-size:16px;line-height:1">×</span>
     </div>
   `).join('');
@@ -1013,10 +1013,10 @@ function handleVideoUpload(input) {
   valid.forEach(file => {
     const url = URL.createObjectURL(file);
     const div = document.createElement('div');
-    div.style.cssText = 'position:relative;border-radius:8px;overflow:hidden;border:1px solid #E8A83A;background:#041F15';
+    div.style.cssText = 'position:relative;border-radius:8px;overflow:hidden;border:1px solid #6B9EF0;background:#0D1640';
     div.innerHTML = `
       <video src="${url}" style="width:180px;height:100px;object-fit:cover;display:block" controls muted></video>
-      <div style="font-size:11px;color:#E8A83A;padding:4px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px">${file.name}</div>
+      <div style="font-size:11px;color:#6B9EF0;padding:4px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px">${file.name}</div>
       <button onclick="URL.revokeObjectURL('${url}');this.parentNode.remove()" style="position:absolute;top:4px;right:4px;width:20px;height:20px;border-radius:50%;background:rgba(0,0,0,.7);color:#fff;border:none;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;padding:0">×</button>`;
     preview.appendChild(div);
   });

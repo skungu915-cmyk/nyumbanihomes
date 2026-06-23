@@ -6,8 +6,8 @@
   "scope": "/nyumbanihomes/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#0F1923",
-  "theme_color": "#7C3AED",
+  "background_color": "#F5F7FF",
+  "theme_color": "#1A2B6B",
   "icons": [
     {
       "src": "icons/icon-192.png",
